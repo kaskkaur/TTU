@@ -1,8 +1,4 @@
-/*!
- * Start Bootstrap - Landing Page Bootstrap Theme (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
+
 
 body,
 html {
@@ -17,12 +13,103 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Quattrocento Sans', sans-serif;
     font-weight: 700;
+}
+a { 
+
+color: #9F004E;
+
+
 }
 
 
+#custom-nav {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    box-shadow: none;
+    z-index: 999;
 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition: background .5s ease-in-out, opacity .5s ease;
+    -moz-transition: background .5s ease-in-out, opacity .5s ease;
+    transition: background .5s ease-in-out, opacity .5s ease;
+}
+
+#custom-nav a {
+
+    color: #ffffff;
+    font-weight: bold;
+    transition: color .5s ease-in-out, opacity .5s ease;
+    text-decoration: none;
+}
+
+
+#custom-nav .container {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    -webkit-transition: padding-top .5s ease, padding-bottom .5s ease;
+    -moz-transition: padding-top .5s ease, padding-bottom .5s ease;
+    transition: padding-top .5s ease, padding-top .5s ease, padding-bottom .5s ease;
+}
+
+#custom-nav.affix {
+    width: 100%;
+    background-color: #9F004E;
+    opacity: 0.9;
+    -webkit-transition: background .5s ease-in-out, opacity .5s ease;
+    -moz-transition: background .5s ease-in-out, opacity .5s ease;
+    transition: background .5s ease-in-out, opacity .5s ease;
+}
+
+/*#custom-nav.affix a {
+    color: #ffffff;
+    transition: color .5s ease-in-out, opacity .5s ease;
+}*/
+
+
+#custom-nav.affix .container {
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    
+}
+
+.logo img {
+    width: 32px;
+    height: 32px;
+    margin-top: -8px;
+
+}
+
+#contactbutton {
+    background: none;
+    padding: 8px 16px;
+    margin-top: 4px;
+    margin-left: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+
+}
+
+#contactbutton:hover {
+    /*background-color: #8c0144;*/
+    background: #ffffff;
+    
+    
+}
+
+#contactbutton:hover a {
+    /*background-color: #8c0144;*/
+    color: #9F004E; 
+    
+}
 
 
 

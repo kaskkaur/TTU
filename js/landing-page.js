@@ -9,10 +9,25 @@ $(function() {
     });
 });
 
+
+$(window).scroll(function() {
+    if ($(".navbar").offset().top > 50) {
+
+        $('#custom-nav').addClass('affix');
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+
+    } else {
+        $('#custom-nav').removeClass('affix');
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+    }   
+});
+
+
+
 // Highlight the top nav as scrolling occurs
-$('body').scrollspy({
-    target: '.navbar-fixed-top'
-})
+// $('body').scrollspy({
+//     target: '.navbar-fixed-top'
+// })
 
 // Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
