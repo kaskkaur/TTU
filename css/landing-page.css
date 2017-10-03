@@ -14,7 +14,7 @@ h4,
 h5,
 h6 {
     font-family: 'Quattrocento Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 700;
 }
 a, b, strong { 
 
@@ -87,12 +87,23 @@ color: #9F004E;
 
 }
 
-.logos {
+.img-logo {
 
     /*padding-right: 72px;*/
-    
-
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;  
 }
+
+.img-logo:hover {
+
+
+    transform:scale(1.050,1.050);
+}
+
+
 
 #contactbutton {
     background: none;
@@ -122,7 +133,10 @@ color: #9F004E;
     
 }
 
-
+#contactbutton:active {
+    
+    transform:scale(0.98,0.98);
+}
 
 
 .temp-img {
@@ -139,15 +153,33 @@ background: url(../img/backdrop.png) no-repeat center center;
 }
 
 .intro-header {
-    padding-top: 100px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-top: 100px; 
     padding-bottom: 50px;
     
     color: #f8f8f8;
-    background: url(../img/intro-bg.jpg) no-repeat center center;
+    /*background: url(../img/intro-bg.jpg) no-repeat center center;*/
     background-size: cover;
     margin-left: 0;
     margin-right: 0;
     height: 600px;
+}
+
+
+#video {
+
+  /*color: #f8f8f8;*/
+  padding-top: 100px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+  padding-bottom: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translate(-50%, -50%);
+  background-size: cover;
 }
 
 .intro-message {
@@ -164,8 +196,8 @@ background: url(../img/backdrop.png) no-repeat center center;
 
 .intro-divider {
     width: 400px;
-    border-top: 1px solid #f8f8f8;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+    border-top: 2px solid #f8f8f8;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
     margin-left: 0;
     margin-right: 0;
 }
@@ -198,20 +230,21 @@ background: url(../img/backdrop.png) no-repeat center center;
 }
 
 
-.about-content {
+.about-text  {
 
-    /*position: absolute;
-    top: 260px;*/
-    padding-top: 32px;
-
-}
-
-.about-content p  {
-
-    width: 100%;
+    /*width: 100%;*/
+    padding-top: 64px;
+    padding-bottom: 16px;
+    /*padding-left: 72px;*/
 
 }
 
+.about-logos  {
+
+   /* width: 100%;*/
+   padding-top: 32px;
+  
+}
 
 
 
@@ -332,7 +365,18 @@ margin: 0px;
 .section-heading-spacer {
     float: left;
     width: 200px;
-    border-top: 3px solid #e7e7e7;
+    border-top: 2px solid #9F004E;
+}
+
+
+.about-heading-spacer {
+    position: absolute;
+    float: right;
+    width: 60px;
+    border-top: 2px solid #9F004E;
+    top: 105px;
+    left: 165px;
+
 }
 
 .banner {
@@ -375,13 +419,19 @@ margin: 0px;
 
 }
 
+.contact {
+
+
+    padding: 40px 16px 40px 16px;
+}
+
 
 .form-area {
 
 
-    display: flex;
+    /*display: flex;
     justify-content: center;
-    width: 100%
+    width: 100%*/
 
 }
 
@@ -400,11 +450,11 @@ margin: 0px;
     
 }
 
-.btn-primary {
+.btn-ttu{
 
     background: #9F004E;
-    /*padding: 8px 16px;
-    margin-top: 4px;
+    padding: 8px 16px;
+    /*margin-top: 4px;
     margin-left: 16px;*/
     border: 2px solid #9F004E;
     border-radius: 4px;
@@ -414,13 +464,23 @@ margin: 0px;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     outline: 0;
+    font-weight: bold;
+    color: white;
 
 }
 
-.btn-primary:hover {
+.btn-ttu:hover {
 
-    background: #9B054F;
+    background: #890243;
+    /*outline: 0 !important;*/
+    border: 2px solid #9F004E;
 
+}
+
+
+.btn-ttu:active {
+    
+    transform:scale(0.98,0.98);
 }
 
 @media(max-width:767px) {
