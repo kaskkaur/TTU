@@ -218,7 +218,7 @@ background: url(../img/backdrop.png) no-repeat center center;
     /*position: relative;*/
     /*top: -240px;*/
     width: 100%;
-    height: 400px;
+    height: 500px;
     background: url(../img/pattern-basket.svg) repeat  center center;
     color: white;
     /* Rectangle 9: */
@@ -233,7 +233,7 @@ background: url(../img/backdrop.png) no-repeat center center;
 .about-text  {
 
     /*width: 100%;*/
-    padding-top: 64px;
+    padding-top: 96px;
     padding-bottom: 16px;
     /*padding-left: 72px;*/
 
@@ -242,7 +242,7 @@ background: url(../img/backdrop.png) no-repeat center center;
 .about-logos  {
 
    /* width: 100%;*/
-   padding-top: 32px;
+   padding-top: 64px;
   
 }
 
@@ -374,7 +374,7 @@ margin: 0px;
     float: right;
     width: 60px;
     border-top: 2px solid #9F004E;
-    top: 105px;
+    top: 135px;
     left: 165px;
 
 }
