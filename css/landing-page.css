@@ -14,7 +14,7 @@ h4,
 h5,
 h6 {
     font-family: 'Quattrocento Sans', sans-serif;
-    font-weight: 700;
+    font-weight: 300;
 }
 a { 
 
@@ -131,8 +131,10 @@ background: url(../img/backdrop.png) no-repeat center center;
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url(../img/intro-bg.png) no-repeat center center;
+    background: url(../img/intro-bg.jpg) no-repeat center center;
     background-size: cover;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .intro-message {
@@ -143,18 +145,20 @@ background: url(../img/backdrop.png) no-repeat center center;
 
 .intro-message > h1 {
     margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    font-size: 5em;
+    
+    font-size: 42pt;
 }
 
 .intro-divider {
     width: 400px;
     border-top: 1px solid #f8f8f8;
     border-bottom: 1px solid rgba(0,0,0,0.2);
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .intro-message > h3 {
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-size: 24pt;
 }
 
 @media(max-width:767px) {
@@ -188,15 +192,61 @@ background: url(../img/backdrop.png) no-repeat center center;
     letter-spacing: 2px;
 }
 
+
+
+
+#about {
+    position: relative;
+    top: -240px;
+    width: 100%;
+    height: 100%;
+    background: url(../img/about-bg.svg) no-repeat center center;
+    color: white;
+    padding: 0px;
+    margin: 0px
+
+}
+
+.img-card {
+
+
+    border-radius: 4px;
+    box-shadow: 0 2px 27px 0 rgba(0,0,0,0.30);
+    border-radius: 4px;
+}
+
+
+.img-logo {
+
+margin: 16px;
+
+}
+
+.about-content {
+
+    position: absolute;
+    top: 260px;
+
+}
+
+.about-content p  {
+
+    width: 426px;
+
+}
+
+
 .content-section-a {
     padding: 50px 0;
     background-color: #f8f8f8;
+
 }
 
 .content-section-b {
     padding: 50px 0;
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
+
 }
 
 .section-heading {
