@@ -13,16 +13,40 @@
             <a class="navbar-brand page-scroll" href="#home">{{ site.title }}</a>
 
         </div>
+
+
+
+
+
+
+        <div id="navbar" class="navbar-collapse collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img id="imgNavSel" src="" alt="..." class="img-thumbnail icon-small">  <span id="lanNavSel">EST</span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a id="navEst" href="#" class="language"> <img id="imgNavEst" src="../img/EE.svg" alt="..." class="img-thumbnail icon-small">  <span id="lanNavEst">Eesti</span></a></li>
+                       
+                        <li><a id="navEng" href="#" class="language"><img id="imgNavEng" src="../img/GB.svg" alt="..." class="img-thumbnail icon-small">  <span id="lanNavEng">English</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+         <!--/.navbar-collapse -->
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navtext" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">  
             	<li>
                     <a class="page-scroll" href="#about">Meist</a>
+                </li> 
+
+                <li>
+                    <a class="page-scroll" href="#contact">Kontakt</a>
                 </li>            
             
                 <li>
-                    <button id="contactbutton" type="button">
-                        <a  class="page-scroll" href="#contact">Võta ühendust</a>
+                    <button href="#contact" class="page-scroll" id="contactbutton" type="button">
+                        <a  class="page-scroll" href="#contact">Tule trenni!</a>
                     </button>
                 </li>
             </ul>

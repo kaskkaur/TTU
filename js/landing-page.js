@@ -4,7 +4,7 @@ $(function() {
         var $anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top
-        }, 1500, 'easeInOutExpo');
+        }, 800, 'easeInOutExpo');
         event.preventDefault();
     });
 });
@@ -44,4 +44,32 @@ $('div.modal').on('show.bs.modal', function() {
 			$(modal).modal('hide');
 		}
 	}
+});
+
+
+
+
+
+$(document).ready(function(){
+    
+        
+        var imgNavSel = $('#imgNavSel');
+        var spanNavSel = $('#lanNavSel');
+        imgNavSel.attr("src", "../img/EE.svg");
+        
+
+        $( ".language" ).on( "click", function( event ) {
+            var currentId = $(this).attr('id');
+
+            if(currentId == "navEst") {
+                spanNavSel.text("EST");
+                imgNavSel.attr("src", "../img/EE.svg");
+            } else if (currentId == "navEng") {
+                spanNavSel.text("ENG");
+                imgNavSel.attr("src", "../img/GB.svg");
+           }
+
+    
+            
+        });
 });

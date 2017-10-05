@@ -4,16 +4,20 @@
 
 url: http://www.ttukorvpallikool.ee
 title: TTÜ Korvpallikool
-email: indrek@rim.ee
+email: infok@ttukorvpallikool.ee
+address: 'Männiliiva 7, Mustamäe, 13414, Harju maakond'
+phone: '+372 50 250 32'
+
 author: TTU
 description: > # "Write an awesome description for your new site here. 
   You can edit this line in _config.yml. It will appear in your document 
   head meta (for Google search results) and in your feed.xml site 
   description.
 copyright: 'Copyright &copy; 2017 TTÜ Korvpallikool. Kõik õigused kaitstud.'
-page:
-  title: TTU Korvpallikool
-  subtitle: 4 kooli ühe eesmärgi nimel
+
+
+
+
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -30,4 +34,6 @@ permalink: pretty
 social:
   - title: facebook
     url: https://www.facebook.com/SPORDIKLUBI-RIM-132400890107202/
+  - title: instagram
+    url: htps://www.google.com
   

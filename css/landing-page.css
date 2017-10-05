@@ -26,8 +26,6 @@ color: #9F004E;
 
 
 
-
-
 #custom-nav {
     background-color: rgba(0, 0, 0, 0);
     border: 0;
@@ -47,7 +45,22 @@ color: #9F004E;
     font-weight: bold;
     transition: color .5s ease-in-out, opacity .5s ease;
     text-decoration: none;
+
+
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
+
+
+
+#custom-nav a:hover {
+
+    
+    background: none;
+  }
 
 
 #custom-nav .container {
@@ -79,6 +92,45 @@ color: #9F004E;
 
     
 }
+
+
+
+.icon-small
+{
+    height:18px;
+    margin:0;
+    padding:0;
+    border: none;
+
+}
+
+
+
+.dropdown-toggle {
+    background: none !important;
+
+
+}
+
+.dropdown-menu {
+
+    background: #9F004E;
+    border-radius: 4px !important;
+
+}
+
+.dropdown-menu:hover {
+  
+color: #9B054F !important;
+
+}
+
+
+.dropdown {
+    padding-left: 32px;
+}
+
+
 
 .logo img {
     width: 32px;
@@ -213,19 +265,17 @@ background: url(../img/backdrop.png) no-repeat center center;
     position: absolute;
 }
 
-#about {
+.about {
     /*background: #72083C;*/
     /*position: relative;*/
     /*top: -240px;*/
     width: 100%;
-    height: 500px;
+    height: 100%;
     background: url(../img/pattern-basket.svg) repeat  center center;
     color: white;
-    /* Rectangle 9: */
-
-    box-shadow: 0 -8px 32px 0 rgba(0,0,0,0.40);
-    /*padding: 0px;
-    margin: 0px*/
+    /*box-shadow: 0 -8px 32px 0 rgba(0,0,0,0.40);*/
+    padding: 32px;
+    
 
 }
 
@@ -233,7 +283,7 @@ background: url(../img/backdrop.png) no-repeat center center;
 .about-text  {
 
     /*width: 100%;*/
-    padding-top: 96px;
+    padding-top: 64px;
     padding-bottom: 16px;
     /*padding-left: 72px;*/
 
@@ -242,7 +292,7 @@ background: url(../img/backdrop.png) no-repeat center center;
 .about-logos  {
 
    /* width: 100%;*/
-   padding-top: 64px;
+   padding-top: 32px;
   
 }
 
@@ -502,10 +552,13 @@ margin: 0px;
 
     #shards{
 
-    
-    
     position: absolute;
     z-index: -1;
+    }
+
+    .footer-social {
+        padding-top: 32px;
+        text-align: center;
     }
 }
 
@@ -515,5 +568,12 @@ footer {
 }
 
 p.copyright {
-    margin: 15px 0 0;
+    margin: 32px 0 0;
+}
+
+
+.footer-details span {
+    line-height: 32px;
+    padding: 8px;
+    
 }
