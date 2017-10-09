@@ -58,7 +58,7 @@ color: #9F004E;
 
 #custom-nav a:hover {
 
-    
+    color: #ACADAC;
     background: none;
   }
 
@@ -139,21 +139,6 @@ color: #9B054F !important;
 
 }
 
-.img-logo {
-
-    /*padding-right: 72px;*/
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -ms-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;  
-}
-
-.img-logo:hover {
-
-
-    transform:scale(1.050,1.050);
-}
 
 
 
@@ -274,18 +259,22 @@ background: url(../img/backdrop.png) no-repeat center center;
     background: url(../img/pattern-basket.svg) repeat  center center;
     color: white;
     /*box-shadow: 0 -8px 32px 0 rgba(0,0,0,0.40);*/
-    padding: 32px;
+    padding-top: 50px;
     
 
 }
 
 
+
+
 .about-text  {
 
     /*width: 100%;*/
-    padding-top: 64px;
+    padding-top: 16px;
     padding-bottom: 16px;
-    /*padding-left: 72px;*/
+    padding-left: 24px;
+    padding-right: 24px;
+
 
 }
 
@@ -297,7 +286,63 @@ background: url(../img/backdrop.png) no-repeat center center;
 }
 
 
+.about-ttu-logo {
 
+    position: relative;
+    background-color: #F8F8F8;
+    box-shadow: 0 2px 27px 0 rgba(0,0,0,0.30);
+    border-radius: 4px 4px 0 0;
+    width: 426px;
+    height: 232px;
+    /*padding: 16px 16px 32px 16px;*/
+    bottom: -8px;
+    /*margin: 0;*/
+    z-index: 0;
+
+}
+.about-ttu-logo img {
+padding: 50px 33px 50px 33px;
+
+    
+}
+
+.logos {
+
+    position: relative;
+    background-color: #F8F8F8;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    /*box-shadow: 0 2px 27px 0 rgba(0,0,0,0.30);*/
+    -webkit-box-shadow: 0px -4px 27px rgba(50, 50, 50, 0.15);
+    -moz-box-shadow:    0px -4px 27px rgba(50, 50, 50, 0.15);
+    box-shadow:         0px -4px 27px rgba(50, 50, 50, 0.15);
+    border-bottom: 1px solid #e7e7e7;
+    z-index: 10;
+    padding: 16px 16px 16px 16px;
+}
+
+.img-logo {
+
+
+    /*padding-right: 72px;*/
+    opacity: 0.5;
+    /*width: 32px;
+    height: 32px;*/
+    /*background-color: red;*/
+     display: inline;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;  
+}
+
+.img-logo:hover {
+
+    opacity: 1;
+    /*transform:scale(1.020,1.020);*/
+}
 
 
 
@@ -338,7 +383,7 @@ background: url(../img/backdrop.png) no-repeat center center;
 
     #about {
 
-    height: 100%;
+    /*height: 100%;*/
    
     /*padding: 0px;
     margin: 0px*/
@@ -396,8 +441,11 @@ margin: 0px;
 
 
 .content-section-a {
+    position: relative;
     padding: 50px 0;
     background-color: #f8f8f8;
+    z-index: 10;
+
 
 }
 
