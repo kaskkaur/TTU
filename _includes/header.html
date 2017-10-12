@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="#" class="navbar-left navbar-brand logo"><img src="../img/pall.png"></a>
-            <a class="navbar-brand page-scroll" href="#home">{{ site.title }}</a>
+            <a class="navbar-brand page-scroll" href="#home">{{ site.title }}ssss</a>
 
         </div>
 
@@ -37,16 +37,16 @@
         <div class="collapse navbar-collapse navtext" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">  
             	<li>
-                    <a class="page-scroll" href="#about">Meist</a>
+                    <a class="page-scroll" href="#about">{{site.data.content.nav-about}}</a>
                 </li> 
 
                 <li>
-                    <a class="page-scroll" href="#contact">Kontakt</a>
+                    <a class="page-scroll" href="#contact">{{site.data.content.nav-contact}</a>
                 </li>            
             
                 <li>
                     <button href="#contact" class="page-scroll" id="contactbutton" type="button">
-                        <a  class="page-scroll" href="#contact">Tule trenni!</a>
+                        <a  class="page-scroll" href="#contact">{{site.data.content.nav-contactbutton}</a>
                     </button>
                 </li>
             </ul>
@@ -74,10 +74,10 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="intro-message text-left">
-						<h1>{{ page.title }}</h1>
+						<h1>{{site.data.content.title}</h1>
 						
 						<hr class="intro-divider">
-                        <h3>{{ page.subTitle }}</h3>
+                        <h3>{{site.data.content.subtitle}</h3>
 						<!-- <ul class="list-inline intro-social-buttons">
 							{% for social in site.social %}
 							<li>
