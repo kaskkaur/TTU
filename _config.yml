@@ -24,6 +24,14 @@ Korvpalli trennid igale vanusele *Tallinnas ja Harjumaal*'
 # ----------------------- #
 #    Jekyll & Plugins     #
 # ----------------------- #
+plugins: 
+  - jekyll-polyglot
+
+languages: ["ee", "en"]
+default_lang: "ee"
+exclude_from_localization: ["js", "img", "css"]
+parallel_localization: true
+
 
 # Build settings
 markdown: kramdown

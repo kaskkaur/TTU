@@ -1,8 +1,9 @@
 ---
 layout: default
-img: basket-adult.jpg
+img: basket-method.jpg
 category: Services
-title: Edasijõudnutele kvaliteetne treening.
+title: Kaasaegne metoodika.
+lang: ee
 description: |
 ---
 Klubi vanemad õpliased koonduvad regionaalsete liikmesklubide keskustesse, nagu näiteks Jüri ja Tallinn.
