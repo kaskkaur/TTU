@@ -14,10 +14,9 @@ description: > # "Write an awesome description for your new site here.
   head meta (for Google search results) and in your feed.xml site 
   description.
 copyright: 'Copyright &copy; 2017 TTÜ Korvpallikool. Kõik õigused kaitstud.'
-about: 'TTÜ Korvpallikool on ühendklubi, kus õpib *ligi 700 korvpallurit*, nii suurt kui väikest.
-Korvpalli trennid igale vanusele *Tallinnas ja Harjumaal*'
-
-
+# about: 'TTÜ Korvpallikool on ühendklubi, kus õpib *ligi 700 korvpallurit*, nii suurt kui väikest.
+# Korvpalli trennid igale vanusele *Tallinnas ja Harjumaal*'
+about: ok
 
 
 
@@ -29,7 +28,7 @@ plugins:
 
 languages: ["ee", "en"]
 default_lang: "ee"
-exclude_from_localization: ["js", "img", "css"]
+# exclude_from_localization: ["js", "img", "css"]
 parallel_localization: true
 
 

@@ -1,8 +1,14 @@
 nav-about: Meist
 nav-contact: Kontakt
 nav-contactbutton: Tule trenni!
+nav-flag: '../img/EE.svg'
+nav-lang: EST
 title: Mikrost magistrini!
-subtitle: Nii spordi kuisss hariduse mõistes.
-
-
-
+subtitle: Nii spordi kui hariduse mõistes.
+about: 'TTÜ Korvpallikool on ühendklubi, kus õpib ligi <b style="color:white;"> 700 korvpallurit </b>, nii suurt kui väikest. Korvpalli <b style="color:white;">trennid igale vanusele Tallinnas ja Harjumaal </b>'
+about-heading: Ühendatud jõud
+contact-heading: Kirjuta julgelt!
+contact-sub: Korvpalliteekond ootab sind.
+contact-placeholder: Sinu sõnum
+send-btn: Saada
+copyright: Copyright &copy; 2017 TTÜ Korvpallikool. Kõik õigused kaitstud.

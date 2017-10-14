@@ -1,9 +1,9 @@
 ---
 layout: default
-img: basket-adult.jpg
+img: basket-method.jpg
 category: Services
-title: Edasijõudnutele kvaliteetne treening.
+title: Modern training methods.
 lang: en
 description: |
 ---
- Klubi vanemad õpliased koonduvad regionaalsete liikmesklubide keskustesse, nagu näiteks Jüri ja Tallinn.
+We take great care to keep our students and ourselves in constant development by keeping up to date with modern basketball practices. 

@@ -2,8 +2,8 @@
 layout: default
 img: basket-young.jpg
 category: Services
-title: Laiapõhjaline korvpalli algõpe.
+title: Full training for beginners
 lang: en
 description: |
 ---
-Kids - Lastele võimaldatakse treeningutel osaleda vahetult peale koolipäeva lõppu **oma kodukooli spordisaalis** Tallinnas ja Harjumaal.
+Our younger students will have the opportunity to practice basketball right after the school day within the school premises. TTÜ Basketball school is working with all the main elementaries in Harju country.

@@ -2,8 +2,8 @@
 layout: default
 img: basket-adult.jpg
 category: Services
-title: Edasijõudnutele kvaliteetne treening.
+title: Personalised training for older students.
 lang: en
 description: |
 ---
- Klubi vanemad õpliased koonduvad regionaalsete liikmesklubide keskustesse, nagu näiteks Jüri ja Tallinn.
+Older students will gather into regional centers of the member clubs to get the most out of their interest and potentioal. Our main centers are in Jüri and Tallinn.

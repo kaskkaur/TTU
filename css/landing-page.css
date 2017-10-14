@@ -2,8 +2,10 @@
 
 body,
 html {
-    width: 100%;
-    height: 100%;
+    
+width: 100%;
+height: 100%;
+
 }
 
 body,
@@ -15,6 +17,7 @@ h5,
 h6 {
     font-family: 'Quattrocento Sans', sans-serif;
     font-weight: 700;
+    overflow-x: hidden;
 }
 a, b, strong { 
 
@@ -94,6 +97,89 @@ color: #9F004E;
 }
 
 
+.navbar-default .navbar-toggle {
+  border-color: transparent; /* Removes border color */
+  float: right; /* Move navbar toggle to left */
+  
+
+}
+
+
+
+.navbar-default .navbar-toggle:hover {
+
+  background: none !important /* Changes toggle color on hover */
+
+}
+
+
+
+svg:hover #lines {
+
+  fill: #ACADAC/* Changes toggle color on hover */
+
+}
+
+
+
+
+.navbar-default .navbar-toggle:active {
+  background: none !important /* Changes toggle color on hover */
+
+}
+
+.navbar-default .navbar-toggle:focus {
+  background: none !important /* Changes toggle color on hover */
+}
+
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Stay on top */
+    top: 0;
+    right: 0;
+    background-color: #9F004E; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #ACADAC;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation 
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}*/
+
+
+
+
+
 
 .icon-small
 {
@@ -142,8 +228,8 @@ color: #9B054F !important;
 
 
 
-#contactbutton {
-    background: none;
+#contactbutton  {
+    background: #9F004E;
     padding: 8px 16px;
     margin-top: 4px;
     margin-left: 16px;
@@ -156,19 +242,17 @@ color: #9B054F !important;
     transition: all 0.2s ease-in-out;
     outline: 0;
 
+
 }
 
-#contactbutton:hover {
-    /*background-color: #8c0144;*/
-    background: #ffffff; 
-    
-}
+
 
 #contactbutton:hover a {
-    /*background-color: #8c0144;*/
-    color: #9F004E; 
+  background: white;
     
 }
+
+
 
 #contactbutton:active {
     
@@ -210,13 +294,16 @@ background: url(../img/backdrop.png) no-repeat center center;
   position: absolute;
   top: 50%;
   left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
+
+ /* max-height: 100vh;
+  max-width: 100vh;*/
+  
   height: auto;
+  width: auto;
   z-index: -100;
   transform: translate(-50%, -50%);
   background-size: cover;
+
 }
 
 .intro-message {
@@ -348,7 +435,9 @@ padding: 50px 33px 50px 33px;
 
 @media(max-width:767px) {
     .intro-message {
-        padding-bottom: 15%;
+        top: 50%;
+        bottom: 50%;
+        text-align: center;
     }
 
     .intro-message > h1 {
@@ -383,7 +472,7 @@ padding: 50px 33px 50px 33px;
 
     .about-ttu-logo {
 
-    
+    width: 100%;
     /*height: 100%;*/
    
     /*padding: 0px;
@@ -518,16 +607,39 @@ margin: 0px;
 
 }
 
+#contact {
+
+    /*padding: 40px 16px 40px 16px;*/
+    height: 550px;
+    background: url(../img/contact.jpg) no-repeat center center;
+    background-size: cover; 
+}
+
 .contact {
 
+    padding-top: 100px;
+   /* Rectangle 3: */
+    
+}
 
-    padding: 40px 16px 40px 16px;
+.contact-punchline {
+    /* padding-top: 103px;*/
+}
+
+.contact-form {
+     max-width: 520px;
 }
 
 
+
+
 .form-area {
-
-
+    padding: 8px;
+    
+    /* Rectangle 3: */
+    background: #F8F8F8;
+    box-shadow: 0 0 32px 0 rgba(62,51,56,0.50);
+    border-radius: 4px;
     /*display: flex;
     justify-content: center;
     width: 100%*/
@@ -535,13 +647,17 @@ margin: 0px;
 }
 
 
+
 .form-control {
-    background-color: transparent;
+
+    background-color: white;
     border: 2px solid #ccc;
     border-radius: 2px;
-    color: black;
     outline: 0;
+    /*padding: 16px;*/
 }
+
+
 
 .form-control:focus { 
     outline: none !important;
@@ -549,6 +665,15 @@ margin: 0px;
     
 }
 
+
+.forminput {
+
+    padding: 8px 32px 8px 32px;
+}
+
+.contact-punchline {
+   color: white;
+}
 .btn-ttu{
 
     background: #9F004E;
@@ -607,8 +732,25 @@ margin: 0px;
 
     .footer-social {
         padding-top: 32px;
+        text-align: left;
+    }
+
+    .contact {
+
+        padding-top: 32px;
+
+    }
+
+    .contact-punchline {
+
+        top: 50%;
+        bottom: 50%;
         text-align: center;
     }
+
+   
+
+
 }
 
 footer {

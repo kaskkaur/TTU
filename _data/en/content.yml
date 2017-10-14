@@ -1,5 +1,14 @@
 nav-about: About us
 nav-contact: Contact
-nav-contactbutton: Join us! 
+nav-contactbutton: Join us!
+nav-flag: '../img/GB.svg' 
+nav-lang: ENG
 title: From micro to magister!
 subtitle: In sport and education.
+about: TTÜ Basketball school is a joint club that trains nearly 700 students, small and big. Basketball practice for all ages in Tallinn and Harju county
+about-heading: Joined forces
+contact-heading: Write us!
+contact-sub: Your basketball journey awaits.
+contact-placeholder: Your message
+send-btn: Send
+copyright: Copyright &copy; 2017 TTÜ Korvpallikool. All rights reserved.
