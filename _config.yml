@@ -23,7 +23,7 @@ about: ok
 # ----------------------- #
 #    Jekyll & Plugins     #
 # ----------------------- #
-plugins_dir: 
+plugins_dir:
   - jekyll-polyglot
 
 languages: ["ee", "en"]
