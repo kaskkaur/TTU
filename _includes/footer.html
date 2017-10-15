@@ -2,8 +2,49 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                <ul class="list-inline">
+            <div class="col-md-6  text-left footer-details">
+                <div>
+                   <span> <img src="../img/ic_email_black_24px.svg">  </span> 
+                   <span>{{ site.email }}</span>
+                </div>
+               <div>
+                    <span> <img src="../img/ic_phone_black_24px.svg">  </span> 
+                   <span>{{ site.phone }}</span>
+               </div>
+
+               <div>
+                    <span> <img src="../img/ic_home_black_24px.svg">  </span> 
+                   <span>{{site.address}}</span>
+               </div>
+                        
+                        
+            </div>
+            <div class="col-md-6  text-right footer-social">
+
+                {% for social in site.social %}
+                            <div>
+                                <a href="{{ social.url }}" class=""><i class="fa fa-{{ social.title }} fa-fw" aria-hidden="true"></i> <span class="network-name">{{ social.title }}</span></a>
+                            </div>
+                            {% endfor %}
+
+                <p class="copyright text-muted small">{{site.data.content.copyright}}</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  <ul class="list-inline">
                     <li>
                         <a href="#home">Kodu</a>
                     </li>
@@ -11,20 +52,9 @@
                     <li>
                         <a href="#about">Meist</a>
                     </li>
-                    <!-- <li class="footer-menu-divider">&sdot;</li> -->
-                    <!-- <li>
-                        <a href="#services">Services</a>
-                    </li> -->
+                
                     <li class="footer-menu-divider">&sdot;</li>
                     <li>
                         <a href="#contact">Kontakt</a>
                     </li>
-                </ul>
-                <p class="copyright text-muted small">{{ site.copyright }}</p>
-            </div>
-            <div class="col-md-4">
-                {{ site.credits }}
-            </div>
-        </div>
-    </div>
-</footer>
+                </ul> -->

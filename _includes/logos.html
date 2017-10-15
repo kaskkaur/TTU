@@ -1,0 +1,25 @@
+<section id="logos">
+
+	        <div class="container logos ">
+	        	<div class="row">
+	        		<div class="col-lg-12">
+	        		{% for gallery in site.data.galleries %}
+					  	{% if gallery.id == "logos" %}
+					    	{% for image in gallery.images %}
+							     <div class="img-logo">
+							        <a href="{{ image.url}}">
+							          <img src="{{ gallery.imagefolder }}/{{ image.name }}">
+							        </a>
+							 	</div>
+					    	{% endfor %}
+					  
+					  	{% endif %}
+					{% endfor %}
+	        		
+					</div>
+	        	
+				</div>
+	        </div>
+	
+  
+</section>

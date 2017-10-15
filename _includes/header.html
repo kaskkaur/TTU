@@ -3,27 +3,76 @@
     <div class="container container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+           
+           
+            <button onclick="openNav()" class="navbar-toggle" data-toggle="collapse" data-target="">
+            
+       
+
+                    
+                    
+                        
+                                        <svg width="22px" height="19px" viewBox="0 0 22 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+                                            <desc>Created with Sketch.</desc>
+                                            <defs></defs>
+                                            <g id="web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g id="Desktop-HD" transform="translate(-1335.000000, -164.000000)" fill="#FFFFFF">
+                                                    <g id="intro-bg-copy">
+                                                        <g id="intro-bg">
+                                                            <g id="lines" transform="translate(1335.000000, 164.000000)">
+                                                                <g id="lines" transform="translate(0.166667, 0.166667)">
+                                                                    <rect id="Rectangle-12" x="0" y="0" width="21.6666667" height="1.66666667" rx="0.833333333"></rect>
+                                                                    <rect id="Rectangle-12-Copy" x="4.16666667" y="8.33333333" width="17.5" height="1.66666667" rx="0.833333333"></rect>
+                                                                    <rect id="Rectangle-12-Copy-2" x="0" y="16.6666667" width="21.6666667" height="1.66666667" rx="0.833333333"></rect>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+
+         
+           </button>
+
             <a href="#" class="navbar-left navbar-brand logo"><img src="../img/pall.png"></a>
             <a class="navbar-brand page-scroll" href="#home">{{ site.title }}</a>
 
         </div>
+
+
+
+        <div id="navbar" class="navbar-collapse collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img id="" src="{{site.data.content.nav-flag}}" alt="..." class="img-thumbnail icon-small"> 
+                         <!-- <span id="lanNavSel"></span> --> {{site.data.content.nav-lang}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a id="navEst" href="../" class="language"> <img id="imgNavEst" src="../img/EE.svg" alt="..." class="img-thumbnail icon-small">  <span id="lanNavEst">Eesti</span></a></li>
+                       
+                        <li><a id="navEng" href="/en/" class="language"><img id="imgNavEng" src="../img/GB.svg" alt="..." class="img-thumbnail icon-small">  <span id="lanNavEng">English</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+         <!--/.navbar-collapse -->
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navtext" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">  
             	<li>
-                    <a class="page-scroll" href="#about">Meist</a>
+                    <a class="page-scroll" href="#about">{{site.data.content.nav-about}}</a>
+                </li> 
+
+                <li>
+                    <a class="page-scroll" href="#contact">{{site.data.content.nav-contact}}</a>
                 </li>            
             
                 <li>
-                    <button id="contactbutton" type="button">
-                        <a  class="page-scroll" href="#contact">Võta ühendust</a>
-                    </button>
+                    
+                        <a class="page-scroll" href="#contact" id="contactbutton">{{site.data.content.nav-contactbutton}}</a>
+                    
                 </li>
             </ul>
         </div>
@@ -50,10 +99,10 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="intro-message text-left">
-						<h1>{{ page.title }}</h1>
+						<h1>{{site.data.content.title}}</h1>
 						
 						<hr class="intro-divider">
-                        <h3>{{ page.subTitle }}</h3>
+                        <h3>{{site.data.content.subtitle}}</h3>
 						<!-- <ul class="list-inline intro-social-buttons">
 							{% for social in site.social %}
 							<li>

@@ -1,0 +1,24 @@
+- id: logos
+  description: Collection of logos for all TTU-Korvpallikool members
+  imagefolder: ../img/logos
+  images:
+  - name: ttu.svg
+    url:  https://www.ttu.ee
+  - name: rim.svg
+    url:  http://rim.ee/
+  - name: rae.svg
+    url: 
+  - name: tabasalu.svg
+    url:  https://www.facebook.com/tabasalupalliklubi/
+  - name: kiili.svg
+    url: 
+  - name: laagri.svg
+    url:  https://www.laagrihuvialakool.ee/
+  - name: newox.svg
+    url: 
+- id: sponsors
+  description: In the future, for sponsors tab.
+  imagefolder: ../img/sponsors
+
+ 
+   
