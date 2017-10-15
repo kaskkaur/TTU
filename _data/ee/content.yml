@@ -11,4 +11,8 @@ contact-heading: Kirjuta julgelt!
 contact-sub: Korvpalliteekond ootab sind.
 contact-placeholder: Sinu sõnum
 send-btn: Saada
+email-missing: Palun sisesta töötav e-mail aadress
+message-missing: Sisesta oma sõnum :)
+error: Midagi läks nihu, palun proovi uuesti.
+success: Sõnum saadetud
 copyright: Copyright &copy; 2017 TTÜ Korvpallikool. Kõik õigused kaitstud.

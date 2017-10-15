@@ -11,4 +11,8 @@ contact-heading: Write us!
 contact-sub: Your basketball journey awaits.
 contact-placeholder: Your message
 send-btn: Send
+email-missing: Please enter a working e-mail address
+message-missing: Please enter your message :)
+error: Something went wrong, please try again.
+success: Message sent
 copyright: Copyright &copy; 2017 TTÜ Korvpallikool. All rights reserved.

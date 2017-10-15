@@ -23,7 +23,7 @@
 
                 {% for social in site.social %}
                             <div>
-                                <a href="{{ social.url }}" class=""><i class="fa fa-{{ social.title }} fa-fw"></i> <span class="network-name">{{ social.title }}</span></a>
+                                <a href="{{ social.url }}" class=""><i class="fa fa-{{ social.title }} fa-fw" aria-hidden="true"></i> <span class="network-name">{{ social.title }}</span></a>
                             </div>
                             {% endfor %}
 

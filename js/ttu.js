@@ -39,12 +39,7 @@ function closeNav() {
 
 
 
-// Highlight the top nav as scrolling occurs
-// $('body').scrollspy({
-//     target: '.navbar-fixed-top'
-// })
 
-// Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
@@ -63,26 +58,79 @@ $('div.modal').on('show.bs.modal', function() {
 
 
 
-// $(document).ready(function(){
-    
-        
-//         var imgNavSel = $('#imgNavSel');
-//         var spanNavSel = $('#lanNavSel');
-//         imgNavSel.attr("src", "../img/EE.svg");
-        
+// $("#ttu-form").validate({
+//   rules: {
+//     // simple rule, converted to {required:true}
+//     e-mail: "required",
+//     message: "required"
+//     // compound rule
 
-//         $( ".language" ).on( "click", function( event ) {
-//             var currentId = $(this).attr('id');
-
-//             if(currentId == "navEst") {
-//                 spanNavSel.text("EST");
-//                 imgNavSel.attr("src", "../img/EE.svg");
-//             } else if (currentId == "navEng") {
-//                 spanNavSel.text("ENG");
-//                 imgNavSel.attr("src", "../img/GB.svg");
-//            }
-
-    
-            
-//         });
+//   }
 // });
+
+function errorView() {
+    
+    $('#btn-text').removeClass('hidden');
+    document.getElementById("ttu-form").reset();
+    $('.loader').addClass("hidden");
+    $('#error').removeClass("hidden").fadeIn("slow");
+
+}
+
+
+function successView() {
+    $('#error').addClass("hidden");
+    document.getElementById("ttu-form").reset();
+    $('.loader').addClass("hidden");
+    $('#btn-text').removeClass('hidden');
+    $('#success').removeClass("hidden").fadeIn("slow");
+
+    setTimeout(revert, 5000);
+    function revert() {
+        $('#success').addClass("hidden").fadeOut("slow");
+    }
+
+}
+
+$(document).ready(function() {
+
+
+    $('#ttu-form').on('submit', function(e) {
+        e.preventDefault();
+        $('#btn-text').addClass('hidden');
+        $('#submit').addClass('disabled');
+        $('.loader').removeClass('hidden');
+        
+        //get the name field value
+        var email = $('#email').val();
+        
+        //get the message
+        var message = $('#message').val();
+                    
+        //pretend we don't need validation
+        
+        //send to formspree
+        $.ajax({
+            url:'https://formspree.io/info@ttukorvpallikool.ee',
+            method:'POST',
+            data:{
+                 email:email,
+                message:message,
+                _subject:'Kiri kodulehelt - TTÜ Korvpallikool',
+            },
+            dataType:"json",
+            success:function() {
+                console.log('success'); 
+                successView()
+            },  
+            error: function() {
+                console.log("error")
+                errorView()
+                
+            } 
+
+        });     
+        
+    });
+
+});
