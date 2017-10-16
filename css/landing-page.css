@@ -106,10 +106,16 @@ color: #9F004E;
     
 }
 
+.navbar {
+
+    height: 65px;
+}
 
 .navbar-default .navbar-toggle {
   border-color: transparent; /* Removes border color */
   float: right; /* Move navbar toggle to left */
+  padding: 14px 16px 16px 16px;
+  margin: 0;
   
 
 }
@@ -230,9 +236,10 @@ color: #9B054F !important;
 
 
 .logo img {
-    width: 32px;
-    height: 32px;
-    margin-top: -8px;
+    /*width: 32px;
+    height: 32px;*/
+    margin-top: -7px;
+   
 
 }
 
@@ -361,11 +368,6 @@ background: url(../img/backdrop.png) no-repeat center center;
 }
 
 
-#shards{
-
-    bottom: -440px;
-    position: absolute;
-}
 
 .about {
     /*background: #72083C;*/
@@ -492,12 +494,6 @@ padding: 50px 33px 50px 33px;
         width: 100%;
     }
 
-    #shards{
-
-    bottom: -140px;
-    position: absolute;
-    }
-
 
 
     .about-ttu-logo {
@@ -508,6 +504,11 @@ padding: 50px 33px 50px 33px;
     .response {
         font-size: 85%;
         width: 75%;
+    }
+
+    .logo img {
+
+        margin-bottom: 7px;
     }
 
    /* .navbar-fixed-top {
@@ -639,45 +640,7 @@ margin: 0px;
 
 }
 
-.banner {
-    padding: 100px 0;
-    color: #f8f8f8;
-    background: url(../img/banner-bg.jpg) no-repeat center center;
-    background-size: cover;
-}
 
-.banner h2 {
-    margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    font-size: 3em;
-}
-
-.banner ul {
-    margin-bottom: 0;
-}
-
-.banner-social-buttons {
-    float: right;
-    margin-top: 0;
-}
-
-@media(max-width:1199px) {
-    ul.banner-social-buttons {
-        float: left;
-        margin-top: 15px;
-    }
-
-    #shards{
-
-    
-    
-    position: relative;
-    top: -180px;
-    width: 0%
-    }
-
-
-}
 
 #contact {
 
