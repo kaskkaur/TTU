@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 // jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function() {
     $('a.page-scroll').bind('click', function(event) {
@@ -8,6 +16,10 @@ $(function() {
         event.preventDefault();
     });
 });
+
+
+
+//Top navigation fadeIn-Out effect
 
 
 $(window).scroll(function() {
@@ -23,6 +35,8 @@ $(window).scroll(function() {
 });
 
 
+
+//Sidebar navigation on mobile.
 
 /* Set the width of the side navigation to 250px */
 function openNav() {
@@ -58,15 +72,8 @@ $('div.modal').on('show.bs.modal', function() {
 
 
 
-// $("#ttu-form").validate({
-//   rules: {
-//     // simple rule, converted to {required:true}
-//     e-mail: "required",
-//     message: "required"
-//     // compound rule
 
-//   }
-// });
+//Handle success and error views.
 
 function errorView() {
     
@@ -82,18 +89,27 @@ function successView() {
     $('#error').addClass("hidden");
     document.getElementById("ttu-form").reset();
     $('.loader').addClass("hidden");
-    $('#btn-text').removeClass('hidden');
+
     $('#success').removeClass("hidden").fadeIn("slow");
+    $('#submit').addClass("hidden");
+
 
     setTimeout(revert, 5000);
     function revert() {
         $('#success').addClass("hidden").fadeOut("slow");
+        $('#btn-text').removeClass('hidden');
+        $('#submit').removeClass("hidden");
     }
 
 }
 
+
+//Formspree submission with ajax
+
+
 $(document).ready(function() {
 
+    $(".page-loader").fadeOut("300");;
 
     $('#ttu-form').on('submit', function(e) {
         e.preventDefault();
@@ -134,3 +150,6 @@ $(document).ready(function() {
     });
 
 });
+
+
+

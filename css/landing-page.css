@@ -24,12 +24,18 @@ color: #9F004E;
 
 }
 
-.wrapper {
+
+*::-webkit-media-controls-start-playback-button {
+  display: none!important;
+  -webkit-appearance: none;
+}
+
+/*.wrapper {
     width: 100%;
     height: 100%;
 
     overflow-x: hidden;
-}
+}*/
 
 
 
@@ -37,7 +43,7 @@ color: #9F004E;
     background-color: rgba(0, 0, 0, 0);
     border: 0;
     box-shadow: none;
-    z-index: 999;
+    z-index: 1000;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -145,7 +151,8 @@ svg:hover #lines {
     top: 0;
     right: 0;
     background-color: #9F004E; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
+    /* Disable horizontal scroll */
+    overflow-x: hidden;
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
@@ -304,6 +311,8 @@ background: url(../img/backdrop.png) no-repeat center center;
     margin-left: 0;
     margin-right: 0;
     height: 600px;
+  
+
 }
 
 
@@ -318,11 +327,11 @@ background: url(../img/backdrop.png) no-repeat center center;
 
  /* max-height: 100vh;
   max-width: 100vh;*/
-  
   height: auto;
   width: auto;
   z-index: -100;
   transform: translate(-50%, -50%);
+  
   background-size: cover;
 
 }
@@ -500,7 +509,48 @@ padding: 50px 33px 50px 33px;
         font-size: 85%;
         width: 75%;
     }
+
+   /* .navbar-fixed-top {
+        position: relative;
+        top: auto;
+    }
+
+    .navbar-collapse {
+        max-height: none;
+    }*/
+    body {
+        margin: 0;
+    }
 }
+
+
+
+
+
+
+.page-loader {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 1001;
+    background: #710C3D;
+}
+
+#page-spinner {
+
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    border: 8px solid #54092d; 
+    border-top: 8px solid #f3f3f3; 
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+    animation: spin 2s linear infinite;
+}
+
 
 .network-name {
     text-transform: uppercase;
