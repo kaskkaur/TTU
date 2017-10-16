@@ -3,8 +3,7 @@
 body,
 html {
     
-width: 100%;
-height: 100%;
+
 
 }
 
@@ -17,7 +16,7 @@ h5,
 h6 {
     font-family: 'Quattrocento Sans', sans-serif;
     font-weight: 700;
-    overflow-x: hidden;
+    
 }
 a, b, strong { 
 
@@ -25,7 +24,12 @@ color: #9F004E;
 
 }
 
+.wrapper {
+    width: 100%;
+    height: 100%;
 
+    overflow-x: hidden;
+}
 
 
 
