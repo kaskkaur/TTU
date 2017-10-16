@@ -6,4 +6,4 @@ title: Kaasaegne metoodika.
 lang: ee
 description: |
 ---
-Klubi vanemad õpliased koonduvad regionaalsete liikmesklubide keskustesse, nagu näiteks Jüri ja Tallinn.
+Hoolitseme selle eest, et meie liikmesklubide treenerid on pidevalt kursis kaasaegse korvpalli metoodikaga, ning leiame õiget rakendust treeningutes.

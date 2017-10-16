@@ -6,4 +6,4 @@ title: Edasijõudnutele eesmärgipõhine treening
 lang: ee
 description: |
 ---
-Klubi vanemad õpliased koonduvad regionaalsete liikmesklubide keskustesse, nagu näiteks Jüri ja Tallinn.
+Saavutamaks eesmärgipärast ja tulemuslikku õpet, koonduvad klubi vanemad õpilased regionaalsete liikmesklubide keskustesse, nagu näiteks Jüri ja Tallinn.

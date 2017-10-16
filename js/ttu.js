@@ -109,6 +109,9 @@ function successView() {
 
 $(document).ready(function() {
 
+
+    
+    
     setTimeout(endLoad, 1000);
     function endLoad() {
        $(".page-loader").fadeOut("300");;

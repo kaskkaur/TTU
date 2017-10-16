@@ -6,4 +6,5 @@ title: Laiapõhjaline korvpalli algõpe.
 lang: ee
 description: |
 ---
-Lastele võimaldatakse treeningutel osaleda vahetult peale koolipäeva lõppu **oma kodukooli spordisaalis** Tallinnas ja Harjumaal.
+Lastele võimaldatakse treeningutel osaleda vahetult peale koolipäeva lõppu **oma kodukooli spordisaalis** 
+Võtame vastu õpilasi alates 6. eluaastast.
