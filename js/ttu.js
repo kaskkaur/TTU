@@ -109,7 +109,12 @@ function successView() {
 
 $(document).ready(function() {
 
-    $(".page-loader").fadeOut("300");;
+    setTimeout(endLoad, 1500);
+    function endLoad() {
+       $(".page-loader").fadeOut("300");;
+    }
+
+    
 
     $('#ttu-form').on('submit', function(e) {
         e.preventDefault();
