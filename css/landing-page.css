@@ -447,6 +447,30 @@ padding: 50px 33px 50px 33px;
     padding: 16px 16px 16px 16px;
 }
 
+
+
+.sponsors {
+
+    /*position: relative;*/
+    border-top: 1px solid #e7e7e7;
+    background-color: #F8F8F8;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    /*box-shadow: 0 2px 27px 0 rgba(0,0,0,0.30);*/
+    border-bottom: 1px solid #e7e7e7;
+    /*z-index: 10;*/
+    padding: 16px 16px 16px 16px;
+}
+
+.sponsors img {
+
+    opacity: 0.2;
+}
+
+
+
+
 .img-logo {
 
 
@@ -607,7 +631,6 @@ margin: 0px;
 .content-section-a {
     position: relative;
     padding: 50px 0;
-    background-color: #f8f8f8;
     z-index: 10;
 
 
@@ -617,6 +640,7 @@ margin: 0px;
     padding: 50px 0;
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
+    background-color: #f8f8f8;
 
 }
 

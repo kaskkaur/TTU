@@ -5,7 +5,7 @@
             <div class="col-md-6  text-left footer-details">
                 <div>
                    <span> <img src="../img/ic_email_black_24px.svg">  </span> 
-                   <span>{{ site.email }}</span>
+                   <a href="mailto:info@ttukorvpallikool.ee"><span>{{ site.email }}</span></a>
                 </div>
                <div>
                     <span> <img src="../img/ic_phone_black_24px.svg">  </span> 
@@ -23,7 +23,7 @@
 
                 {% for social in site.social %}
                             <div>
-                                <a href="{{ social.url }}" class=""><i class="fa fa-{{ social.title }} fa-fw" aria-hidden="true"></i> <span class="network-name">{{ social.title }}</span></a>
+                                <a target="_blank" href="{{ social.url }}" class=""><i class="fa fa-{{ social.title }} fa-fw" aria-hidden="true"></i> <span class="network-name">{{ social.title }}</span></a>
                             </div>
                             {% endfor %}
 

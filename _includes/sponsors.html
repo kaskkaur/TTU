@@ -1,12 +1,13 @@
 <section id="logos">
 
-	        <div class="container logos ">
+	        <div class="container sponsors ">
+	        	<div class="col-lg-12">
 	        	<div class="row">
-	        		<div class="col-lg-12">
+	        		
 	        		{% for gallery in site.data.galleries %}
-					  	{% if gallery.id == "logos" %}
+					  	{% if gallery.id == "sponsors" %}
 					    	{% for image in gallery.images %}
-							     <div class="img-logo">
+							     <div class="img-sponsor col-sm-4">
 							        <a href="{{ image.url}}" target="_blank">
 							          <img src="{{ gallery.imagefolder }}/{{ image.name }}">
 							        </a>
@@ -16,8 +17,8 @@
 					  	{% endif %}
 					{% endfor %}
 	        		
-					</div>
-	        	
+				
+	        		</div>
 				</div>
 	        </div>
 	
