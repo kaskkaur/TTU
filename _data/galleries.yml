@@ -3,22 +3,30 @@
   imagefolder: ../img/logos
   images:
   - name: ttu.svg
-    url:  https://www.ttu.ee
+    url:  https://www.ttu.ee/sport/korvpall/
   - name: rim.svg
     url:  http://rim.ee/
   - name: rae.svg
-    url: 
+    url:  http://huvikool.rae.ee/osakonnad/spordiosakond/
   - name: tabasalu.svg
     url:  https://www.facebook.com/tabasalupalliklubi/
   - name: kiili.svg
-    url: 
+    url:  http://www.kiilispordiklubi.ee/index.php
   - name: laagri.svg
     url:  https://www.laagrihuvialakool.ee/
   - name: newox.svg
-    url: 
+    url:  http://www.newox.ee/
 - id: sponsors
   description: In the future, for sponsors tab.
   imagefolder: ../img/sponsors
-
- 
-   
+  images:
+  - name: scanweld.svg
+    url:  http://www.scanweld.ee/
+  # - name: miterassa.svg
+  #   url:  https://www.miterassa.ee/sonycenter/
+  # - name: sonycenter.svg
+  #   url:  https://www.sonycenter.ee/
+  - name: 4teams.svg
+    url:  http://www.4teams.ee/
+  - name: macron.svg
+    url:  http://www.macron.com/eu/en/#
