@@ -10,9 +10,7 @@ phone: '+372 50 250 32'
 
 author: TTU
 description: > # "Write an awesome description for your new site here. 
-  You can edit this line in _config.yml. It will appear in your document 
-  head meta (for Google search results) and in your feed.xml site 
-  description.
+  Ühendklubi, mis pakub korvpallitrenni Tallinnas ja Harjumaal. Korvpallitrennid väikestele ja suurtele, igas vanuses.
 copyright: 'Copyright &copy; 2017 TTÜ Korvpallikool. Kõik õigused kaitstud.'
 # about: 'TTÜ Korvpallikool on ühendklubi, kus õpib *ligi 700 korvpallurit*, nii suurt kui väikest.
 # Korvpalli trennid igale vanusele *Tallinnas ja Harjumaal*'
@@ -28,7 +26,7 @@ plugins_dir:
 
 languages: ["ee", "en"]
 default_lang: "ee"
-# exclude_from_localization: ["js", "img", "css"]
+exclude_from_localization: ["js", "img", "css"]
 parallel_localization: true
 
 
