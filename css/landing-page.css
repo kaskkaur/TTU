@@ -364,7 +364,7 @@ background: url(../img/backdrop.png) no-repeat center center;
 .intro-divider {
     width: 400px;
     border-top: 2px solid #f8f8f8;
-    border-bottom: 2px solid rgba(0,0,0,0.2);
+    /*border-bottom: 2px solid rgba(0,0,0,0.2);*/
     margin-left: 0;
     margin-right: 0;
 }
@@ -649,12 +649,14 @@ margin: 0px;
     
    /* top: 105%;
     left: 82%;*/
-  
+    position: absolute;
     padding: 16px;
-    bottom: 0px;
+    top: 239px;
 
 
 }
+
+
 
 .section-heading {
     margin-bottom: 30px;

@@ -26,7 +26,12 @@ plugins_dir:
 
 languages: ["ee", "en"]
 default_lang: "ee"
-exclude_from_localization: ["js", "img", "css"]
+exclude_from_localization:
+  - img
+  - fonts
+  - css
+  - js
+
 parallel_localization: true
 
 
