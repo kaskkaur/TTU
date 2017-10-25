@@ -1,11 +1,17 @@
 nav-about: About us
 nav-contact: Contact
 nav-contactbutton: Join us!
-nav-flag: '../img/GB.svg' 
+nav-flag: '../img/GB.svg'
 nav-lang: ENG
-title: From micro to magister!
-subtitle: In sport and education.
-about: TTÜ Basketball Academy is a joint club that trains nearly 700 students, small and big. Basketball practice for all ages in Tallinn and Harju county
+title: From child's play to NBA!
+title-tag: TTÜ Basketball Academy - Basketball practice in Tallinn and Harju county
+description: From child's play to NBA! Modern basketball training at TTÜ Basketball Academy. Younger students can train at their elementary premises after the school day. Come play basketball!
+subtitle: Basketball practice in Tallinn and Harju county
+about: 'TTU Basketball Academy is a joint club, bringing together around 700 players of every age. Trainings are organised for a range of age groups in Tallinn and Harju County.
+<br>
+<br>
+Our club enables children to make their first steps in the basketball journey and reach professional level.'
+logo-title: TTÜ Basketball Academy
 about-heading: Joined forces
 contact-heading: Write us!
 contact-sub: Your basketball journey awaits.

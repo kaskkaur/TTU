@@ -3,14 +3,14 @@
 # ----------------------- #
 
 url: http://www.ttukorvpallikool.ee
-title: TTÜ Korvpallikool
+title: 'Korvpallitrenn Tallinnas ja Harjumaal. Trennid lastele ja noortele igas vanuses - mikrost magistrini! Kaasaegne õpe ja metoodika.'
 email: info@ttukorvpallikool.ee
 address: 'Männiliiva 7, Mustamäe, 13414, Harju maakond'
 phone: '+372 50 250 32'
 
 author: TTU
 description: > # "Write an awesome description for your new site here. 
-  Ühendklubi, mis pakub korvpallitrenni Tallinnas ja Harjumaal. Korvpallitrennid väikestele ja suurtele, igas vanuses.
+  Ühendklubi, mis pakub korvpallitrenni Tallinnas ja Harjumaal. Korvpallitrennid lastele ja noortele, igas vanuses.
 copyright: 'Copyright &copy; 2017 TTÜ Korvpallikool. Kõik õigused kaitstud.'
 # about: 'TTÜ Korvpallikool on ühendklubi, kus õpib *ligi 700 korvpallurit*, nii suurt kui väikest.
 # Korvpalli trennid igale vanusele *Tallinnas ja Harjumaal*'
@@ -24,13 +24,13 @@ about: ok
 plugins_dir:
   - jekyll-polyglot
 
-languages: ["ee", "en"]
+languages: ["ee", "en", "ru"]
 default_lang: "ee"
 exclude_from_localization:
   - img
   - fonts
-  - css
-  - js
+  # - css
+  # - js
 
 parallel_localization: true
 
