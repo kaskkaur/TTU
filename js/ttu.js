@@ -161,3 +161,22 @@ $(document).ready(function() {
 
 
 
+var feed = new Instafeed({
+        get: 'user',
+        tagName: 'awesome',
+        clientId: 'dc9cd3655dfb435aba640fc83f9e3032',
+        accessToken: '542481923.1677ed0.709ffea4dd7a4f0bae4c32e85b8eacf4',
+        userId: '542481923',
+        limit: '10',
+        sortBy: 'most-recent'
+        
+    });
+    feed.run();
+
+
+
+
+
+
+
+
