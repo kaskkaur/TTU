@@ -1,22 +1,22 @@
-nav-about: About us
-nav-contact: Contact
-nav-contactbutton: Join us!
+nav-about: О нас
+nav-contact: Контакт
+nav-contactbutton: Приходи тренироваться!
 nav-flag: '../img/RU.svg' 
 nav-lang: RUS
 title: От малого к великому! 
-title-tag: TTÜ Basketball Academy - Basketball practice in Tallinn and Harju county
-description: 'Kaasaegne ja eesmapärgipärane õpe TTÜ Korvpallikoolis - täielik korvpalliteekond mikrost magistrini! 
-Väiksematel treeningud oma kodukooli spordisaalis. Tule trenni!'
-subtitle:  Basketball practice in Tallinn and Harju county
-about: Школа баскетбола TTÜ - это клуб, в котором тренеруются почти 700 баскетболистов, как взрослых, так и совсем юных. В клубе организованы баскетбольные тренировки для каждого возраста в Таллинне и Харьюском уезде.
-logo-title: Школа баскетбола TTÜ
+title-tag: Школа баскетбола ТТУ - баскетбольные тренировки в Таллинне и Харьюмаа.
+description: 'Современное обучение с постановкой четких целей в Баскетбольной школе TTÜ - весь баскетбольный путь от малого к великому. 
+Тренировки для самых юных баскетболистов проводятся в спортивных залах родной школы. Приходи тренироваться!'
+subtitle: Баскетбольные тренировки в Таллинне и Харьюмаа
+about: Школа баскетбола ТТУ - это клуб, в котором тренеруются почти 700 баскетболистов, как взрослых, так и совсем юных. В клубе организованы баскетбольные тренировки для каждого возраста в Таллинне и Харьюском уезде.
+logo-title: Школа баскетбола ТТУ
 about-heading: Вместе мы – сила
 contact-heading: Пиши смело!
-contact-sub: Школа баскетбола TTÜ ждет тебя.
-contact-placeholder: Your message
-send-btn: Send
-email-missing: Please enter a working e-mail address
-message-missing: Please enter your message :)
-error: Something went wrong, please try again.
-success: Message sent
-copyright: Copyright &copy; 2017 TTÜ Korvpallikool. All rights reserved.
+contact-sub: Школа баскетбола ТТУ ждет тебя.
+contact-placeholder: Text
+send-btn: Отправить
+email-missing: Пожалуйста, напиши действующий адрес электронной почты
+message-missing: Пожалуйста, напиши свое сообщение
+error: Что-то пошло не так, пожалуйста, попробуй еще раз
+success: Сообщение отправлено!
+copyright: Copyright &copy; 2017 Школа баскетбола ТТУ. Все права защищены.
