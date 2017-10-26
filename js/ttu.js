@@ -168,7 +168,8 @@ var feed = new Instafeed({
         accessToken: '542481923.1677ed0.709ffea4dd7a4f0bae4c32e85b8eacf4',
         userId: '542481923',
         limit: '10',
-        sortBy: 'most-recent'
+        sortBy: 'most-recent',
+        template: '<a href="{{link}}"><img src="{{image}}" /><div class="insta-overlay hidden">{{caption}}</div></a>'
         
     });
     feed.run();
