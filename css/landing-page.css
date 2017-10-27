@@ -751,6 +751,16 @@ margin: 0px;
 
 }
 
+
+.instapic {
+
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+
+}
+
+
 #contact {
 
     /*padding: 40px 16px 40px 16px;*/
