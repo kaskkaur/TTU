@@ -28,9 +28,7 @@ languages: ["ee", "en", "ru"]
 default_lang: "ee"
 exclude_from_localization:
   - img
-  - fonts
-  # - css
-  # - js
+
 
 parallel_localization: true
 
@@ -48,3 +46,4 @@ social:
     url: https://www.facebook.com/SPORDIKLUBI-RIM-132400890107202/
   - title: instagram
     url: https://www.instagram.com/ttukorvpallikool/
+
