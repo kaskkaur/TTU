@@ -169,10 +169,21 @@ var feed = new Instafeed({
         userId: '542481923',
         limit: '10',
         sortBy: 'most-recent',
-        template: '<a href="{{link}}"><img src="{{image}}" /><div class="insta-overlay hidden">{{caption}}</div></a>'
+        template: '<a target="_blank" href="{{link}}"><img class="instapic" src="{{image}}"/><div class="insta-overlay hidden">{{caption}}</div></a>'
         
     });
     feed.run();
+
+
+
+$(".instapic").hover(
+  function() {
+    console.log("hover")
+    $( this ).append( $( "<span> ***</span>" ) );
+  }, function() {
+    $( this ).find( "span:last" ).remove();
+  }
+);
 
 
 
