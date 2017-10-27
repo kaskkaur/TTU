@@ -40,13 +40,16 @@ p {
 
 body {
 
-    overflow-x: hidden;
+   height: 100%;
+    overflow-x: hidden !important;
+    width: 100%;
 
 }
 
-.wrapper {
+#wrapper {
 
-    overflow-x: hidden;
+    
+   
 }
 
 
@@ -171,8 +174,9 @@ svg:hover #lines {
     /* Disable horizontal scroll */
     overflow-x: hidden;
     padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    transition: 0.2s; /* 0.5 second transition effect to slide in the sidenav */
     white-space: nowrap;
+    
     
 }
 
@@ -355,6 +359,7 @@ background: url(../img/backdrop.png) no-repeat center center;
   transform: translate(-50%, -50%);
   
   background-size: cover;
+
 
 }
 
@@ -571,9 +576,7 @@ padding: 75px 33px 50px 0px;
     .navbar-collapse {
         max-height: none;
     }*/
-    body {
-        margin: 0;
-    }
+    
 }
 
 
@@ -733,12 +736,12 @@ margin: 0px;
 
 }
 
-#instaicon:hover a {
+.instaicon:hover a {
 
     color: #e7e7e7;
 }
 
-#instalink {
+.instalink {
 
     color: white;
     font-size: 16px;;
@@ -913,6 +916,14 @@ margin-bottom: 4px;
         top: 50%;
         bottom: 50%;
         text-align: center;
+    }
+
+    .basketball-illustration {
+    
+    
+    display: none;
+
+
     }
 
    

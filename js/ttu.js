@@ -172,11 +172,18 @@ var feed = new Instafeed({
         userId: '542481923',
         limit: '10',
         sortBy: 'most-recent',
-        template: '<a href="{{link}}"><img src="{{image}}" /><div class="insta-overlay hidden">{{caption}}</div></a>'
+        template: '<a target="_blank" href="{{link}}"><img class="instapic" src="{{image}}"/></a>'
         
     });
     feed.run();
 
+
+
+$(function () {
+    $(".instapic").hover(function () {
+        $(this).append("wtf")
+    });
+});
 
 
 
