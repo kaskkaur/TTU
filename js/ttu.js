@@ -164,8 +164,8 @@ $(document).ready(function() {
 var feed = new Instafeed({
         get: 'user',
         tagName: 'awesome',
-        clientId: 'dc9cd3655dfb435aba640fc83f9e3032',
-        accessToken: '542481923.1677ed0.709ffea4dd7a4f0bae4c32e85b8eacf4',
+        clientId: 'e03f3a6f57474ebdb4577d7d2a16e087',
+        accessToken: '6224181906.1677ed0.3a077ee4765c4b5cad4593e8190f5b6e',
         userId: '542481923',
         limit: '10',
         sortBy: 'most-recent',
