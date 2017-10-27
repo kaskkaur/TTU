@@ -167,12 +167,13 @@ $(document).ready(function() {
 var feed = new Instafeed({
         get: 'user',
         tagName: 'awesome',
-        clientId: 'e03f3a6f57474ebdb4577d7d2a16e087',
-        accessToken: '6224181906.1677ed0.3a077ee4765c4b5cad4593e8190f5b6e',
-        userId: '542481923',
+        clientId: 'dc9cd3655dfb435aba640fc83f9e3032',
+        accessToken: '6224181906.ba4c844.71caa24df6eb47e3a3079dda30ece7fd',
+        userId: '6224181906',
         limit: '10',
         sortBy: 'most-recent',
-        template: '<a target="_blank" href="{{link}}"><img class="instapic" src="{{image}}"/></a>'
+        template: '<a target="_blank" href="{{link}}"><img class="instapic" src="{{image}}"/></a>',
+        resolution: "standard_resolution"
         
     });
     feed.run();
