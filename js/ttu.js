@@ -161,6 +161,9 @@ $(document).ready(function() {
 
 
 
+
+//Instafeed
+
 var feed = new Instafeed({
         get: 'user',
         tagName: 'awesome',
