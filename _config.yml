@@ -44,6 +44,8 @@ permalink: pretty
 social:
   - title: facebook
     url: https://www.facebook.com/SPORDIKLUBI-RIM-132400890107202/
+    img: /img/fb.svg
   - title: instagram
     url: https://www.instagram.com/ttukorvpallikool/
+    img: '/img/insta.svg'
 

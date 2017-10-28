@@ -19,15 +19,16 @@
                         
                         
             </div>
-            <div class="col-md-6  text-right footer-social">
+            <div class="col-md-6  text-left footer-social">
 
                 {% for social in site.social %}
                             <div>
-                                <a target="_blank" href="{{ social.url }}" class=""><span class="network-name">{{ social.title }}</span></a>
+                                 <img class="social-icons" alt="{{social.title}}" src="{{social.img}}"><a target="_blank" href="{{ social.url }}" class=""><span class="network-name">{{ social.title }}</span></a>
                             </div>
-                            {% endfor %}
+                {% endfor %}
 
-                <p class="copyright text-muted small">{{site.data.content.copyright}}</p>
+
+                <!-- <p class="copyright text-muted small">{{site.data.content.copyright}}</p> -->
             </div>
         </div>
     </div>
