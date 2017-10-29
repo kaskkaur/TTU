@@ -171,7 +171,7 @@ var feed = new Instafeed({
         sortBy: 'most-recent',
         filter: function(image) {
           var MAX_LENGTH = 70;
-          console.log(image.caption.text.length)
+
           if (image.caption.text.length >= MAX_LENGTH) {
             truncate = "..."
 
