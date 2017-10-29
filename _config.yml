@@ -23,6 +23,7 @@ about: ok
 # ----------------------- #
 plugins_dir:
   - jekyll-polyglot
+  - jekyll-minifier
 
 languages: ["ee", "en", "ru"]
 default_lang: "ee"
@@ -48,4 +49,7 @@ social:
   - title: instagram
     url: https://www.instagram.com/ttukorvpallikool/
     img: '/img/insta.svg'
+
+
+
 
