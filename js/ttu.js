@@ -169,19 +169,31 @@ var feed = new Instafeed({
         userId: '6224181906',
         limit: '10',
         sortBy: 'most-recent',
-        template: '<a target="_blank" href="{{link}}"><img class="instapic" src="{{image}}"/></a>',
+        filter: function(image) {
+          var MAX_LENGTH = 70;
+          console.log(image.caption.text.length)
+          if (image.caption.text.length >= MAX_LENGTH) {
+            truncate = "..."
+
+          } else {
+
+            truncate = ""
+          }
+        
+          if (image.caption && image.caption.text) {
+            image.short_caption = image.caption.text.slice(0, MAX_LENGTH) + truncate;
+          } else {
+            image.short_caption = "";
+          }
+
+          return true;
+        },
+        template: '<div class="instapic-box"><a target="_blank" href="{{link}}"><img class="instapic" src="{{image}}"/><div class="overlay"><div class="text">{{model.short_caption}}</div></div></div></a>',
         resolution: "standard_resolution"
         
     });
     feed.run();
 
-
-
-$(function () {
-    $(".instapic").hover(function () {
-        $(this).append("wtf")
-    });
-});
 
 
 
