@@ -23,6 +23,9 @@
   - name: newox.svg
     url:  http://www.newox.ee/
     alt: Spordiklubi Newox
+  - name: haabersti.svg
+    url:  http://haaberstisk.ee/
+    alt: Haabersti Spordiklubi
 - id: sponsors
   description: In the future, for sponsors tab.
   imagefolder: /img/sponsors
