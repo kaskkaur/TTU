@@ -446,7 +446,7 @@ background: url(../img/backdrop.png) no-repeat center center;
 .about-logos  {
 
    /* width: 100%;*/
-   padding-top: 32px;
+   padding-top: 32px
   
 }
 
@@ -466,7 +466,8 @@ background: url(../img/backdrop.png) no-repeat center center;
 
 }
 .about-ttu-logo img {
-padding: 75px 33px 50px 0px;
+padding: 72px 16px 16px 16px;
+size: 200%;
 
     
 }

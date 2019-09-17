@@ -26,6 +26,9 @@
   - name: haabersti.svg
     url:  http://haaberstisk.ee/
     alt: Haabersti Spordiklubi
+  - name: altius.png
+    url:  http://www.skaltius.ee/
+    alt:  Altius Basketball
 - id: sponsors
   description: In the future, for sponsors tab.
   imagefolder: /img/sponsors
@@ -45,3 +48,4 @@
   - name: tsk.png
     url:  http://tsk.ee/
     alt:  Tallinna Spordikool
+
