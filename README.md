@@ -1,1 +1,1 @@
-TTÜ Korvpallikool web page
+TTÜ Korvpallikool school web page

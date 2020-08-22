@@ -1,8 +1,22 @@
 <section id="logos">
 
-	        <div class="container logos ">
-	        	<div class="row">
-	        		<div class="col-lg-12">
+	<div class="logos">
+	    <div class="row">
+	        	<a href="#contact">
+		             <div  class="row locations">
+		          		{% for location in site.locations %}
+		              		<span align="center">{{location.name}}</span>
+		          		{% endfor %}
+
+			        </div>
+	        	</a>
+     
+
+	    </div>
+
+
+	        	<div class="row container center center-block">
+	        		
 	        		{% for gallery in site.data.galleries %}
 					  	{% if gallery.id == "logos" %}
 					    	{% for image in gallery.images %}
@@ -15,9 +29,11 @@
 					{% endfor %}
 	        		
 					</div>
+
+	</div>
 	        	
-				</div>
-	        </div>
+				
+	        
 	
   
 </section>

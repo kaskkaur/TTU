@@ -1,8 +1,11 @@
 nav-about: About us
 nav-contact: Contact
-nav-contactbutton: Join us!
+nav-contactbutton: Join us
 nav-flag: '../img/GB.svg'
 nav-lang: ENG
+phone: '+372 50 250 32'
+choose: 'Choose'
+location-interest-description: 'Location of interest for training'
 title: From child's play to NBA!
 title-tag: TTÜ Basketball Academy - Basketball practice in Tallinn and Harju county
 description: From child's play to NBA! Modern basketball training at TTÜ Basketball Academy. Younger students can train at their elementary premises after the school day. Come play basketball!
@@ -18,6 +21,7 @@ contact-sub: Your basketball journey awaits.
 contact-placeholder: Your message
 send-btn: Send
 email-missing: Please enter a working e-mail address
+location-missing: Please choose
 message-missing: Please enter your message :)
 error: Something went wrong, please try again.
 success: Message sent

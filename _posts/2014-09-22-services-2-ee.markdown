@@ -7,4 +7,4 @@ lang: ee
 alt: "Korvpallitrenn Tallinnas edasijõunutele"
 description: |
 ---
-Saavutamaks eesmärgipärast ja tulemuslikku korvpalli õpet, koonduvad klubi vanemad õpilased regionaalsete liikmesklubide keskustesse, nagu näiteks Jüri ja Tallinn. 
+Saavutamaks eesmärgipärast ja tulemuslikku korvpalli õpet, koonduvad klubi vanemad õpilased regionaalsete liikmesklubide keskustesse, nagu näiteks Tallinn. 

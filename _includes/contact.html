@@ -35,14 +35,43 @@
 				                     
 				                    	<div class="col-lg-12">
 				                    		<div class="form-group">
+
+				                    						<div class="row form-group forminput">
+
+				                    							 <label for="location-interest">{{site.data.content.location-interest-description}}</label>
+													    <select class="form-control" id="location-interest" name="Location" placeholder="{{site.data.content.choose}}" required oninvalid="this.setCustomValidity('{{site.data.content.location-missing}}')" oninput="setCustomValidity('')">
+
+
+													      <option value="" selected disabled>{{site.data.content.choose}}</option>
+													      {% for location in site.locations %}
+													      <option>{{location.name}}</option>
+													      {% endfor %}
+													    </select>
+
+
+												</div>
+
+
+												<hr class="separator">
+
+
+
 				                    			<div class="row forminput">
 
 												<input type="text" class="form-control" id="email" name="email" placeholder="E-mail" required oninvalid="this.setCustomValidity('{{site.data.content.email-missing}}')" oninput="setCustomValidity('')">
 												</div>
 
+
+									
+
+
 												<div class="row forminput">
 												<textarea class="form-control" type="textarea" id="message" placeholder="{{site.data.content.contact-placeholder}}" maxlength="140" rows="8" required oninvalid="this.setCustomValidity('{{site.data.content.message-missing}}')" oninput="setCustomValidity('')"></textarea>
 				                    			</div>
+
+				                    			
+												</div>
+
 
 				                    			<div class="row forminput">
 

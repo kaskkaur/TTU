@@ -1,16 +1,16 @@
 nav-about: Meist
 nav-contact: Kontakt
-nav-contactbutton: Tule trenni!
+nav-contactbutton: Tule trenni
 nav-flag: '../img/EE.svg'
 nav-lang: EST
-title: Mikrost magistrini!
+phone: '+372 50 250 32'
+choose: 'Vali'
+location-interest-description: 'Trenniks huvipakkuv piirkond'
+title: MIKROST MAGISTRINI!
 title-tag: TTÜ Korvpallikool - Korvpallitrenn Tallinnas ja Harjumaal
 description: Ühendklubi TTÜ Korvpallikool - täielik korvpalliteekond mikrost magistrini! Väiksematel treeningud oma kodukooli spordisaalis. Tule trenni!
-subtitle: Korvpallitrenn Tallinnas ja Harjumaal
-about: 'TTÜ Korvpallikool on ühendklubi, kus õpib ligi <b style="color:white;"> 700 korvpallurit </b>, nii suurt kui väikest. Meie kool võimaldab lastel teha oma esimesed korvpallisammud ning jõuda korvpalli profitasemeni - mikrost magistrini.
-<br>
-<br>
-Korvpallitrenn lastele ja noortele igas vanuses Tallinnas ja Harjumaal'
+subtitle: Korvpallitrenn igale vanusele Tallinnas ja Harjumaal
+about: 'TTÜ Korvpallikool on ühendklubi, kus õpib ligi 700 korvpallurit, nii suurt kui väikest. Meie kool võimaldab lastel teha oma esimesed korvpallisammud ning jõuda korvpalli profitasemeni - mikrost magistrini. Treeningud toimuvad Tallinnas ja Harjumaal.'
 logo-title: TTÜ Korvpallikool
 about-heading: Ühendatud jõud
 contact-heading: Kirjuta julgelt!
@@ -18,6 +18,7 @@ contact-sub: Korvpalliteekond ootab sind.
 contact-placeholder: Sinu sõnum
 send-btn: Saada
 email-missing: Palun sisesta töötav e-mail aadress
+location-missing: Palun valige asukoht, kus teid treening huvitaks
 message-missing: Sisesta oma sõnum :)
 error: Midagi läks nihu, palun proovi uuesti.
 success: Sõnum saadetud

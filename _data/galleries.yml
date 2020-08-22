@@ -2,21 +2,15 @@
   description: Collection of logos for all TTU-Korvpallikool members
   imagefolder: "/img/logos"
   images:
-  - name: ttu.svg
+  - name: ttu.png
     url:  https://www.ttu.ee/sport/korvpall/
     alt: TTÜ Korvpall
   - name: rim.svg
     url:  http://rim.ee/
     alt: Spordiklubi RIM
-  - name: rae.svg
-    url:  http://huvikool.rae.ee/osakonnad/spordiosakond/
-    alt: Rae Spordikool
   - name: tabasalu.svg
     url:  https://www.facebook.com/tabasalupalliklubi/
     alt: Rae Spordikool
-  - name: kiili.svg
-    url:  http://www.kiilispordiklubi.ee/index.php
-    alt: Kiili Spordiklubi
   - name: laagri.svg
     url:  https://www.laagrihuvialakool.ee/
     alt: Laagri Huvialakool
