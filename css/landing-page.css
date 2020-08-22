@@ -14,9 +14,29 @@ h4,
 h5,
 h6 {
     font-family: 'Quattrocento Sans', sans-serif;
-    font-weight: 700;
+    /*font-weight: 700;*/
     
 }
+
+
+h1 {
+
+    font-size: 42pt;
+    font-weight: 700;
+
+}
+
+h2 {
+
+font-weight: 700;
+
+}
+
+h3 {
+    font-weight: 100;
+
+}
+
 a{ 
 
 color: #aa1352 ;
@@ -95,7 +115,7 @@ label {
 
 #custom-nav a:hover {
 
-    color: #ACADAC;
+    color: #dadae4;
     background: none;
   }
 
@@ -121,6 +141,8 @@ label {
 #custom-nav.affix  a {
     color: #aa1352 !important;
 }
+
+
 
 
 /*#custom-nav.affix a {
@@ -159,6 +181,10 @@ label {
 
 }
 
+.navbar-toggle svg {
+
+    fill: #e4067e/* Changes toggle color on hover */
+}
 
 
 svg:hover #lines {
@@ -211,7 +237,7 @@ svg:hover #lines {
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover, .offcanvas a:focus{
-    color: #ACADAC;
+    color: #dadae4;
 }
 
 /* Position and style the close button (top right corner) */
@@ -304,6 +330,7 @@ color: #9B054F !important;
     outline: 0;
     color: #aa1352 !important;
     font-size: 18pt !important;
+    font-weight: 700;
 
 
 }
@@ -352,7 +379,7 @@ background: url(../img/backdrop.png) no-repeat center center;
 
 .lead {
     font-size: 18px;
-    font-weight: 700;
+    
   
 }
 
@@ -361,7 +388,7 @@ background: url(../img/backdrop.png) no-repeat center center;
     margin-top: 0px;
     margin-bottom: 32px;
     max-width: 420px;
-    font-weight: 100;
+    
 }
 
 .intro-header {
@@ -374,6 +401,7 @@ background: url(../img/backdrop.png) no-repeat center center;
     margin-left: 0;
     margin-right: 0;
     height:720px;
+
   
 
 }
@@ -427,8 +455,7 @@ background: url(../img/backdrop.png) no-repeat center center;
 
 .intro-message > h1 {
     margin: 0;
-    
-    font-size: 42pt;
+
 }
 
 /*.intro-divider {
@@ -441,6 +468,7 @@ background: url(../img/backdrop.png) no-repeat center center;
 
 .intro-message > h3 {
     font-size: 24pt;
+
 }
 
 
@@ -454,6 +482,8 @@ background: url(../img/backdrop.png) no-repeat center center;
     height: 100%;
     /*background: url(/img/pattern-basket.svg)š repeat  center center;*/
     color: #5B626D;
+    padding-left: 16px;
+    padding-right: 16px;
     /*box-shadow: 0 -8px 32px 0 rgba(0,0,0,0.40);*/
     
 
@@ -762,6 +792,7 @@ margin: 0px;
 
 .section-heading {
     margin-bottom: 30px;
+    
 }
 
 .section-heading-spacer {
@@ -1107,6 +1138,8 @@ p.copyright {
     width: 100%;
 
     text-align: center;
+    padding-right: 16px;
+    padding-left: 16px;
     padding-top: 16px;
     padding-bottom: 16px;
     margin-bottom: 40px;
