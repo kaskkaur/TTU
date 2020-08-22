@@ -2,8 +2,12 @@
 
 body,
 html {
-    max-width: 100%;
-    overflow-x: hidden;
+    
+ 
+    
+    
+    
+  
 
 }
 
@@ -78,8 +82,9 @@ label {
 
 #wrapper {
 
-    
-   
+        overflow-x: hidden; 
+        
+       
 }
 
 
@@ -663,7 +668,7 @@ background: url(../img/backdrop.png) no-repeat center center;
     width: 100%;
     bottom: 0px;
     top: 0px;
-    margin-top: 40px;
+    margin-top: 16px;
 
     }
     .response {
