@@ -83,7 +83,7 @@ label {
 #wrapper {
 
         overflow-x: hidden; 
-        
+
        
 }
 
@@ -392,7 +392,7 @@ background: url(../img/backdrop.png) no-repeat center center;
 
 
 .subtitle {
-    margin-top: 0px;
+    margin-top: 8px;
     margin-bottom: 32px;
     max-width: 420px;
     
@@ -639,6 +639,15 @@ background: url(../img/backdrop.png) no-repeat center center;
         text-align: center;
     }
 
+    .subtitle {
+
+        text-align: center;
+        display: block;
+        margin-top: 16px;
+    margin-right: auto;
+    margin-left: auto;
+    }
+
     .intro-message > h1 {
         font-size: 32pt;
     }
@@ -659,6 +668,11 @@ background: url(../img/backdrop.png) no-repeat center center;
 
     .intro-divider {
         width: 100%;
+    }
+
+    .locations {
+        margin-right: 16px;
+        margin-left: 0px;
     }
 
 
