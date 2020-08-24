@@ -665,11 +665,11 @@ height: 100%;*/
     }
 
     .intro-message > h1 {
-        font-size: 32pt;
+        font-size: 24pt;
     }
 
     .intro-message > h3 {
-        font-size: 24pt;
+        font-size: 18pt;
     }
 
     ul.intro-social-buttons > li {
@@ -1157,6 +1157,8 @@ margin-bottom: 4px;
 
 
     }
+
+
 
 
 }
