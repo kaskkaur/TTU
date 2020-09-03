@@ -127,6 +127,8 @@ $(document).ready(function() {
         
         //get the message
         var message = $('#message').val();
+
+        var location = $('#location-interest').val();
                     
         //pretend we don't need validation
         
@@ -137,7 +139,8 @@ $(document).ready(function() {
             data:{
                  email:email,
                 message:message,
-                _subject:'Kiri kodulehelt - TTÜ Korvpallikool',
+                location:location,
+                _subject:'Kiri kodulehelt - ' + "" + location,
             },
             dataType:"json",
             success:function() {
