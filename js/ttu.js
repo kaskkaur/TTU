@@ -146,7 +146,7 @@ $(document).ready(function() {
                 location:location,
                 gender: sex,
                 age: age,
-                _subject:'Kiri kodulehelt - ' + " " + location + " " + age + " " + "(" + age + ")",
+                _subject:'Kiri kodulehelt - ' + " " + location + " " + age + " " + "(" + sex + ")",
             },
             dataType:"json",
             success:function() {
