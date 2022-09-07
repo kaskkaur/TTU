@@ -5,7 +5,13 @@ nav-flag: '../img/GB.svg'
 nav-lang: ENG
 phone: '+372 50 250 32'
 choose: 'Choose'
-location-interest-description: 'Location of interest for training'
+location-interest-description: Location of interest for training
+age: Year of birth
+age-missing: Please specify child's year of birth
+sex: Gender
+sex-boy: Boy
+sex-girl: Girl
+previous-experience: Previous basketball practice experience
 title: Basketball practice from child's play to NBA!
 subtitle: For all ages in Tallinn and Harju county
 title-tag: TTÜ Basketball Academy - Basketball practice in Tallinn and Harju county
@@ -18,7 +24,7 @@ logo-title: TTÜ Korvpallikool
 about-heading: Joined forces
 contact-heading: Write us!
 contact-sub: Your basketball journey awaits.
-contact-placeholder: Your message and age of the trainee
+contact-placeholder: Your message
 send-btn: Send
 email-missing: Please enter a working e-mail address
 location-missing: Please choose

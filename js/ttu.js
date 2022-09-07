@@ -129,6 +129,10 @@ $(document).ready(function() {
         var message = $('#message').val();
 
         var location = $('#location-interest').val();
+
+        var sex = $('#sex').val();
+
+        var age = $('#age').val();
                     
         //pretend we don't need validation
         
@@ -140,7 +144,9 @@ $(document).ready(function() {
                  email:email,
                 message:message,
                 location:location,
-                _subject:'Kiri kodulehelt - ' + "" + location,
+                gender: sex,
+                age: age,
+                _subject:'Kiri kodulehelt - ' + " " + location + " " + age + " " + "(" + age + ")",
             },
             dataType:"json",
             success:function() {
@@ -164,38 +170,38 @@ $(document).ready(function() {
 
 //Instafeed
 
-var feed = new Instafeed({
-        get: 'user',
-        tagName: 'awesome',
-        clientId: 'dc9cd3655dfb435aba640fc83f9e3032',
-        accessToken: '6224181906.ba4c844.71caa24df6eb47e3a3079dda30ece7fd',
-        userId: '6224181906',
-        limit: '10',
-        sortBy: 'most-recent',
-        filter: function(image) {
-          var MAX_LENGTH = 70;
+// var feed = new Instafeed({
+//         get: 'user',
+//         tagName: 'awesome',
+//         clientId: 'dc9cd3655dfb435aba640fc83f9e3032',
+//         accessToken: '6224181906.ba4c844.71caa24df6eb47e3a3079dda30ece7fd',
+//         userId: '6224181906',
+//         limit: '10',
+//         sortBy: 'most-recent',
+//         filter: function(image) {
+//           var MAX_LENGTH = 70;
 
-          if (image.caption.text.length >= MAX_LENGTH) {
-            truncate = "..."
+//           if (image.caption.text.length >= MAX_LENGTH) {
+//             truncate = "..."
 
-          } else {
+//           } else {
 
-            truncate = ""
-          }
+//             truncate = ""
+//           }
         
-          if (image.caption && image.caption.text) {
-            image.short_caption = image.caption.text.slice(0, MAX_LENGTH) + truncate;
-          } else {
-            image.short_caption = "";
-          }
+//           if (image.caption && image.caption.text) {
+//             image.short_caption = image.caption.text.slice(0, MAX_LENGTH) + truncate;
+//           } else {
+//             image.short_caption = "";
+//           }
 
-          return true;
-        },
-        template: '<div class="instapic-box"><a target="_blank" href="{{link}}"><img class="instapic" src="{{image}}"/><div class="overlay"><div class="text">{{model.short_caption}}</div></div></div></a>',
-        resolution: "standard_resolution"
+//           return true;
+//         },
+//         template: '<div class="instapic-box"><a target="_blank" href="{{link}}"><img class="instapic" src="{{image}}"/><div class="overlay"><div class="text">{{model.short_caption}}</div></div></div></a>',
+//         resolution: "standard_resolution"
         
-    });
-    feed.run();
+//     });
+//     feed.run();
 
 
 

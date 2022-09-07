@@ -52,6 +52,42 @@
 														</div>
 
 
+
+														<div class="row">
+				                    						<div class="col-lg-6 form-group forminput">
+
+				                    							 <label for="age">{{site.data.content.age}}</label>
+													    <select class="form-control" id="age" name="Age" placeholder="{{site.data.content.choose}}" required oninvalid="this.setCustomValidity('{{site.data.content.age-missing}}')" oninput="setCustomValidity('')">
+
+
+													      <option value="" selected disabled>{{site.data.content.choose}}</option>
+													      {% for age in site.ages %}
+													      <option>{{age.name}}</option>
+													      {% endfor %}
+													    </select>
+
+
+														</div>
+
+																<div class="col-lg-6 form-group forminput">
+
+				                    							 <label for="sex">{{site.data.content.sex}}</label>
+													    <select class="form-control" id="sex" name="Gender" placeholder="{{site.data.content.choose}}" required oninvalid="this.setCustomValidity('{{site.data.content.sex-missing}}')" oninput="setCustomValidity('')">
+
+
+													      <option value="" selected disabled>{{site.data.content.choose}}</option>
+													      
+													      <option>{{site.data.content.sex-boy}}</option>
+													      <option>{{site.data.content.sex-girl}}</option>
+													      
+													    </select>
+
+
+														</div>
+
+														</div>
+													
+
 												<hr class="separator">
 
 
