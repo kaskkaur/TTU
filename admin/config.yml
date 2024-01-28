@@ -1,0 +1,267 @@
+backend:
+  name: git-gateway
+  branch: main # or your default branch
+
+media_folder: "/img" # Path to the media folder relative to your site root
+public_folder: "/img" # Public path for media files
+
+collections:
+  - name: "ee_content" # Unique identifier for the collection
+    label: "EE Content" # Friendly name for the collection
+    files:
+      - name: "ee_content"
+        label: "Estonian Site Content"
+        file: "_data/ee/content.yml"
+        fields:
+          - { label: "About Nav", name: "nav-about", widget: "string" }
+          - { label: "Contact Nav", name: "nav-contact", widget: "string" }
+          - {
+              label: "Contact Button Nav",
+              name: "nav-contactbutton",
+              widget: "string",
+            }
+          - { label: "Flag Nav", name: "nav-flag", widget: "image" }
+          - { label: "Language Nav", name: "nav-lang", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Choose", name: "choose", widget: "string" }
+          - {
+              label: "Location Interest Description",
+              name: "location-interest-description",
+              widget: "string",
+            }
+          - { label: "Age", name: "age", widget: "string" }
+          - { label: "Age Missing", name: "age-missing", widget: "string" }
+          - { label: "Sex", name: "sex", widget: "string" }
+          - { label: "Sex Boy", name: "sex-boy", widget: "string" }
+          - { label: "Sex Girl", name: "sex-girl", widget: "string" }
+          - {
+              label: "Previous Experience",
+              name: "previous-experience",
+              widget: "string",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Title Tag", name: "title-tag", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "About", name: "about", widget: "text" }
+          - { label: "Logo Title", name: "logo-title", widget: "string" }
+          - { label: "About Heading", name: "about-heading", widget: "string" }
+          - {
+              label: "Contact Heading",
+              name: "contact-heading",
+              widget: "string",
+            }
+          - { label: "Contact Subtitle", name: "contact-sub", widget: "string" }
+          - {
+              label: "Contact Placeholder",
+              name: "contact-placeholder",
+              widget: "string",
+            }
+          - { label: "Send Button", name: "send-btn", widget: "string" }
+          - { label: "Email Missing", name: "email-missing", widget: "string" }
+          - {
+              label: "Location Missing",
+              name: "location-missing",
+              widget: "string",
+            }
+          - {
+              label: "Message Missing",
+              name: "message-missing",
+              widget: "string",
+            }
+          - { label: "Error Message", name: "error", widget: "string" }
+          - { label: "Success Message", name: "success", widget: "string" }
+          - { label: "Copyright", name: "copyright", widget: "string" }
+
+  - name: "en_content" # Unique identifier for the English collection
+    label: "EN Content" # Friendly name for the English collection
+    files:
+      - name: "en_content"
+        label: "English Site Content"
+        file: "_data/en/content.yml"
+        fields:
+          - { label: "About Nav", name: "nav-about", widget: "string" }
+          - { label: "Contact Nav", name: "nav-contact", widget: "string" }
+          - {
+              label: "Contact Button Nav",
+              name: "nav-contactbutton",
+              widget: "string",
+            }
+          - { label: "Flag Nav", name: "nav-flag", widget: "image" }
+          - { label: "Language Nav", name: "nav-lang", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Choose", name: "choose", widget: "string" }
+          - {
+              label: "Location Interest Description",
+              name: "location-interest-description",
+              widget: "string",
+            }
+          - { label: "Age", name: "age", widget: "string" }
+          - { label: "Age Missing", name: "age-missing", widget: "string" }
+          - { label: "Sex", name: "sex", widget: "string" }
+          - { label: "Sex Boy", name: "sex-boy", widget: "string" }
+          - { label: "Sex Girl", name: "sex-girl", widget: "string" }
+          - {
+              label: "Previous Experience",
+              name: "previous-experience",
+              widget: "string",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Title Tag", name: "title-tag", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "About", name: "about", widget: "text" }
+          - { label: "Logo Title", name: "logo-title", widget: "string" }
+          - { label: "About Heading", name: "about-heading", widget: "string" }
+          - {
+              label: "Contact Heading",
+              name: "contact-heading",
+              widget: "string",
+            }
+          - { label: "Contact Subtitle", name: "contact-sub", widget: "string" }
+          - {
+              label: "Contact Placeholder",
+              name: "contact-placeholder",
+              widget: "string",
+            }
+          - { label: "Send Button", name: "send-btn", widget: "string" }
+          - { label: "Email Missing", name: "email-missing", widget: "string" }
+          - {
+              label: "Location Missing",
+              name: "location-missing",
+              widget: "string",
+            }
+          - {
+              label: "Message Missing",
+              name: "message-missing",
+              widget: "string",
+            }
+          - { label: "Error Message", name: "error", widget: "string" }
+          - { label: "Success Message", name: "success", widget: "string" }
+          - { label: "Copyright", name: "copyright", widget: "string" }
+
+  - name: "ru_content" # Unique identifier for the Russian collection
+    label: "RU Content" # Friendly name for the Russian collection
+    files:
+      - name: "ru_content"
+        label: "Russian Site Content"
+        file: "_data/ru/content.yml"
+        fields:
+          - { label: "About Nav", name: "nav-about", widget: "string" }
+          - { label: "Contact Nav", name: "nav-contact", widget: "string" }
+          - {
+              label: "Contact Button Nav",
+              name: "nav-contactbutton",
+              widget: "string",
+            }
+          - { label: "Flag Nav", name: "nav-flag", widget: "image" }
+          - { label: "Language Nav", name: "nav-lang", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Choose", name: "choose", widget: "string" }
+          - {
+              label: "Location Interest Description",
+              name: "location-interest-description",
+              widget: "string",
+            }
+          - { label: "Age", name: "age", widget: "string" }
+          - { label: "Age Missing", name: "age-missing", widget: "string" }
+          - { label: "Sex", name: "sex", widget: "string" }
+          - { label: "Sex Boy", name: "sex-boy", widget: "string" }
+          - { label: "Sex Girl", name: "sex-girl", widget: "string" }
+          - {
+              label: "Previous Experience",
+              name: "previous-experience",
+              widget: "string",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Title Tag", name: "title-tag", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "About", name: "about", widget: "text" }
+          - { label: "Logo Title", name: "logo-title", widget: "string" }
+          - { label: "About Heading", name: "about-heading", widget: "string" }
+          - {
+              label: "Contact Heading",
+              name: "contact-heading",
+              widget: "string",
+            }
+          - { label: "Contact Subtitle", name: "contact-sub", widget: "string" }
+          - {
+              label: "Contact Placeholder",
+              name: "contact-placeholder",
+              widget: "string",
+            }
+          - { label: "Send Button", name: "send-btn", widget: "string" }
+          - { label: "Email Missing", name: "email-missing", widget: "string" }
+          - {
+              label: "Location Missing",
+              name: "location-missing",
+              widget: "string",
+            }
+          - {
+              label: "Message Missing",
+              name: "message-missing",
+              widget: "string",
+            }
+          - { label: "Error Message", name: "error", widget: "string" }
+          - { label: "Success Message", name: "success", widget: "string" }
+          - { label: "Copyright", name: "copyright", widget: "string" }
+  - name: "galleries" # Unique identifier for the collection
+    label: "Logos and sponsors" # Friendly name for the collection
+    files:
+      - name: "galleries"
+        label: "Galleries"
+        file: "_data/galleries.yml"
+        fields:
+          - label: "Logos"
+            name: "logos"
+            widget: "object"
+            fields:
+              - { label: "Description", name: "description", widget: "string" }
+              - label: "Image Folder"
+                name: "imagefolder"
+                widget: "hidden"
+                default: "/img/logos"
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+          - label: "Sponsors"
+            name: "sponsors"
+            widget: "object"
+            fields:
+              - { label: "Description", name: "description", widget: "string" }
+              - label: "Image Folder"
+                name: "imagefolder"
+                widget: "hidden"
+                default: "/img/sponsors"
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+
+  - name: "posts" # Unique identifier for the posts collection
+    label: "Posts" # Friendly name for the collection
+    folder: "_posts"
+    create: true # Allow users to create new posts in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template for new posts
+    fields:
+      - {
+          label: "Layout",
+          name: "layout",
+          widget: "string",
+          default: "default",
+        }
+      - { label: "Image", name: "img", widget: "image" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Language", name: "lang", widget: "string" }
+      - { label: "Alt Text", name: "alt", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
