@@ -2,12 +2,7 @@
 
 body,
 html {
-    
- 
-    
-    
-    
-  
+
 
 }
 
@@ -90,7 +85,7 @@ label {
 
 
 #custom-nav {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: #ffffff;
     border: 0;
     box-shadow: none;
     z-index: 1000;
@@ -105,7 +100,7 @@ label {
 
 #custom-nav a {
 
-    color: #ffffff;
+    color: #9B054F;
     font-weight: bold;
     transition: color .5s ease-in-out, opacity .5s ease;
     text-decoration: none;
@@ -122,14 +117,13 @@ label {
 
 #custom-nav a:hover {
 
-    color: #dadae4;
+    color: #aa1352;
     background: none;
   }
 
 
 #custom-nav .container {
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding-top: 8px;
     -webkit-transition: padding-top .5s ease, padding-bottom .5s ease;
     -moz-transition: padding-top .5s ease, padding-bottom .5s ease;
     transition: padding-top .5s ease, padding-top .5s ease, padding-bottom .5s ease;
@@ -418,7 +412,7 @@ background: url(../img/backdrop.png) no-repeat center center;
 #video {
 
   /*color: #f8f8f8;*/
-  /*padding-top: 100px*/; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+  /*padding-top: 100px*/ /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
   /*padding-bottom: 50px;*/
   position: absolute;
   top: 50%;
@@ -434,7 +428,6 @@ background: url(../img/backdrop.png) no-repeat center center;
   background-size: cover;
   min-width: 100%;
   min-height: 100%;
-
 
 }
 
@@ -558,7 +551,7 @@ background: url(../img/backdrop.png) no-repeat center center;
 
 }
 
-}
+
 
 /*.logos {
 
@@ -832,7 +825,7 @@ margin: 0px;
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
     background-color: #f8f8f8;
-    margin-top: 24px;
+    
 
 }
 
@@ -1073,6 +1066,29 @@ margin: 0px;
 
 }
 
+
+.btn-ttu-inverse{
+
+    background: #ffffff;
+    padding: 8px 16px;
+    /*margin-top: 4px;
+    margin-left: 16px;*/
+    border: 2px solid #ececec;
+    height: 40px;
+    min-width: 104px;
+    border-radius: 4px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    outline: 0;
+    font-weight: bold;
+    color: #AA1352;
+
+
+}
+
 .response img {
 
 /*background: url(../img/success.svg) no-repeat center center;
@@ -1224,10 +1240,87 @@ p.copyright {
 
    
 }
+
 .logos a {
 
     text-decoration:none;
     
+}
+
+.spordiklass {
+    padding-bottom: 48px;
+    background-color: #AA1352;
+    color: white;
+    
+}
+
+.spordiklass-content {
+    color: white;
+    margin-top: 48px;
+}
+
+.spordiklass-content p {
+
+    color: white;
+}
+
+.spordiklass-content a {
+    color: white;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+#btn-spordiklass {
+
+    color:#9B054F;
+}
+
+
+.spordiklass-section-title {
+
+    margin-bottom: 48px;
+    margin-left: 16px;
+    margin-right: 16px;
+
+}
+
+.spordiklass-content-section {
+
+
+    margin-bottom: 48px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+
+.hero-section {
+
+    margin-top: 120px;
+    margin-bottom: 48px;
+    margin-left: 16px;
+    margin-right: 16px;
+
+}
+
+.hero-titles {
+
+    margin-bottom: 48px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.spordiklass-section-title-info {
+
+    color:#9F1053;
+    
+    margin-right: 16px;
+}
+
+.spordiklass-subtitle {
+
+    color: #9F1053;
+    margin-left: 16px;
+    margin-right: 16px;
 }
 
 

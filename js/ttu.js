@@ -19,7 +19,7 @@ $(function() {
 //Top navigation fadeIn-Out effect
 
 
-$(window).scroll(function() {
+/* $(window).scroll(function() {
     if ($(".navbar").offset().top > 50) {
 
         $('#custom-nav').addClass('affix');
@@ -29,7 +29,7 @@ $(window).scroll(function() {
         $('#custom-nav').removeClass('affix');
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
     }   
-});
+}); */
 
 
 

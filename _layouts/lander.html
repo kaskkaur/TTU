@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	{% include head.html %}
+    {% include navbar.html %}
+	<body>
+
+        
+      
+        <div id="wrapper" class="container spordiklass-container">
+          <!-- Hero Section -->
+          <div class="row">
+            <div class="col-12">
+              <div class="hero-section text-center">
+                <div class="hero-titles">
+                    <h1 class="spordiklass-title">{{ site.data.content.spordiklass_title }}</h1>
+                    <h2 class="spordiklass-subtitle">{{ site.data.content.spordiklass_subtitle }}</h2>
+                </div>
+                
+                <img class="hero-image" src= "/img/overlay.jpg" alt="overlay" width="100%" height="100%">
+              </div>
+              
+            </div>
+          </div>
+      
+          <!-- Main Content Section -->
+          <div class="row my-4">
+            <div class="col-12">
+
+                <h2 class="spordiklass-section-title">{{ site.data.content.spordiklass_section_title_1 }}</h2>
+
+            <div class="spordiklass-content-section">
+                <h3>{{ site.data.content.spordiklass_section_subtitle_1 }}</h3>
+              <p class="lead">{{ site.data.content.spordiklass_section_content_1 }}</p>
+            </div>
+
+            <div class="spordiklass-content-section">
+                <h3>{{ site.data.content.spordiklass_section_subtitle_2 }}</h3>
+                <p class= "lead">{{ site.data.content.spordiklass_section_content_2 }}</p>
+            </div>
+
+            <div class="spordiklass-content-section">
+                <h3>{{ site.data.content.spordiklass_section_subtitle_3 }}</h3>
+              <p class="lead">{{ site.data.content.spordiklass_section_content_3 }}</p>
+            </div>
+            
+            
+            
+             
+              
+            </div>
+          </div>
+          
+      
+          <!-- Additional sections can be added here -->
+
+
+          <div class="row">
+            <div class="col-12">
+            
+            <div class="spordiklass-content-section">
+              <h3 class="spordiklass-section-title-info">{{ site.data.content.spordiklass_section_title_info }}</h3>
+              <p class="lead">{{ site.data.content.spordiklass_section_content_info }}</p>
+                 <a class="lead" href="mailto:info@ttukorvpallikool.ee">info@ttukorvpallikool.ee</a>
+            </div>
+            </div>
+
+            <div class="col-lg-6">
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/tDisYSObiZw?si=wovH02kFCR1sG5KK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+            </div>
+          </div>
+      
+          
+          
+        </div>
+        {% include footer.html %}
+        {% include js.html %} <!-- Make sure Bootstrap JS and its dependencies are included here -->
+      </body>
+
+</html>

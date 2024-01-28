@@ -33,3 +33,19 @@ message-missing: Please enter your message :)
 error: Something went wrong, please try again.
 success: Message sent
 copyright: Copyright &copy; 2017 TTÜ Korvpallikool. All rights reserved.
+spordiklass-title: TTÜ Basketball School Sports Class
+spordiklass-content: TTÜ Basketball School, in collaboration with <a href="https://murg.ee/" target="_blank">Mustamäe State Gymnasium</a>, offers the opportunity for training and studying in a sports class. <br> <br> Nowadays, it is increasingly important to acquire a balanced education combined with modern training, where significant emphasis is on the mental aspect and consideration of workloads. <br> <br> By spreading the gymnasium education over 4 years, it is possible to obtain a quality secondary education and be on a sure path in your athletic career.
+spordiklass-url: https://murg.ee/
+spordiklass-btn-readmore: Learn more
+spordiklass-btn-contact: Contact
+spordiklass_title: "Sports Class"
+spordiklass_subtitle: "TTÜ Basketball School x Mustamäe State Gymnasium"
+spordiklass_section_title_1: "TTÜ Basketball School in collaboration with Mustamäe State Gymnasium offers the opportunity for training and studying in a sports class at the gymnasium level"
+spordiklass_section_subtitle_1: "Full secondary education and maximum support for an athletic career"
+spordiklass_section_content_1: "Nowadays, it is increasingly important to acquire a balanced education combined with modern training, where significant emphasis is on the mental aspect and consideration of workloads. <br> By spreading the gymnasium education program over 4 years, it is possible to obtain a quality secondary education and be on a sure path in your athletic career. <br> We plan students' future sports careers and engage in sports analysis. Competitive platforms include, for example, Youth Leagues, EYBL/EGBL, Men's and Women's leagues, and international tournaments."
+spordiklass_section_subtitle_2: "Training"
+spordiklass_section_content_2: "Training sessions are held twice a day, with individual training in the morning. <br> Students have access to various supporting forces, including the head coach, general physical preparation coach, physiotherapy support, sports psychology, and mentoring."
+spordiklass_section_subtitle_3: "Accommodation and support"
+spordiklass_section_content_3: "If necessary, student-athletes are provided with accommodation in a dormitory and breakfast and lunch at school. For students living in the dormitory, dinner is also provided. Sports equipment - shoes, clothing, and other necessities - are also provided."
+spordiklass_section_title_info: "Additional information and admission"
+spordiklass_section_content_info: "If interested or for additional questions, contact the TTÜ Basketball School"
