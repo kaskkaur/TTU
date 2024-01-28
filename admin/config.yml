@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main # or your default branch
+  branch: master # or your default branch
 
 media_folder: "/img" # Path to the media folder relative to your site root
 public_folder: "/img" # Public path for media files
