@@ -48,3 +48,46 @@ spordiklass_section_content_info: "При интересе или дополни
 nav-spordiklass: Спортивный класс
 spordiklass_section_content_infotund: Присоединяйтесь к информационному часу Спортивного класса на 24/25 учебный год в Гимназии Мустамяэ. <a class="lead" href="https://murg.ee/uudis/2024-01/2024-aastal-avatava-spordiklassi-infotund-toimub-15-veebruaril">Узнать больше здесь.</a>
 timetable: Расписание
+nav-sporditeraapia: Спортивная терапия
+sporditeraapia-title: Кабинет спортивной терапии ТТУ
+sporditeraapia-intro: Баскетбольная школа ТТУ открыла кабинет спортивной терапии для поддержки восстановления и развития молодых баскетболистов.
+sporditeraapia-btn-readmore: Узнать подробнее
+sporditeraapia-btn-contact: Связаться
+sporditeraapia_title: "Кабинет спортивной терапии в Баскетбольной школе ТТУ"
+sporditeraapia_subtitle: "Профессиональная поддержка восстановления для наших молодых баскетболистов"
+sporditeraapia_section_intro: "Баскетбольная школа ТТУ с удовольствием объявляет об открытии кабинета спортивной терапии, созданного для поддержки восстановления и развития наших молодых баскетболистов."
+sporditeraapia_section_subtitle: "Доступные услуги"
+sporditeraapia_section_content: "Кабинет спортивной терапии предоставляет профессиональную помощь в управлении мышечным напряжением, профилактике травм и реабилитации. Мы используем современные методы реабилитации и мanuальной терапии, чтобы помочь спортсменам восстановиться быстрее и достичь своего полного потенциала на тренировках и соревнованиях."
+sporditeraapia_section_services: "Услуги включают:"
+sporditeraapia_service_1: "Уход за мышцами и массаж"
+sporditeraapia_service_2: "Реабилитация спортивных травм"
+sporditeraapia_service_3: "Восстановление подвижности суставов и мышц"
+sporditeraapia_service_4: "Восстановление после тренировки"
+sporditeraapia_service_5: "Индивидуальные консультации и профилактические программы"
+sporditeraapia_section_note: "Кабинет спортивной терапии предназначен только для спортсменов Баскетбольной школы ТТУ."
+sporditeraapia_location: "Зал спорта Кристийне, комната 202"
+sporditeraapia_booking: "https://broneerimine.timma.ee/ttukorvpallikool202"
+sporditeraapia_contact_name: "Henriette Porila"
+sporditeraapia_contact_phone: "+372 5022112"
+sporditeraapia_contact_email: "202@ttukorvpallikool.ee"
+sporditeraapia_closing: "Приди и позаботься о своем теле – сильный и здоровый спортсмен – это успешный спортсмен!"
+
+nav-sporditeraapia: Спортивная терапия
+sporditeraapia_title: "Кабинет спортивной терапии в Баскетбольной школе ТТУ"
+sporditeraapia_subtitle: "Профессиональная поддержка восстановления для наших молодых баскетболистов"
+sporditeraapia_section_intro: "Баскетбольная школа ТТУ с удовольствием объявляет об открытии кабинета спортивной терапии, созданного для поддержки восстановления и развития наших молодых баскетболистов."
+sporditeraapia_section_content: "Кабинет спортивной терапии предоставляет профессиональную помощь в управлении мышечным напряжением, профилактике травм и реабилитации. Мы используем современные методы реабилитации и мануальной терапии, чтобы помочь спортсменам восстановиться быстрее и достичь своего полного потенциала на тренировках и соревнованиях."
+sporditeraapia_section_services: "Услуги включают:"
+sporditeraapia_service_1: "Уход за мышцами и массаж"
+sporditeraapia_service_2: "Реабилитация спортивных травм"
+sporditeraapia_service_3: "Восстановление подвижности суставов и мышц"
+sporditeraapia_service_4: "Восстановление после тренировки"
+sporditeraapia_service_5: "Индивидуальные консультации и профилактические программы"
+sporditeraapia_section_note: "Кабинет спортивной терапии предназначен только для спортсменов Баскетбольной школы ТТУ."
+sporditeraapia_location: "Зал спорта Кристийне, комната 202"
+sporditeraapia_booking: "https://broneerimine.timma.ee/ttukorvpallikool202"
+sporditeraapia_contact_name: "Henriette Porila"
+sporditeraapia_contact_phone: "+372 5022112"
+sporditeraapia_contact_email: "202@ttukorvpallikool.ee"
+sporditeraapia_closing: "Приди и позаботься о своем теле – сильный и здоровый спортсмен – это успешный спортсмен!"
+

@@ -1335,6 +1335,19 @@ p.copyright {
 
 
 
+
 .spordiklass-container {
     padding-bottom: 80px;
+}
+
+
+.spordiklass-outro {
+    color: #9B054F;
+    padding-bottom: 60px;
+}
+
+.caption {
+
+    color: #757575;
+    
 }

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	{% include head.html %}
+    {% include navbar.html %}
+	<body>
+
+        
+      
+        <div id="wrapper" class="container sporditeraapia-container">
+          <!-- Hero Section -->
+          <div class="row">
+            <div class="col-12">
+              <div class="hero-section text-center">
+                <div class="hero-titles">
+                    <h1 class="sporditeraapia-title">{{ site.data.content.sporditeraapia_title }}</h1>
+                    <h2 class="spordiklass-subtitle">{{ site.data.content.sporditeraapia_subtitle }}</h2>
+                </div>
+                
+                <img class="hero-image" src= "/img/sporditeraapia-header.jpg" alt="overlay" width="100%" height="100%">
+              </div>
+              
+            </div>
+          </div>
+      
+          <!-- Main Content Section -->
+          <div class="row my-4">
+            <div class="col-12">
+
+                
+
+            <div class="sporditeraapia-content-section">
+                <h2>{{ site.data.content.sporditeraapia_section_subtitle }}</h3>
+              <p class="lead">{{ site.data.content.sporditeraapia_section_content }}</p>
+            </div>
+
+            <div class="sporditeraapia-content-section">
+                
+                <ul class="lead">
+                  <li>{{ site.data.content.sporditeraapia_service_1 }}</li>
+                  <li>{{ site.data.content.sporditeraapia_service_2 }}</li>
+                  <li>{{ site.data.content.sporditeraapia_service_3 }}</li>
+                  <li>{{ site.data.content.sporditeraapia_service_4 }}</li>
+                  <li>{{ site.data.content.sporditeraapia_service_5 }}</li>
+                </ul>
+            </div>
+
+           
+            
+            
+            
+             
+              
+            </div>
+          </div>
+          
+      
+          <!-- Contact Info Section -->
+          <div class="row">
+            <div class="col-12">
+            
+            <div class="sporditeraapia-content-section">
+              <h2 class="sporditeraapia-section-title-info">Kontakt</h2>
+              
+            <p class="lead"><strong>Asukoht:</strong> <a href="https://maps.app.goo.gl/EyWRhgwFc7v85Gga8" target="_blank" rel="noopener noreferrer">{{ site.data.content.sporditeraapia_location }}</a></p>
+              <p class="lead"><strong>Broneerimine:</strong> <a href="{{ site.data.content.sporditeraapia_booking }}">{{ site.data.content.sporditeraapia_booking }}</a></p>
+              <p class="lead"><strong></strong> {{ site.data.content.sporditeraapia_contact_name }} <br> {{ site.data.content.sporditeraapia_contact_phone }} <br> <a href="mailto:{{ site.data.content.sporditeraapia_contact_email }}">{{ site.data.content.sporditeraapia_contact_email }}</a></p>
+              
+              <br>
+              <div class="spordiklass-outro">
+              <h3 class="">{{ site.data.content.sporditeraapia_closing }}</h3>
+              <p class="lead caption">ℹ️ {{ site.data.content.sporditeraapia_section_note }}</p>
+            </div>
+            </div>
+             
+                
+            
+            </div>
+          </div>
+      
+          
+          
+        </div>
+        {% include footer.html %}
+        {% include js.html %} <!-- Make sure Bootstrap JS and its dependencies are included here -->
+      </body>
+
+</html>
