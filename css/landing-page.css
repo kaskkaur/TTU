@@ -223,13 +223,27 @@ svg:hover #lines {
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.2s; /* 0.5 second transition effect to slide in the sidenav */
     white-space: nowrap;
+    display: flex;
+    flex-direction: column;
     
-    
+}
+
+/* Sidenav links section */
+.sidenav-links {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Sidenav languages section at the bottom */
+.sidenav-languages {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: auto;
 }
 
 /* The navigation menu links */
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 16px 8px 16px 32px;
     text-decoration: none;
     font-size: 25px;
     color: white;
