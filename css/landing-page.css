@@ -1308,6 +1308,12 @@ p.copyright {
 
 }
 
+.sporditeraapia-section-title {
+    margin-bottom: 48px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
 .spordiklass-content-section {
 
 
@@ -1316,6 +1322,11 @@ p.copyright {
     margin-right: 16px;
 }
 
+.sporditeraapia-content-section {
+    margin-bottom: 48px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
 
 .hero-section {
 
@@ -1354,6 +1365,9 @@ p.copyright {
     padding-bottom: 80px;
 }
 
+.sporditeraapia-container {
+    padding-bottom: 80px;
+}
 
 .spordiklass-outro {
     color: #9B054F;
@@ -1364,4 +1378,11 @@ p.copyright {
 
     color: #757575;
     
+}
+
+@media(max-width:767px) {
+    .sporditeraapia-container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 }
