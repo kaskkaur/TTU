@@ -1148,8 +1148,10 @@ a.btn-ttu:focus {
     font-weight: bold;
     color: #AA1352;
     font-size: 16pt;
-
-
+    display: inline-block;
+    z-index: 10;
+    position: relative;
+    pointer-events: auto;
 }
 
 .response img {
@@ -1341,6 +1343,7 @@ p.copyright {
 #btn-spordiklass {
 
     color:#9B054F;
+    margin-bottom: 24px;
 }
 
 
