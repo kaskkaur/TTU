@@ -165,6 +165,34 @@ $(document).ready(function() {
         
     });
 
+        $(document).ready(function() {
+
+            // Load hero video only on desktop/non-touch devices to save mobile bandwidth
+            function loadHeroVideoIfDesktop() {
+                var isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+                if (window.innerWidth >= 768 && !isTouch) {
+                    var video = document.getElementById('video');
+                    if (video) {
+                        var sources = video.querySelectorAll('source[data-src]');
+                        Array.prototype.forEach.call(sources, function(s) { s.src = s.getAttribute('data-src'); });
+                        try {
+                            video.load();
+                            var p = video.play();
+                            if (p && typeof p.then === 'function') { p.catch(function(){}); }
+                        } catch (err) {
+                            // ignore play/load errors (autoplay restrictions)
+                        }
+                    }
+                }
+            }
+
+            loadHeroVideoIfDesktop();
+
+            setTimeout(endLoad, 1000);
+            function endLoad() {
+               $(".page-loader").fadeOut("300");
+            }
+        });
 });
 
 
