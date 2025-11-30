@@ -40,12 +40,14 @@ function openNav() {
     slide = document.getElementById("mySidenav")
     slide.style.width = "250px";
     $( "#custom-nav" ).hide();
+    document.getElementById("sidenavOverlay").classList.add("active");
 }
 
 /* Set the width of the side navigation to 0 */
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     $( "#custom-nav" ).show();
+    document.getElementById("sidenavOverlay").classList.remove("active");
 }
 
 
