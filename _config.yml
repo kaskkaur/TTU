@@ -29,10 +29,6 @@ locations:
   
 
 ages:
-  - name: 2004
-  - name: 2005
-  - name: 2006
-  - name: 2007
   - name: 2008
   - name: 2009
   - name: 2010
@@ -42,6 +38,12 @@ ages:
   - name: 2014
   - name: 2015
   - name: 2016
+  - name: 2017
+  - name: 2018
+  - name: 2019
+  - name: 2020
+  - name: 2021
+  - name: 2022
 
 
   
