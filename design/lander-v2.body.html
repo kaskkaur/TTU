@@ -1,0 +1,638 @@
+<title>Esimesest Põrkest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Chivo:wght@700;800;900&display=swap">
+<style>
+/* ============================================================
+   TTÜ KORVPALLIKOOL — LANDER MOCKUP v2
+   Iteration on v1. Same token system; the composition changed.
+
+   What moved and why:
+   1. The video is now the hero, not its wallpaper. v1 buried the
+      footage under a scrim to make type legible. v2 lets the
+      footage run clean and sets the words on a solid plum plate
+      that overlaps it — hard edge, no gradient over the picture.
+   2. Location numbering (01-10) is gone. It implied a sequence
+      that does not exist. Each place now carries the thing a
+      parent actually needs: which ages train there.
+   3. The programme column is one consistent unit (age range),
+      not an age, a school stage and a scope.
+   4. Three facts instead of four. "1 klubi" was filler.
+   ============================================================ */
+:root{
+  --magenta:   #E4067E;
+  --magenta-d: #C10569;
+  --plum-900:  #33061C;
+  --plum-800:  #4C0A2A;
+  --plum-700:  #8E0F4A;
+
+  --ink:       #17090F;
+  --ink-2:     #43333A;
+  --muted:     #6E5C64;
+  --paper:     #FFFFFF;
+  --paper-2:   #F6F2F4;
+  --line:      #E4DADE;
+  --line-str:  #C9B9C0;
+
+  --bg:        var(--paper);
+  --bg-alt:    var(--paper-2);
+  --fg:        var(--ink);
+  --fg-2:      var(--ink-2);
+  --fg-mut:    var(--muted);
+  --rule:      var(--line);
+  --rule-str:  var(--line-str);
+  --field:     #FFFFFF;
+  --field-bd:  var(--line-str);
+
+  --display: "Chivo", "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --body:    "Archivo", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --fs-hero:  clamp(2.6rem, 6.4vw, 6.2rem);
+  --fs-h2:    clamp(1.9rem, 4.2vw, 3.25rem);
+  --fs-h3:    clamp(1.15rem, 1.9vw, 1.5rem);
+  --fs-lead:  clamp(1.05rem, 1.5vw, 1.3rem);
+  --fs-body:  1.0625rem;
+  --fs-sm:    0.9rem;
+  --fs-label: 0.72rem;
+
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px;
+  --s6:32px; --s7:48px; --s8:64px; --s9:96px;
+
+  --measure: 62ch;
+  --gutter: clamp(20px, 5vw, 72px);
+  --maxw: 1280px;
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#140A0F; --bg-alt:#1E1016; --fg:#F7F1F3; --fg-2:#D9C9D0; --fg-mut:#A38F98;
+    --rule:#33222A; --rule-str:#4C3540; --field:#1E1016; --field-bd:#4C3540;
+    --magenta:#FF3D9A; --magenta-d:#FF6BB0;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#140A0F; --bg-alt:#1E1016; --fg:#F7F1F3; --fg-2:#D9C9D0; --fg-mut:#A38F98;
+  --rule:#33222A; --rule-str:#4C3540; --field:#1E1016; --field-bd:#4C3540;
+  --magenta:#FF3D9A; --magenta-d:#FF6BB0;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:var(--body); font-size:var(--fs-body); line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{margin:0; text-wrap:balance; font-family:var(--display); line-height:0.95; letter-spacing:-0.03em}
+p{margin:0}
+a{color:inherit}
+img,video{display:block; max-width:100%}
+
+.label{
+  font-family:var(--body); font-size:var(--fs-label); font-weight:600;
+  letter-spacing:0.14em; text-transform:uppercase; color:var(--fg-mut);
+}
+:where(a,button,select,input,textarea):focus-visible{
+  outline:2px solid var(--magenta); outline-offset:2px; border-radius:2px;
+}
+
+/* ---------------- nav ---------------- */
+.nav{
+  position:sticky; top:0; z-index:60;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(12px); border-bottom:1px solid var(--rule);
+}
+.nav-in{max-width:var(--maxw); margin-inline:auto; padding:var(--s3) var(--gutter);
+  display:flex; align-items:center; gap:var(--s5)}
+.brand{display:flex; align-items:center; gap:var(--s3); text-decoration:none; font-weight:700; letter-spacing:-0.01em}
+.brand-mark{width:30px;height:30px;border-radius:50%;flex:none;background:var(--magenta);display:grid;place-items:center}
+.brand-mark svg{width:18px;height:18px;display:block}
+.nav-links{display:flex; gap:var(--s5); margin-left:auto; align-items:center}
+.nav-links a{text-decoration:none; font-size:var(--fs-sm); font-weight:500; color:var(--fg-2);
+  padding:var(--s2) 0; border-bottom:2px solid transparent}
+.nav-links a:hover{color:var(--fg); border-bottom-color:var(--magenta)}
+.lang{display:flex; gap:var(--s1); align-items:center; font-size:var(--fs-sm)}
+.lang a{text-decoration:none; padding:var(--s1) var(--s2); color:var(--fg-mut); font-weight:600; border-radius:2px}
+.lang a[aria-current="true"]{color:var(--fg); background:var(--bg-alt)}
+.nav-toggle{display:none}
+
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:var(--s2);
+  font-family:var(--body); font-weight:600; font-size:var(--fs-sm);
+  padding:var(--s3) var(--s5); border:1px solid transparent; border-radius:2px;
+  text-decoration:none; cursor:pointer; white-space:nowrap;
+  transition:background .15s ease,color .15s ease,border-color .15s ease,transform .08s ease}
+.btn-primary{background:var(--magenta); color:#fff}
+.btn-primary:hover{background:var(--magenta-d)}
+.btn-primary:active{transform:scale(.985)}
+.btn-ghost{border-color:var(--rule-str); color:var(--fg)}
+.btn-ghost:hover{border-color:var(--fg); background:var(--bg-alt)}
+.btn-lg{font-size:1rem; padding:var(--s4) var(--s6)}
+
+/* ============================================================
+   HERO — footage runs clean; type sits on a solid plate over it
+   ============================================================ */
+.hero{position:relative; background:var(--plum-900)}
+.hero-stage{
+  position:relative; overflow:hidden;
+  min-height:clamp(460px, 68vh, 720px);
+  isolation:isolate;
+}
+.hero-stage canvas,.hero-stage video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.hero-stage video{opacity:0; transition:opacity 1s ease}
+.hero-stage video.is-live{opacity:1}
+/* Only a light bottom lift for edge contrast — the picture stays readable. */
+.hero-veil{
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(to top, rgba(51,6,28,.55) 0%, rgba(51,6,28,.12) 34%, transparent 62%);
+}
+.hero-grid{
+  position:relative; z-index:2; height:100%;
+  max-width:var(--maxw); margin-inline:auto; padding:0 var(--gutter);
+  min-height:clamp(460px, 68vh, 720px);
+  display:grid; align-items:end;
+}
+/* the plate: hard-edged, opaque, overlapping the footage's lower-left */
+.plate{
+  background:var(--plum-800);
+  color:#fff;
+  padding:clamp(28px,3.4vw,48px) clamp(28px,3.4vw,52px) clamp(30px,3.6vw,50px);
+  max-width:min(680px, 92%);
+  margin-bottom:clamp(-1px,0vw,0px);
+  border-top:4px solid var(--magenta);
+}
+.plate .label{color:rgba(255,255,255,.62); display:block; margin-bottom:var(--s4)}
+h1.hero-title{
+  font-size:var(--fs-hero); font-weight:900; letter-spacing:-0.045em;
+  line-height:0.9; color:#fff;
+}
+h1.hero-title em{font-style:normal; color:var(--magenta)}
+.hero-sub{margin-top:var(--s4); font-size:var(--fs-lead); color:rgba(255,255,255,.82); max-width:38ch; line-height:1.45}
+.hero-actions{display:flex; flex-wrap:wrap; gap:var(--s3); margin-top:var(--s6)}
+.plate .btn-ghost{border-color:rgba(255,255,255,.42); color:#fff}
+.plate .btn-ghost:hover{background:rgba(255,255,255,.12); border-color:#fff}
+/* sound/motion affordance so the footage reads as footage */
+.hero-tag{
+  position:absolute; z-index:2; right:var(--gutter); top:var(--s6);
+  display:flex; align-items:center; gap:var(--s2);
+  font-size:var(--fs-label); letter-spacing:.14em; text-transform:uppercase; font-weight:600;
+  color:rgba(255,255,255,.85); background:rgba(51,6,28,.42); backdrop-filter:blur(6px);
+  padding:var(--s2) var(--s3); border-radius:2px;
+}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--magenta);flex:none;
+  animation:pulse 2.6s ease-out infinite}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--magenta) 65%,transparent)}
+  70%{box-shadow:0 0 0 10px transparent}
+  100%{box-shadow:0 0 0 0 transparent}
+}
+
+/* ============================================================
+   QUALIFY — the primary conversion path, given real weight
+   ============================================================ */
+.qualify{background:var(--magenta); color:#fff}
+.qualify-in{
+  max-width:var(--maxw); margin-inline:auto; padding:var(--s7) var(--gutter);
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto; gap:var(--s5); align-items:end;
+}
+.q-head{grid-column:1/-1; display:grid; gap:var(--s2); margin-bottom:var(--s2)}
+.q-head h2{font-size:clamp(1.5rem,2.6vw,2.1rem); font-weight:900; color:#fff}
+.q-head p{color:rgba(255,255,255,.86); font-size:var(--fs-sm); max-width:52ch}
+.qualify .label{color:rgba(255,255,255,.78)}
+.field{display:grid; gap:var(--s2); min-width:0}
+.qualify select{
+  font-family:var(--body); font-size:1rem; color:var(--fg);
+  background:#fff; border:1px solid #fff; border-radius:2px;
+  padding:var(--s4); width:100%; cursor:pointer; appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);
+  background-position:calc(100% - 19px) 55%, calc(100% - 13px) 55%;
+  background-size:6px 6px,6px 6px; background-repeat:no-repeat;
+}
+.qualify .btn{background:var(--plum-800); color:#fff}
+.qualify .btn:hover{background:var(--plum-900)}
+.q-answer{
+  grid-column:1/-1; margin-top:var(--s4); padding-top:var(--s4);
+  border-top:1px solid rgba(255,255,255,.28);
+  font-size:var(--fs-sm); color:#fff; display:flex; align-items:center; gap:var(--s3);
+}
+.q-answer strong{font-weight:700}
+
+/* ---------------- facts: three, all real ---------------- */
+.facts{background:var(--bg-alt); border-bottom:1px solid var(--rule)}
+.facts-in{max-width:var(--maxw); margin-inline:auto; padding:var(--s8) var(--gutter);
+  display:grid; grid-template-columns:repeat(3,1fr); gap:var(--s7)}
+.fact{display:grid; gap:var(--s2); align-content:start}
+.fact-n{font-family:var(--display); font-weight:900; letter-spacing:-0.04em; line-height:0.85;
+  font-size:clamp(2.4rem,4.8vw,4rem); color:var(--fg); font-variant-numeric:tabular-nums}
+.fact-n span{color:var(--magenta)}
+.fact-t{font-size:var(--fs-sm); color:var(--fg-mut); max-width:26ch; line-height:1.45}
+
+/* ---------------- programmes ---------------- */
+.sec{max-width:var(--maxw); margin-inline:auto; padding:var(--s9) var(--gutter)}
+.sec-head{display:grid; gap:var(--s4); margin-bottom:var(--s8); max-width:var(--measure)}
+.sec-head h2{font-size:var(--fs-h2); font-weight:900}
+.sec-head p{color:var(--fg-mut); font-size:var(--fs-lead); line-height:1.5}
+.placeholder-note{
+  font-size:var(--fs-sm); color:var(--fg-mut); line-height:1.5;
+  border-left:3px solid var(--magenta); padding-left:var(--s3);
+}
+
+.prog-row{
+  display:grid; grid-template-columns:minmax(0,9ch) minmax(0,1.1fr) minmax(0,1.4fr) auto;
+  gap:var(--s6); align-items:start; padding:var(--s7) 0; border-top:1px solid var(--rule);
+  text-decoration:none;
+}
+.prog-row:last-child{border-bottom:1px solid var(--rule)}
+.prog-row:hover{background:var(--bg-alt)}
+.prog-row:hover .prog-h{color:var(--magenta)}
+/* one consistent unit in this column: an age range, every row */
+.prog-age{font-family:var(--display); font-weight:800; font-size:1.05rem; letter-spacing:-0.01em;
+  color:var(--magenta); font-variant-numeric:tabular-nums; padding-top:.15em; white-space:nowrap}
+.prog-h{font-size:var(--fs-h3); font-weight:800; transition:color .15s ease}
+.prog-meta{margin-top:var(--s2); font-size:var(--fs-sm); color:var(--fg-mut)}
+.prog-d{color:var(--fg-2); line-height:1.6}
+.prog-go{align-self:center; width:38px;height:38px; border:1px solid var(--rule-str); border-radius:50%;
+  display:grid; place-items:center; color:var(--fg-mut); transition:all .15s ease}
+.prog-row:hover .prog-go{background:var(--magenta); border-color:var(--magenta); color:#fff}
+
+/* ---------------- locations: ages, not decorative numbers ---------------- */
+.locs{background:var(--bg-alt); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)}
+.loc-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:1px; background:var(--rule); border:1px solid var(--rule)}
+.loc{background:var(--bg); padding:var(--s5); text-decoration:none; display:grid; gap:var(--s1);
+  transition:background .15s ease}
+.loc:hover{background:var(--magenta); color:#fff}
+.loc-name{font-weight:600; letter-spacing:-0.01em; font-size:1.05rem}
+.loc-ages{font-size:var(--fs-sm); color:var(--fg-mut); font-variant-numeric:tabular-nums}
+.loc:hover .loc-ages{color:rgba(255,255,255,.82)}
+
+/* ---------------- form ---------------- */
+.join{max-width:var(--maxw); margin-inline:auto; padding:var(--s9) var(--gutter);
+  display:grid; grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr); gap:var(--s9)}
+.join-aside h2{font-size:var(--fs-h2); font-weight:900; margin-bottom:var(--s5)}
+.join-aside p{color:var(--fg-mut); line-height:1.6; max-width:34ch}
+.contact-list{display:grid; gap:var(--s4); margin-top:var(--s7); padding-top:var(--s6); border-top:1px solid var(--rule)}
+.contact-row{display:grid; gap:2px}
+.contact-row a{font-weight:600; text-decoration:none; letter-spacing:-0.01em}
+.contact-row a:hover{color:var(--magenta)}
+form{display:grid; gap:var(--s5)}
+.form-grid{display:grid; grid-template-columns:1fr 1fr; gap:var(--s5)}
+.join select,.join input,.join textarea{
+  font-family:var(--body); font-size:1rem; color:var(--fg);
+  background:var(--field); border:1px solid var(--field-bd); border-radius:2px;
+  padding:var(--s3) var(--s4); width:100%;
+}
+.join select{appearance:none; cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:calc(100% - 19px) 51%, calc(100% - 13px) 51%;
+  background-size:6px 6px,6px 6px; background-repeat:no-repeat}
+.join textarea{resize:vertical; min-height:120px}
+.join input::placeholder,.join textarea::placeholder{color:var(--fg-mut); opacity:.75}
+.join select:hover,.join input:hover,.join textarea:hover{border-color:var(--fg-mut)}
+.form-foot{display:flex; align-items:center; gap:var(--s5); flex-wrap:wrap}
+.form-note{font-size:var(--fs-sm); color:var(--fg-mut); max-width:38ch}
+
+/* ---------------- footer ---------------- */
+.foot{background:var(--plum-900); color:rgba(255,255,255,.72)}
+.foot-in{max-width:var(--maxw); margin-inline:auto; padding:var(--s8) var(--gutter) var(--s6);
+  display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:var(--s7)}
+.foot h4{font-family:var(--body); font-size:var(--fs-label); letter-spacing:.14em; text-transform:uppercase;
+  color:rgba(255,255,255,.5); margin:0 0 var(--s4); font-weight:600}
+.foot a{color:rgba(255,255,255,.82); text-decoration:none; display:block; padding:3px 0}
+.foot a:hover{color:#fff}
+.foot-brand{color:#fff; font-family:var(--display); font-weight:900; font-size:1.35rem; letter-spacing:-0.025em; margin-bottom:var(--s3)}
+.foot-bottom{max-width:var(--maxw); margin-inline:auto; padding:var(--s5) var(--gutter);
+  border-top:1px solid rgba(255,255,255,.14); font-size:var(--fs-sm);
+  display:flex; justify-content:space-between; gap:var(--s5); flex-wrap:wrap}
+
+/* ---------------- responsive ---------------- */
+@media (max-width:1080px){
+  .qualify-in{grid-template-columns:1fr 1fr}
+  .qualify-in .btn{grid-column:1/-1}
+  .facts-in{grid-template-columns:1fr; gap:var(--s6)}
+  .fact{grid-template-columns:auto 1fr; align-items:baseline; gap:var(--s5)}
+  .fact-t{max-width:40ch}
+  .join{grid-template-columns:1fr; gap:var(--s7)}
+  .prog-row{grid-template-columns:minmax(0,8ch) minmax(0,1fr) auto; gap:var(--s5)}
+  .prog-d{grid-column:2/-1}
+  .foot-in{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .nav-links{display:none}
+  .nav-toggle{display:inline-grid; place-items:center; margin-left:auto; width:40px;height:40px;
+    background:none; border:1px solid var(--rule-str); border-radius:2px; color:var(--fg); cursor:pointer}
+  .plate{max-width:none; padding:var(--s6) var(--gutter) var(--s7);
+    margin-inline:calc(var(--gutter) * -1); width:calc(100% + var(--gutter) * 2)}
+  .hero-actions .btn{flex:1 1 auto}
+  .hero-tag{display:none}
+  .qualify-in{grid-template-columns:1fr; gap:var(--s4)}
+  .form-grid{grid-template-columns:1fr}
+  .foot-in{grid-template-columns:1fr; gap:var(--s6)}
+  .prog-row{grid-template-columns:1fr; gap:var(--s3); padding:var(--s6) 0}
+  .prog-d{grid-column:auto}
+  .prog-go{display:none}
+  .fact{grid-template-columns:1fr; gap:var(--s2)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important; transition-duration:.001ms !important}
+}
+</style>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6">
+          <circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.5 5.5c3.5 3 3.5 10 0 13M18.5 5.5c-3.5 3-3.5 10 0 13"/>
+        </svg>
+      </span>
+      TTÜ Korvpallikool
+    </a>
+    <div class="nav-links">
+      <a href="#programmid">Trennid</a>
+      <a href="#asukohad">Asukohad</a>
+      <a href="#meist">Meist</a>
+      <span class="lang"><a href="#" aria-current="true">EE</a><a href="#">EN</a><a href="#">RU</a></span>
+      <a class="btn btn-primary" href="#liitu" style="border-bottom:none">Tule trenni</a>
+    </div>
+    <button class="nav-toggle" aria-label="Ava menüü">
+      <svg width="20" height="14" viewBox="0 0 20 14" fill="currentColor"><rect width="20" height="1.8" rx=".9"/><rect y="6.1" width="20" height="1.8" rx=".9"/><rect y="12.2" width="20" height="1.8" rx=".9"/></svg>
+    </button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-stage">
+    <canvas id="ambient" aria-hidden="true"></canvas>
+    <video id="hero-video" playsinline autoplay loop muted preload="none">
+      <source data-src="/img/ttu-video-web.webm" type="video/webm">
+      <source data-src="/img/ttu-video-web.mp4" type="video/mp4">
+    </video>
+    <div class="hero-veil"></div>
+    <p class="hero-tag"><span class="pulse" aria-hidden="true"></span> Hooaeg 2026/27</p>
+    <div class="hero-grid">
+      <div class="plate">
+        <span class="label">Ühendklubi · Tallinn &amp; Harjumaa</span>
+        <h1 class="hero-title">Esimesest põrkest <em>magistrini.</em></h1>
+        <p class="hero-sub">Ligi 700 korvpallurit, kümme treeningpaika ja üks klubi, kus terve teekonna saab läbida trenni vahetamata.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#liitu">Tule trenni</a>
+          <a class="btn btn-ghost btn-lg" href="#asukohad">Vaata asukohti</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="qualify" aria-label="Leia lapsele trenn">
+  <div class="qualify-in">
+    <div class="q-head">
+      <h2>Kas minu lapsele on rühm?</h2>
+      <p>Vali piirkond ja sünniaasta — ütleme kohe, kas seal on vaba koht.</p>
+    </div>
+    <div class="field">
+      <label class="label" for="q-loc">Piirkond</label>
+      <select id="q-loc">
+        <option>Kesklinn</option><option>Mustamäe</option><option>Nõmme</option><option>Haabersti</option>
+        <option>Rocca Al Mare</option><option>Tabasalu</option><option>Harkujärve</option><option>Laagri</option>
+        <option>Lasnamäe</option><option>Vääna</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="label" for="q-year">Sünniaasta</label>
+      <select id="q-year"></select>
+    </div>
+    <a class="btn btn-lg" href="#liitu">Vaata rühma</a>
+    <p class="q-answer" id="q-answer"></p>
+  </div>
+</section>
+
+<section class="facts" id="meist">
+  <div class="facts-in">
+    <div class="fact"><p class="fact-n">700</p><p class="fact-t">korvpallurit ühes klubis, mikrodest täiskasvanute magistriliigani</p></div>
+    <div class="fact"><p class="fact-n">10</p><p class="fact-t">treeningpaika Tallinnas ja Harjumaal, enamik lapse enda kodukooli saalis</p></div>
+    <div class="fact"><p class="fact-n">2008<span>–</span>22</p><p class="fact-t">sünniaastad, kellele praegu treeningrühmad avatud on</p></div>
+  </div>
+</section>
+
+<section class="sec" id="programmid">
+  <div class="sec-head">
+    <h2>Kolm teed korvpalli juurde</h2>
+    <p>Alustad algõppest oma kodukooli saalis ja lähed edasi täpselt nii kaugele, kui tahad.</p>
+  </div>
+  <div>
+    <a class="prog-row" href="#liitu">
+      <span class="prog-age">6–15 a</span>
+      <span>
+        <span class="prog-h">Laiapõhjaline algõpe</span>
+        <span class="prog-meta">Kõik 10 asukohta · 2–3× nädalas</span>
+      </span>
+      <span class="prog-d">Trennid algavad kohe pärast koolipäeva lõppu, lapse enda kodukooli spordisaalis. Vastu võtame alates 6. eluaastast — eelnevat kogemust pole vaja.</span>
+      <span class="prog-go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a class="prog-row" href="#liitu">
+      <span class="prog-age">16–19 a</span>
+      <span>
+        <span class="prog-h">Spordiklass</span>
+        <span class="prog-meta">Mustamäe Riigigümnaasium · 2× päevas</span>
+      </span>
+      <span class="prog-d">Täismahus keskharidus ja tippsport ühes päevakavas. Peatreener, ÜKE-treener, füsioteraapia, spordipsühholoogia ja mentor. Vajadusel õpilaskodu ning toitlustus.</span>
+      <span class="prog-go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a class="prog-row" href="#liitu">
+      <span class="prog-age">Kõik vanused</span>
+      <span>
+        <span class="prog-h">Sporditeraapia kabinet</span>
+        <span class="prog-meta">Kristiine Spordimaja, ruum 202</span>
+      </span>
+      <span class="prog-d">Lihashooldus, vigastuste ennetus ja taastusravi meie oma sportlastele. Broneerimine otse kabinetti, teraapiat teeb Henriette Porila.</span>
+      <span class="prog-go" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<section class="locs" id="asukohad">
+  <div class="sec">
+    <div class="sec-head">
+      <h2>Kümme kohta, kus trenn käib</h2>
+      <p>Väiksemad treenivad oma kodukooli saalis — nii jõuab laps trenni ilma pika sõiduta.</p>
+      <p class="placeholder-note">Näidisandmed — sünniaastad asukohtade kaupa tuleb klubi tegeliku rühmajaotusega asendada.</p>
+    </div>
+    <div class="loc-grid" id="loc-grid"></div>
+  </div>
+</section>
+
+<section class="join" id="liitu">
+  <div class="join-aside">
+    <h2>Kirjuta julgelt</h2>
+    <p>Vasta paari küsimusele ja võtame ise ühendust — ütleme, milline rühm sinu lapsele sobib ja millal trennid käivad.</p>
+    <div class="contact-list">
+      <div class="contact-row"><span class="label">E-post</span><a href="mailto:info@ttukorvpallikool.ee">info@ttukorvpallikool.ee</a></div>
+      <div class="contact-row"><span class="label">Telefon</span><a href="tel:+3725025032">+372 50 250 32</a></div>
+      <div class="contact-row"><span class="label">Aadress</span><a href="#">Männiliiva 7, Mustamäe, 13414</a></div>
+    </div>
+  </div>
+  <form id="join-form" novalidate>
+    <div class="form-grid">
+      <div class="field">
+        <label class="label" for="f-loc">Piirkond</label>
+        <select id="f-loc" required>
+          <option value="" disabled selected>Vali</option>
+          <option>Kesklinn</option><option>Mustamäe</option><option>Nõmme</option><option>Haabersti</option>
+          <option>Rocca Al Mare</option><option>Tabasalu</option><option>Harkujärve</option><option>Laagri</option>
+          <option>Lasnamäe</option><option>Vääna</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="label" for="f-year">Sünniaasta</label>
+        <select id="f-year" required></select>
+      </div>
+      <div class="field">
+        <label class="label" for="f-sex">Sugu</label>
+        <select id="f-sex"><option value="" disabled selected>Vali</option><option>Poiss</option><option>Tüdruk</option></select>
+      </div>
+      <div class="field">
+        <label class="label" for="f-mail">E-post</label>
+        <input id="f-mail" type="email" placeholder="sinu@email.ee" required>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label" for="f-msg">Sinu sõnum</label>
+      <textarea id="f-msg" placeholder="Räägi lühidalt oma lapsest — kas ta on varem korvpalli mänginud?"></textarea>
+    </div>
+    <div class="form-foot">
+      <button class="btn btn-primary btn-lg" type="submit">Saada</button>
+      <p class="form-note">Vastame tavaliselt ühe tööpäeva jooksul.</p>
+    </div>
+  </form>
+</section>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div>
+      <p class="foot-brand">TTÜ Korvpallikool</p>
+      <p style="max-width:32ch; line-height:1.6">Ühendklubi, kus õpib ligi 700 korvpallurit — nii suurt kui väikest.</p>
+    </div>
+    <div>
+      <h4>Trennid</h4>
+      <a href="#programmid">Laiapõhjaline algõpe</a>
+      <a href="#programmid">Spordiklass</a>
+      <a href="#programmid">Sporditeraapia</a>
+      <a href="#">Tunniplaan</a>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <a href="mailto:info@ttukorvpallikool.ee">info@ttukorvpallikool.ee</a>
+      <a href="tel:+3725025032">+372 50 250 32</a>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 TTÜ Korvpallikool</span>
+    <span>Männiliiva 7, Mustamäe, 13414 Harjumaa</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* One source of truth for both the years and the places — in production
+     this is _config.yml, rendered by Liquid. Ages per location are the
+     information the numbering in v1 was only pretending to carry. */
+  var YEARS = [];
+  for (var y = 2008; y <= 2022; y++) YEARS.push(y);
+
+  var LOCATIONS = [
+    { name:"Kesklinn",      ages:"2010–2022" },
+    { name:"Mustamäe",      ages:"2008–2022" },
+    { name:"Nõmme",         ages:"2012–2022" },
+    { name:"Haabersti",     ages:"2011–2022" },
+    { name:"Rocca Al Mare", ages:"2013–2022" },
+    { name:"Tabasalu",      ages:"2014–2022" },
+    { name:"Harkujärve",    ages:"2015–2022" },
+    { name:"Laagri",        ages:"2013–2022" },
+    { name:"Lasnamäe",      ages:"2012–2022" },
+    { name:"Vääna",         ages:"2016–2022" }
+  ];
+
+  var grid = document.getElementById("loc-grid");
+  LOCATIONS.forEach(function(l){
+    var a = document.createElement("a");
+    a.className = "loc"; a.href = "#liitu";
+    var n = document.createElement("span"); n.className = "loc-name"; n.textContent = l.name;
+    var g = document.createElement("span"); g.className = "loc-ages"; g.textContent = l.ages + " sündinud";
+    a.append(n, g); grid.append(a);
+  });
+
+  ["q-year","f-year"].forEach(function(id){
+    var sel = document.getElementById(id);
+    if (!sel) return;
+    if (id === "f-year") {
+      var ph = new Option("Vali",""); ph.disabled = true; ph.selected = true; sel.add(ph);
+    }
+    YEARS.forEach(function(v){ sel.add(new Option(v, v)); });
+  });
+
+  /* The qualify strip answers on the spot rather than only scrolling away. */
+  var qLoc = document.getElementById("q-loc"),
+      qYear = document.getElementById("q-year"),
+      qAns = document.getElementById("q-answer");
+  function answer(){
+    var loc = LOCATIONS.filter(function(l){ return l.name === qLoc.value; })[0];
+    if (!loc) return;
+    var lo = +loc.ages.split("–")[0], hi = +loc.ages.split("–")[1], yr = +qYear.value;
+    qAns.innerHTML = (yr >= lo && yr <= hi)
+      ? "<strong>Jah — " + loc.name + "s on " + yr + ". aastal sündinutele rühm olemas.</strong>"
+      : "<strong>" + loc.name + "s " + yr + ". aastale rühma pole</strong> — kirjuta meile, leiame lähima.";
+  }
+  qLoc.addEventListener("change", answer);
+  qYear.addEventListener("change", answer);
+  answer();
+
+  /* Hero: the canvas is the resting state (and what mobile sees); the
+     footage fades in over it only where it earns its bandwidth. */
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var cv = document.getElementById("ambient");
+  if (cv) {
+    var ctx = cv.getContext("2d"), t = 0;
+    function size(){
+      var r = cv.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = Math.max(1, r.width * d); cv.height = Math.max(1, r.height * d);
+      ctx.setTransform(d,0,0,d,0,0);
+    }
+    function draw(){
+      var w = cv.clientWidth, h = cv.clientHeight;
+      var g = ctx.createLinearGradient(0,0,w,h);
+      g.addColorStop(0,"#33061C"); g.addColorStop(0.55,"#4C0A2A"); g.addColorStop(1,"#8E0F4A");
+      ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
+      for (var i=0;i<3;i++){
+        var cx = w*(0.30+0.28*i) + Math.sin(t/1400 + i*2.1)*w*0.10;
+        var cy = h*(0.34+0.17*i) + Math.cos(t/1700 + i*1.3)*h*0.12;
+        var rad = Math.max(w,h)*(0.30+0.07*i);
+        var rg = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
+        rg.addColorStop(0,"rgba(228,6,126,"+(0.20-i*0.045)+")");
+        rg.addColorStop(1,"rgba(228,6,126,0)");
+        ctx.fillStyle = rg; ctx.fillRect(0,0,w,h);
+      }
+      t += 16;
+      if (!reduce) requestAnimationFrame(draw);
+    }
+    size(); draw();
+    window.addEventListener("resize", function(){ size(); if (reduce) draw(); });
+  }
+
+  var v = document.getElementById("hero-video");
+  if (v && !reduce && window.innerWidth >= 768 && !(navigator.connection && navigator.connection.saveData)) {
+    v.querySelectorAll("source[data-src]").forEach(function(s){ s.src = s.dataset.src; });
+    v.load();
+    v.addEventListener("canplay", function(){ v.classList.add("is-live"); }, { once:true });
+    var p = v.play(); if (p && p.catch) p.catch(function(){});
+  }
+
+  document.getElementById("join-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    var btn = e.target.querySelector("button[type=submit]");
+    btn.textContent = "Saadetud ✓"; btn.disabled = true;
+  });
+})();
+</script>
