@@ -1,0 +1,494 @@
+<title>Seitsesada Mängijat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Chivo:wght@700;800;900&display=swap">
+<style>
+/* ============================================================
+   TTÜ KORVPALLIKOOL — LANDER, DIRECTION B (v3)
+
+   Not an iteration of v1/v2 — the opposite reading of the brief.
+   v1/v2: dark plum hero, footage as ground, type over picture.
+   v3:    white ground, type IS the structure, and the footage is
+          a framed panel with a caption — an object on the page,
+          looked at deliberately rather than played behind things.
+   Colour is spent almost nowhere so that one magenta rule counts.
+   ============================================================ */
+:root{
+  --magenta:#E4067E; --magenta-d:#C10569;
+  --plum-900:#33061C; --plum-800:#4C0A2A;
+
+  --ink:#120A0D;
+  --ink-2:#3A2C31;
+  --muted:#7A6A70;
+  --paper:#FFFFFF;
+  --paper-2:#F4F1F2;
+  --rule:#1A1114;          /* structural rules are ink, not grey */
+  --hair:#DED6D9;
+
+  --bg:var(--paper); --bg-alt:var(--paper-2);
+  --fg:var(--ink); --fg-2:var(--ink-2); --fg-mut:var(--muted);
+  --line:var(--rule); --line-soft:var(--hair);
+  --field-bd:#1A1114;
+
+  --display:"Chivo","Archivo",system-ui,-apple-system,sans-serif;
+  --body:"Archivo",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+
+  --fs-mega: clamp(2.9rem, 11.5vw, 11rem);
+  --fs-h2:   clamp(1.7rem, 3.6vw, 2.9rem);
+  --fs-h3:   clamp(1.05rem, 1.7vw, 1.35rem);
+  --fs-lead: clamp(1rem, 1.35vw, 1.2rem);
+  --fs-sm:   0.875rem;
+  --fs-label:0.68rem;
+
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px;--s9:96px;--s10:128px;
+  --gutter:clamp(18px,4vw,56px);
+  --maxw:1340px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ink:#F5F0F1; --ink-2:#D5C7CC; --muted:#9C8C92;
+    --paper:#100A0C; --paper-2:#1A1114;
+    --rule:#F5F0F1; --hair:#332328;
+    --field-bd:#F5F0F1;
+    --magenta:#FF3D9A; --magenta-d:#FF6BB0;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#F5F0F1; --ink-2:#D5C7CC; --muted:#9C8C92;
+  --paper:#100A0C; --paper-2:#1A1114;
+  --rule:#F5F0F1; --hair:#332328;
+  --field-bd:#F5F0F1;
+  --magenta:#FF3D9A; --magenta-d:#FF6BB0;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);
+  font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;font-family:var(--display);line-height:0.92;letter-spacing:-0.035em;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+video,img{display:block;max-width:100%}
+.label{font-size:var(--fs-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-mut)}
+:where(a,button,select,input,textarea):focus-visible{outline:2px solid var(--magenta);outline-offset:3px}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+
+/* ---------------- nav: a rule, not a bar ---------------- */
+.nav{border-bottom:2px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:50}
+.nav-in{max-width:var(--maxw);margin-inline:auto;padding:var(--s4) var(--gutter);
+  display:flex;align-items:center;gap:var(--s5)}
+.brand{font-family:var(--display);font-weight:900;font-size:1rem;letter-spacing:-0.02em;
+  text-decoration:none;display:flex;align-items:center;gap:var(--s2)}
+.brand i{width:9px;height:9px;background:var(--magenta);border-radius:50%;display:block;font-style:normal}
+.nav-links{display:flex;gap:var(--s5);margin-left:auto;align-items:center;font-size:var(--fs-sm)}
+.nav-links a{text-decoration:none;color:var(--fg-2);font-weight:500}
+.nav-links a:hover{color:var(--magenta)}
+.lang{display:flex;gap:var(--s2);font-size:var(--fs-sm);font-weight:600}
+.lang a{text-decoration:none;color:var(--fg-mut)}
+.lang a[aria-current="true"]{color:var(--fg);text-decoration:underline;text-underline-offset:4px}
+.nav-cta{text-decoration:none;font-weight:600;font-size:var(--fs-sm);
+  border-bottom:2px solid var(--magenta);padding-bottom:2px}
+.nav-toggle{display:none}
+
+/* ============================================================
+   MASTHEAD — type is the structure
+   ============================================================ */
+.mast{max-width:var(--maxw);margin-inline:auto;padding:clamp(40px,6vw,86px) var(--gutter) 0}
+.mast-top{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s5);
+  padding-bottom:var(--s4);border-bottom:1px solid var(--line-soft);flex-wrap:wrap}
+h1.mega{
+  font-size:var(--fs-mega);font-weight:900;letter-spacing:-0.055em;line-height:0.82;
+  margin-top:var(--s5);
+}
+h1.mega .rule{
+  display:block;width:100%;height:6px;background:var(--magenta);
+  margin:clamp(14px,1.6vw,24px) 0;
+}
+h1.mega em{font-style:normal;color:var(--fg-mut)}
+.mast-foot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s6);
+  margin-top:var(--s6);padding-bottom:var(--s7)}
+.mast-foot p{font-size:var(--fs-lead);color:var(--fg-2);line-height:1.5;max-width:44ch}
+.mast-actions{display:flex;gap:var(--s3);align-items:start;flex-wrap:wrap;justify-content:flex-end}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);
+  font-family:var(--body);font-weight:600;font-size:var(--fs-sm);padding:var(--s4) var(--s6);
+  border:2px solid var(--line);border-radius:0;text-decoration:none;cursor:pointer;white-space:nowrap;
+  background:none;color:var(--fg);transition:background .15s ease,color .15s ease,border-color .15s ease}
+.btn-fill{background:var(--magenta);border-color:var(--magenta);color:#fff}
+.btn-fill:hover{background:var(--magenta-d);border-color:var(--magenta-d)}
+.btn:hover{background:var(--fg);color:var(--bg)}
+.btn-fill:hover{color:#fff}
+
+/* ============================================================
+   FILM PANEL — the video as a deliberate object
+   ============================================================ */
+.film{max-width:var(--maxw);margin-inline:auto;padding:0 var(--gutter) var(--s9)}
+.film-frame{position:relative;aspect-ratio:21/9;overflow:hidden;background:var(--plum-900);
+  border:2px solid var(--line)}
+.film-frame canvas,.film-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.film-frame video{opacity:0;transition:opacity 1s ease}
+.film-frame video.is-live{opacity:1}
+.film-cap{display:flex;justify-content:space-between;gap:var(--s5);
+  margin-top:var(--s3);flex-wrap:wrap;align-items:baseline}
+.film-cap .label{color:var(--fg-mut)}
+.film-cap .live{display:inline-flex;align-items:center;gap:var(--s2);color:var(--fg-2);font-size:var(--fs-sm)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--magenta);display:block;
+  animation:blip 2.4s ease-out infinite}
+@keyframes blip{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* ============================================================
+   LEDGER — facts as a typographic ledger, not tiles
+   ============================================================ */
+.ledger{border-top:2px solid var(--line);border-bottom:2px solid var(--line)}
+.ledger-in{max-width:var(--maxw);margin-inline:auto;padding:0 var(--gutter);
+  display:grid;grid-template-columns:repeat(3,1fr)}
+.led{padding:var(--s7) var(--s5) var(--s7) 0;display:grid;gap:var(--s2);align-content:start}
+.led+.led{border-left:1px solid var(--line-soft);padding-left:var(--s5)}
+.led-n{font-family:var(--display);font-weight:900;font-size:clamp(2.4rem,5.4vw,4.6rem);
+  line-height:0.82;letter-spacing:-0.05em;font-variant-numeric:tabular-nums}
+.led-t{font-size:var(--fs-sm);color:var(--fg-mut);max-width:26ch;line-height:1.45}
+
+/* ============================================================
+   PROGRAMMES — numbered because they ARE a progression
+   ============================================================ */
+.sec{max-width:var(--maxw);margin-inline:auto;padding:var(--s9) var(--gutter)}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:var(--s6);
+  padding-bottom:var(--s4);border-bottom:2px solid var(--line);margin-bottom:var(--s7);flex-wrap:wrap}
+.sec-head h2{font-size:var(--fs-h2);font-weight:900}
+.sec-head p{color:var(--fg-mut);font-size:var(--fs-sm);max-width:40ch}
+
+.step{display:grid;grid-template-columns:minmax(0,5ch) minmax(0,1fr) minmax(0,1.5fr);
+  gap:var(--s6);padding:var(--s6) 0;border-bottom:1px solid var(--line-soft);
+  text-decoration:none;align-items:start}
+.step:hover .step-h{color:var(--magenta)}
+.step:hover .step-i{background:var(--magenta);color:#fff;border-color:var(--magenta)}
+.step-i{font-family:var(--display);font-weight:900;font-size:.9rem;
+  width:34px;height:34px;border:2px solid var(--line);display:grid;place-items:center;
+  font-variant-numeric:tabular-nums;transition:all .15s ease}
+.step-h{font-size:var(--fs-h3);font-weight:800;transition:color .15s ease}
+.step-age{display:block;margin-top:var(--s2);font-size:var(--fs-sm);color:var(--fg-mut);
+  font-variant-numeric:tabular-nums}
+.step-d{color:var(--fg-2);line-height:1.6}
+
+/* ============================================================
+   PLACES — a typographic list, set to be read
+   ============================================================ */
+.places{background:var(--bg-alt);border-top:2px solid var(--line);border-bottom:2px solid var(--line)}
+.place-list{display:flex;flex-wrap:wrap;gap:var(--s3) var(--s5);align-items:baseline}
+.place{font-family:var(--display);font-weight:900;letter-spacing:-0.035em;
+  font-size:clamp(1.5rem,4.2vw,3.1rem);line-height:1.05;text-decoration:none;
+  color:var(--fg);transition:color .12s ease}
+.place:hover{color:var(--magenta)}
+.place-sep{color:var(--magenta);font-size:clamp(1.5rem,4.2vw,3.1rem);font-weight:900;line-height:1.05}
+
+/* ============================================================
+   FORM
+   ============================================================ */
+.join{max-width:var(--maxw);margin-inline:auto;padding:var(--s9) var(--gutter);
+  display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:var(--s9)}
+.join-aside h2{font-size:var(--fs-h2);font-weight:900;margin-bottom:var(--s4)}
+.join-aside p{color:var(--fg-mut);max-width:32ch;line-height:1.6}
+.contact-list{display:grid;gap:var(--s4);margin-top:var(--s7);padding-top:var(--s5);
+  border-top:2px solid var(--line)}
+.contact-row{display:grid;gap:2px}
+.contact-row a{font-weight:600;text-decoration:none;font-size:1.05rem}
+.contact-row a:hover{color:var(--magenta)}
+
+form{display:grid;gap:var(--s5)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5)}
+.field{display:grid;gap:var(--s2);min-width:0}
+.field select,.field input,.field textarea{
+  font-family:var(--body);font-size:1rem;color:var(--fg);background:var(--bg);
+  border:0;border-bottom:2px solid var(--field-bd);border-radius:0;
+  padding:var(--s3) 0;width:100%}
+.field select{appearance:none;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:calc(100% - 11px) 60%,calc(100% - 5px) 60%;
+  background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+.field textarea{resize:vertical;min-height:96px}
+.field input::placeholder,.field textarea::placeholder{color:var(--fg-mut);opacity:.7}
+.field select:focus,.field input:focus,.field textarea:focus{border-bottom-color:var(--magenta);outline:none}
+.form-foot{display:flex;align-items:center;gap:var(--s5);flex-wrap:wrap}
+.form-note{font-size:var(--fs-sm);color:var(--fg-mut);max-width:34ch}
+
+/* ---------------- footer ---------------- */
+.foot{border-top:2px solid var(--line)}
+.foot-in{max-width:var(--maxw);margin-inline:auto;padding:var(--s7) var(--gutter);
+  display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--s7)}
+.foot h4{font-size:var(--fs-label);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--fg-mut);margin:0 0 var(--s3);font-weight:600;font-family:var(--body)}
+.foot a{color:var(--fg-2);text-decoration:none;display:block;padding:3px 0;font-size:var(--fs-sm)}
+.foot a:hover{color:var(--magenta)}
+.foot-brand{font-family:var(--display);font-weight:900;font-size:1.4rem;letter-spacing:-0.035em;margin-bottom:var(--s2)}
+.foot-bottom{max-width:var(--maxw);margin-inline:auto;padding:var(--s4) var(--gutter) var(--s7);
+  font-size:var(--fs-sm);color:var(--fg-mut);display:flex;justify-content:space-between;
+  gap:var(--s5);flex-wrap:wrap}
+
+@media (max-width:960px){
+  .mast-foot{grid-template-columns:1fr;gap:var(--s5)}
+  .mast-actions{justify-content:flex-start}
+  .ledger-in{grid-template-columns:1fr}
+  .led+.led{border-left:0;border-top:1px solid var(--line-soft);padding-left:0}
+  .led{padding:var(--s6) 0}
+  .step{grid-template-columns:minmax(0,5ch) minmax(0,1fr)}
+  .step-d{grid-column:2/-1}
+  .join{grid-template-columns:1fr;gap:var(--s7)}
+  .foot-in{grid-template-columns:1fr 1fr}
+  .film-frame{aspect-ratio:16/9}
+}
+@media (max-width:640px){
+  .nav-links{display:none}
+  .nav-toggle{display:inline-grid;place-items:center;margin-left:auto;width:38px;height:38px;
+    background:none;border:2px solid var(--line);color:var(--fg);cursor:pointer}
+  .form-grid{grid-template-columns:1fr}
+  .foot-in{grid-template-columns:1fr;gap:var(--s5)}
+  .step{grid-template-columns:1fr;gap:var(--s3)}
+  .step-d{grid-column:auto}
+  .film-frame{aspect-ratio:4/3}
+}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms !important;transition-duration:.001ms !important}}
+</style>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top"><i aria-hidden="true"></i>TTÜ Korvpallikool</a>
+    <div class="nav-links">
+      <a href="#trennid">Trennid</a>
+      <a href="#kohad">Kohad</a>
+      <span class="lang"><a href="#" aria-current="true">EE</a><a href="#">EN</a><a href="#">RU</a></span>
+      <a class="nav-cta" href="#liitu">Tule trenni</a>
+    </div>
+    <button class="nav-toggle" aria-label="Ava menüü">
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect width="18" height="2"/><rect y="5" width="18" height="2"/><rect y="10" width="18" height="2"/></svg>
+    </button>
+  </div>
+</nav>
+
+<header class="mast" id="top">
+  <div class="mast-top">
+    <p class="label">Ühendklubi · Tallinn &amp; Harjumaa</p>
+    <p class="label">Hooaeg 2026/27 · Registreerimine avatud</p>
+  </div>
+  <h1 class="mega">
+    Seitsesada<span class="rule" aria-hidden="true"></span>mängijat,<br><em>üks klubi.</em>
+  </h1>
+  <div class="mast-foot">
+    <p>Korvpallitrenn mikrost magistrini — esimestest põrgetest kodukooli saalis kuni täiskasvanute magistriliigani, ilma klubi vahetamata.</p>
+    <div class="mast-actions">
+      <a class="btn btn-fill" href="#liitu">Tule trenni</a>
+      <a class="btn" href="#kohad">Kümme kohta</a>
+    </div>
+  </div>
+</header>
+
+<section class="film" aria-label="Klubi video">
+  <div class="film-frame">
+    <canvas id="ambient" aria-hidden="true"></canvas>
+    <video id="hero-video" playsinline autoplay loop muted preload="none">
+      <source data-src="/img/ttu-video-web.webm" type="video/webm">
+      <source data-src="/img/ttu-video-web.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="film-cap">
+    <p class="label">Treeningud · TTÜ Korvpallikool</p>
+    <p class="live"><span class="dot" aria-hidden="true"></span> Helita, kordub</p>
+  </div>
+</section>
+
+<section class="ledger" aria-label="Klubi arvudes">
+  <div class="ledger-in">
+    <div class="led">
+      <p class="led-n">700</p>
+      <p class="led-t">korvpallurit, mikrodest täiskasvanute magistriliigani</p>
+    </div>
+    <div class="led">
+      <p class="led-n">10</p>
+      <p class="led-t">treeningpaika Tallinnas ja Harjumaal, enamik kodukooli saalis</p>
+    </div>
+    <div class="led">
+      <p class="led-n">2008–22</p>
+      <p class="led-t">sünniaastad, kellele praegu rühmad avatud on</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="trennid">
+  <div class="sec-head">
+    <h2>Teekond</h2>
+    <p>Numbrid tähistavad tegelikku järgnevust — laps liigub esimesest sammust edasi täpselt nii kaugele, kui tahab.</p>
+  </div>
+  <a class="step" href="#liitu">
+    <span class="step-i">1</span>
+    <span>
+      <span class="step-h">Laiapõhjaline algõpe</span>
+      <span class="step-age">6–15 a · kõik 10 asukohta</span>
+    </span>
+    <span class="step-d">Trennid algavad kohe pärast koolipäeva lõppu, lapse enda kodukooli spordisaalis. Vastu võtame alates 6. eluaastast — eelnevat kogemust pole vaja.</span>
+  </a>
+  <a class="step" href="#liitu">
+    <span class="step-i">2</span>
+    <span>
+      <span class="step-h">Spordiklass</span>
+      <span class="step-age">16–19 a · Mustamäe Riigigümnaasium</span>
+    </span>
+    <span class="step-d">Täismahus keskharidus ja tippsport ühes päevakavas, treeningud kaks korda päevas. Peatreener, ÜKE-treener, füsioteraapia, spordipsühholoogia ja mentor. Vajadusel õpilaskodu ning toitlustus.</span>
+  </a>
+  <a class="step" href="#liitu">
+    <span class="step-i">+</span>
+    <span>
+      <span class="step-h">Sporditeraapia kabinet</span>
+      <span class="step-age">Kõik vanused · Kristiine Spordimaja 202</span>
+    </span>
+    <span class="step-d">Lihashooldus, vigastuste ennetus ja taastusravi klubi enda sportlastele, kogu teekonna vältel. Teraapiat teeb Henriette Porila.</span>
+  </a>
+</section>
+
+<section class="places" id="kohad">
+  <div class="sec">
+    <div class="sec-head">
+      <h2>Kümme kohta</h2>
+      <p>Väiksemad treenivad oma kodukooli saalis — nii jõuab laps trenni ilma pika sõiduta.</p>
+    </div>
+    <div class="place-list">
+      <a class="place" href="#liitu">Kesklinn</a><span class="place-sep" aria-hidden="true">·</span>
+      <a class="place" href="#liitu">Mustamäe</a><span class="place-sep" aria-hidden="true">·</span>
+      <a class="place" href="#liitu">Nõmme</a><span class="place-sep" aria-hidden="true">·</span>
+      <a class="place" href="#liitu">Haabersti</a><span class="place-sep" aria-hidden="true">·</span>
+      <a class="place" href="#liitu">Rocca Al Mare</a><span class="place-sep" aria-hidden="true">·</span>
+      <a class="place" href="#liitu">Tabasalu</a><span class="place-sep" aria-hidden="true">·</span>
+      <a class="place" href="#liitu">Harkujärve</a><span class="place-sep" aria-hidden="true">·</span>
+      <a class="place" href="#liitu">Laagri</a><span class="place-sep" aria-hidden="true">·</span>
+      <a class="place" href="#liitu">Lasnamäe</a><span class="place-sep" aria-hidden="true">·</span>
+      <a class="place" href="#liitu">Vääna</a>
+    </div>
+  </div>
+</section>
+
+<section class="join" id="liitu">
+  <div class="join-aside">
+    <h2>Kirjuta julgelt</h2>
+    <p>Vasta paari küsimusele ja võtame ise ühendust — ütleme, milline rühm sinu lapsele sobib ja millal trennid käivad.</p>
+    <div class="contact-list">
+      <div class="contact-row"><span class="label">E-post</span><a href="mailto:info@ttukorvpallikool.ee">info@ttukorvpallikool.ee</a></div>
+      <div class="contact-row"><span class="label">Telefon</span><a href="tel:+3725025032">+372 50 250 32</a></div>
+      <div class="contact-row"><span class="label">Aadress</span><a href="#">Männiliiva 7, Mustamäe, 13414</a></div>
+    </div>
+  </div>
+  <form id="join-form" novalidate>
+    <div class="form-grid">
+      <div class="field">
+        <label class="label" for="f-loc">Piirkond</label>
+        <select id="f-loc" required>
+          <option value="" disabled selected>Vali</option>
+          <option>Kesklinn</option><option>Mustamäe</option><option>Nõmme</option><option>Haabersti</option>
+          <option>Rocca Al Mare</option><option>Tabasalu</option><option>Harkujärve</option><option>Laagri</option>
+          <option>Lasnamäe</option><option>Vääna</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="label" for="f-year">Sünniaasta</label>
+        <select id="f-year" required></select>
+      </div>
+      <div class="field">
+        <label class="label" for="f-sex">Sugu</label>
+        <select id="f-sex"><option value="" disabled selected>Vali</option><option>Poiss</option><option>Tüdruk</option></select>
+      </div>
+      <div class="field">
+        <label class="label" for="f-mail">E-post</label>
+        <input id="f-mail" type="email" placeholder="sinu@email.ee" required>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label" for="f-msg">Sinu sõnum</label>
+      <textarea id="f-msg" placeholder="Räägi lühidalt oma lapsest — kas ta on varem korvpalli mänginud?"></textarea>
+    </div>
+    <div class="form-foot">
+      <button class="btn btn-fill" type="submit">Saada</button>
+      <p class="form-note">Vastame tavaliselt ühe tööpäeva jooksul.</p>
+    </div>
+  </form>
+</section>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div>
+      <p class="foot-brand">TTÜ Korvpallikool</p>
+      <p style="max-width:30ch;color:var(--fg-mut);font-size:var(--fs-sm);line-height:1.6">Ühendklubi, kus õpib ligi 700 korvpallurit — nii suurt kui väikest.</p>
+    </div>
+    <div>
+      <h4>Trennid</h4>
+      <a href="#trennid">Laiapõhjaline algõpe</a>
+      <a href="#trennid">Spordiklass</a>
+      <a href="#trennid">Sporditeraapia</a>
+      <a href="#">Tunniplaan</a>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <a href="mailto:info@ttukorvpallikool.ee">info@ttukorvpallikool.ee</a>
+      <a href="tel:+3725025032">+372 50 250 32</a>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 TTÜ Korvpallikool</span>
+    <span>Männiliiva 7, Mustamäe, 13414 Harjumaa</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var sel = document.getElementById("f-year");
+  var ph = new Option("Vali",""); ph.disabled = true; ph.selected = true; sel.add(ph);
+  for (var y = 2008; y <= 2022; y++) sel.add(new Option(y, y));
+
+  /* The framed panel always has something in it: the canvas is the
+     resting state, the footage fades in over it where it is worth
+     the bandwidth. A frame that sits empty would read as broken. */
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var cv = document.getElementById("ambient");
+  if (cv) {
+    var ctx = cv.getContext("2d"), t = 0;
+    function size(){
+      var r = cv.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = Math.max(1, r.width * d); cv.height = Math.max(1, r.height * d);
+      ctx.setTransform(d,0,0,d,0,0);
+    }
+    function draw(){
+      var w = cv.clientWidth, h = cv.clientHeight;
+      var g = ctx.createLinearGradient(0,0,w,h);
+      g.addColorStop(0,"#33061C"); g.addColorStop(0.5,"#4C0A2A"); g.addColorStop(1,"#8E0F4A");
+      ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
+      for (var i=0;i<3;i++){
+        var cx = w*(0.26+0.3*i) + Math.sin(t/1500 + i*2.2)*w*0.09;
+        var cy = h*(0.4+0.14*i)  + Math.cos(t/1800 + i*1.4)*h*0.16;
+        var rad = Math.max(w,h)*(0.26+0.08*i);
+        var rg = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
+        rg.addColorStop(0,"rgba(228,6,126,"+(0.22-i*0.05)+")");
+        rg.addColorStop(1,"rgba(228,6,126,0)");
+        ctx.fillStyle = rg; ctx.fillRect(0,0,w,h);
+      }
+      t += 16;
+      if (!reduce) requestAnimationFrame(draw);
+    }
+    size(); draw();
+    window.addEventListener("resize", function(){ size(); if (reduce) draw(); });
+  }
+
+  var v = document.getElementById("hero-video");
+  if (v && !reduce && window.innerWidth >= 768 && !(navigator.connection && navigator.connection.saveData)) {
+    v.querySelectorAll("source[data-src]").forEach(function(s){ s.src = s.dataset.src; });
+    v.load();
+    v.addEventListener("canplay", function(){ v.classList.add("is-live"); }, { once:true });
+    var p = v.play(); if (p && p.catch) p.catch(function(){});
+  }
+
+  document.getElementById("join-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    var b = e.target.querySelector("button[type=submit]");
+    b.textContent = "Saadetud ✓"; b.disabled = true;
+  });
+})();
+</script>

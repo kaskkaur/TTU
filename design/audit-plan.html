@@ -1,0 +1,397 @@
+<title>Korvpallikool Modernisation Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Chivo:wght@700;800;900&display=swap">
+<style>
+:root{
+  --magenta:#E4067E; --magenta-d:#C10569;
+  --plum-900:#33061C; --plum-800:#4C0A2A; --plum-700:#8E0F4A;
+
+  --ink:#17090F; --ink-2:#43333A; --muted:#6E5C64;
+  --paper:#FFFFFF; --paper-2:#F8F4F6; --line:#E7DDE1; --line-str:#CFC0C7;
+
+  --crit:#B3123F; --crit-bg:#FCEDF1;
+  --high:#9A5B00; --high-bg:#FDF3E4;
+  --med:#4A5B6B;  --med-bg:#EFF3F6;
+  --ok:#1F6B4A;   --ok-bg:#E9F5EF;
+
+  --bg:var(--paper); --bg-alt:var(--paper-2);
+  --fg:var(--ink); --fg-2:var(--ink-2); --fg-mut:var(--muted);
+  --rule:var(--line); --rule-str:var(--line-str);
+
+  --display:"Chivo","Archivo",system-ui,-apple-system,sans-serif;
+  --body:"Archivo",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px;--s9:96px;
+  --gutter:clamp(20px,4.5vw,64px);
+  --maxw:1080px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#140A0F; --bg-alt:#1D1015; --fg:#F7F1F3; --fg-2:#DCCDD3; --fg-mut:#A6929B;
+    --rule:#32222A; --rule-str:#4A3540; --magenta:#FF3D9A; --magenta-d:#FF6BB0;
+    --crit:#FF7A9C; --crit-bg:#38121F;
+    --high:#E8B25C; --high-bg:#332612;
+    --med:#9FB6C9;  --med-bg:#1A242C;
+    --ok:#68C79B;   --ok-bg:#12281E;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#140A0F; --bg-alt:#1D1015; --fg:#F7F1F3; --fg-2:#DCCDD3; --fg-mut:#A6929B;
+  --rule:#32222A; --rule-str:#4A3540; --magenta:#FF3D9A; --magenta-d:#FF6BB0;
+  --crit:#FF7A9C; --crit-bg:#38121F;
+  --high:#E8B25C; --high-bg:#332612;
+  --med:#9FB6C9;  --med-bg:#1A242C;
+  --ok:#68C79B;   --ok-bg:#12281E;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;font-family:var(--display);letter-spacing:-0.028em;text-wrap:balance;line-height:1.08}
+p{margin:0}
+a{color:var(--magenta)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.87em;
+  background:var(--bg-alt);border:1px solid var(--rule);border-radius:3px;padding:1px 5px}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+.label{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--fg-mut)}
+
+/* ---- masthead ---- */
+.mast{border-bottom:1px solid var(--rule);background:var(--bg-alt)}
+.mast-in{max-width:var(--maxw);margin-inline:auto;padding:var(--s8) var(--gutter) var(--s7)}
+.mast .label{display:flex;align-items:center;gap:var(--s3);margin-bottom:var(--s5)}
+.mast .label::before{content:"";width:28px;height:3px;background:var(--magenta)}
+h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:900;letter-spacing:-0.04em}
+.mast p{margin-top:var(--s4);color:var(--fg-2);font-size:clamp(1.02rem,1.5vw,1.2rem);max-width:58ch;line-height:1.5}
+.meta{display:flex;flex-wrap:wrap;gap:var(--s5);margin-top:var(--s6);padding-top:var(--s5);
+  border-top:1px solid var(--rule);font-size:.85rem;color:var(--fg-mut)}
+.meta b{color:var(--fg);font-weight:600}
+
+/* ---- sections ---- */
+section{max-width:var(--maxw);margin-inline:auto;padding:var(--s8) var(--gutter)}
+section+section{border-top:1px solid var(--rule)}
+.sec-n{font-family:var(--display);font-weight:900;color:var(--magenta);font-size:.82rem;letter-spacing:0}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:900;margin:var(--s2) 0 var(--s4)}
+.sec-lede{color:var(--fg-mut);max-width:64ch;margin-bottom:var(--s6);font-size:1.02rem}
+h3{font-size:1.12rem;font-weight:800;margin:var(--s7) 0 var(--s3)}
+h3:first-of-type{margin-top:0}
+.body-p{max-width:66ch;color:var(--fg-2);margin-bottom:var(--s4)}
+.body-p+.body-p{margin-top:calc(var(--s4) * -1 + var(--s4))}
+
+/* ---- verdict callout ---- */
+.verdict{background:var(--plum-900);color:#fff;border-radius:2px;padding:var(--s7);
+  display:grid;gap:var(--s4);border-left:4px solid var(--magenta)}
+.verdict .label{color:rgba(255,255,255,.6)}
+.verdict h3{margin:0;font-size:clamp(1.3rem,2.4vw,1.75rem);font-weight:900;color:#fff}
+.verdict p{color:rgba(255,255,255,.82);max-width:64ch}
+.verdict strong{color:#fff}
+
+/* ---- findings table ---- */
+.tbl-scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:2px;margin-bottom:var(--s6)}
+table{border-collapse:collapse;width:100%;min-width:660px;font-size:.92rem}
+thead th{background:var(--bg-alt);text-align:left;padding:var(--s3) var(--s4);
+  font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--fg-mut);
+  font-weight:600;border-bottom:1px solid var(--rule);white-space:nowrap}
+td{padding:var(--s4);border-bottom:1px solid var(--rule);vertical-align:top;color:var(--fg-2)}
+tbody tr:last-child td{border-bottom:none}
+td:first-child{color:var(--fg);font-weight:600;width:27%}
+td small{display:block;color:var(--fg-mut);font-size:.86em;margin-top:3px;line-height:1.45}
+.pill{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;padding:3px 8px;border-radius:2px;white-space:nowrap}
+.p-crit{background:var(--crit-bg);color:var(--crit)}
+.p-high{background:var(--high-bg);color:var(--high)}
+.p-med{background:var(--med-bg);color:var(--med)}
+.p-ok{background:var(--ok-bg);color:var(--ok)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ---- palette ---- */
+.pal-compare{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);margin:var(--s5) 0 var(--s6)}
+.pal-col h4{font-size:.95rem;font-weight:800;margin-bottom:var(--s2)}
+.pal-col > p{font-size:.87rem;color:var(--fg-mut);margin-bottom:var(--s4)}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.chip{width:52px;height:52px;border-radius:2px;border:1px solid rgba(0,0,0,.12);
+  display:grid;align-content:end;padding:3px;font-size:.53rem;color:#fff;
+  font-variant-numeric:tabular-nums;line-height:1.1;overflow:hidden}
+.ramp{display:grid;gap:var(--s2)}
+.ramp-row{display:grid;grid-template-columns:44px 1fr auto;gap:var(--s3);align-items:center;font-size:.85rem}
+.ramp-sw{height:30px;border-radius:2px;border:1px solid rgba(0,0,0,.12)}
+.ramp-row code{background:none;border:none;padding:0;color:var(--fg-mut)}
+
+/* ---- phases ---- */
+.phase{border-top:1px solid var(--rule);padding:var(--s6) 0;display:grid;
+  grid-template-columns:minmax(0,15ch) minmax(0,1fr);gap:var(--s6)}
+.phase:last-child{border-bottom:1px solid var(--rule)}
+.phase-k{display:grid;gap:var(--s2);align-content:start}
+.phase-n{font-family:var(--display);font-weight:900;font-size:1.02rem;letter-spacing:-0.01em}
+.phase-eff{font-size:.8rem;color:var(--fg-mut);font-variant-numeric:tabular-nums}
+.phase h4{font-size:1.05rem;font-weight:800;margin:0 0 var(--s3)}
+.phase ul{margin:0;padding-left:1.1em;color:var(--fg-2);display:grid;gap:var(--s2)}
+.phase li::marker{color:var(--magenta)}
+.phase-why{margin-top:var(--s4);padding-top:var(--s3);border-top:1px dashed var(--rule);
+  font-size:.88rem;color:var(--fg-mut);max-width:62ch}
+
+/* ---- weigh-up ---- */
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);margin-top:var(--s5)}
+.opt{border:1px solid var(--rule);border-radius:2px;padding:var(--s5);display:grid;gap:var(--s3);align-content:start}
+.opt.pick{border-color:var(--magenta);border-width:2px;background:var(--bg-alt)}
+.opt h4{font-size:1rem;font-weight:800;display:flex;align-items:center;gap:var(--s3);margin:0}
+.opt p{font-size:.9rem;color:var(--fg-2)}
+.opt .label{font-size:.64rem}
+
+.note{background:var(--bg-alt);border-left:3px solid var(--magenta);padding:var(--s4) var(--s5);
+  border-radius:0 2px 2px 0;font-size:.93rem;color:var(--fg-2);max-width:70ch;margin-top:var(--s5)}
+
+.foot{border-top:1px solid var(--rule);background:var(--bg-alt)}
+.foot-in{max-width:var(--maxw);margin-inline:auto;padding:var(--s6) var(--gutter);
+  font-size:.85rem;color:var(--fg-mut);display:flex;justify-content:space-between;gap:var(--s5);flex-wrap:wrap}
+
+@media (max-width:760px){
+  .pal-compare{grid-template-columns:1fr;gap:var(--s5)}
+  .phase{grid-template-columns:1fr;gap:var(--s3)}
+  .opts{grid-template-columns:1fr}
+  .meta{gap:var(--s4)}
+}
+</style>
+
+<header class="mast">
+  <div class="mast-in">
+    <p class="label">TTÜ Korvpallikool · Tehniline ja disainiaudit</p>
+    <h1>Modernisation audit &amp; work plan</h1>
+    <p>A read of the current site as built, what is actually broken today, and a staged plan to modernise it without changing the brand or inventing new requirements.</p>
+    <div class="meta">
+      <span><b>Scope</b> ttukorvpallikool.ee (ee/en/ru)</span>
+      <span><b>Branch</b> <code>redesign-2026</code></span>
+      <span><b>Stack</b> Jekyll 4.3.3 · polyglot · Netlify</span>
+      <span><b>Date</b> 3 Sept 2026</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <p class="sec-n">01</p>
+  <h2>The verdict, up front</h2>
+  <div class="verdict">
+    <p class="label">Recommendation</p>
+    <h3>Stay on Jekyll. Fix what is broken, systematise the styles, redesign the surface.</h3>
+    <p>Nothing in this site's problems is Jekyll's fault. The stack is a reasonable fit for a five-page trilingual brochure site and a migration would spend weeks buying almost nothing. <strong>The urgent work is elsewhere:</strong> the site has had no analytics for roughly three years, ships 27 near-duplicate copies of its own homepage to search engines, and loads 676&nbsp;KB of third-party code — including an unminified jQuery — to render static text.</p>
+  </div>
+  <div class="note">
+    <strong>One thing I could not settle from here.</strong> The contact form — the site's only conversion path — posts to Formspree's legacy <code>formspree.io/{email}</code> endpoint, a format Formspree has long since replaced with <code>/f/{id}</code>. A GET returns 405 for both the old and new shapes, so that tells us nothing, and I did not POST because it would send a real email. <strong>Send one test submission and confirm it arrives</strong> before anything else on this list.
+  </div>
+</section>
+
+<section>
+  <p class="sec-n">02</p>
+  <h2>Broken right now</h2>
+  <p class="sec-lede">These are not stylistic opinions. Each is measurably not working, and each is cheap to fix relative to what it costs.</p>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Finding</th><th>Severity</th><th>Evidence &amp; consequence</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Analytics stopped collecting in 2023</td>
+          <td><span class="pill p-crit">Critical</span></td>
+          <td><code>gtag('config','UA-108664795-1')</code> — a Universal Analytics property. Google stopped processing UA hits in July 2023.<small>There is no data on which locations or languages actually convert, so every decision below is currently being made blind.</small></td>
+        </tr>
+        <tr>
+          <td>27 duplicate homepages</td>
+          <td><span class="pill p-crit">Critical</span></td>
+          <td>The three service blurbs are Jekyll <em>posts</em> using <code>layout: default</code>, which renders the entire homepage around each. Built output: homepage 29,353 bytes, service page 29,344 bytes — a nine-byte difference.<small>27 URLs of near-identical content, zero <code>rel=canonical</code>, all indexable. Classic self-competition in search.</small></td>
+        </tr>
+        <tr>
+          <td>Contact form on a legacy endpoint</td>
+          <td><span class="pill p-crit">Verify</span></td>
+          <td><code>formspree.io/info@ttukorvpallikool.ee</code> — the pre-2020 URL shape.<small>If it has been retired, enquiries fail silently: the AJAX handler shows the success state on any 2xx and nobody would notice.</small></td>
+        </tr>
+        <tr>
+          <td>No <code>lang</code> attribute</td>
+          <td><span class="pill p-high">High</span></td>
+          <td>Every page ships bare <code>&lt;html&gt;</code>, on a site in three languages.<small>Screen readers pick the wrong voice; search engines lose the language signal. One-line fix.</small></td>
+        </tr>
+        <tr>
+          <td>Duplicate DOM ids</td>
+          <td><span class="pill p-high">High</span></td>
+          <td><code>navEst</code>, <code>navEng</code>, <code>navRus</code>, <code>imgNav*</code>, <code>lanNav*</code> all appear in both <code>navbar.html</code> and <code>sidebar.html</code>; <code>id="navbar"</code> is used twice in one file.<small>Invalid HTML, and any <code>getElementById</code> silently hits only the first.</small></td>
+        </tr>
+        <tr>
+          <td>Bootstrap 4 classes on Bootstrap 3</td>
+          <td><span class="pill p-high">High</span></td>
+          <td><code>_layouts/lander.html</code> uses <code>col-12</code> and <code>my-4</code>; the page loads Bootstrap 3.3.7, where neither exists.<small>Those two landers are laid out by accident, not by the grid — which is why they keep needing mobile patches.</small></td>
+        </tr>
+        <tr>
+          <td>Sitemap hand-written and stale</td>
+          <td><span class="pill p-high">High</span></td>
+          <td>Three URLs, generated once by an online tool. <code>/spordiklass/</code> and <code>/sporditeraapia/</code> are absent.<small>The two newest pages — the ones with active campaigns behind them — are the ones not declared.</small></td>
+        </tr>
+        <tr>
+          <td>No social or canonical metadata</td>
+          <td><span class="pill p-med">Medium</span></td>
+          <td>Zero <code>og:</code>, <code>twitter:</code>, <code>canonical</code> or <code>hreflang</code> tags.<small>Shared to Facebook — the club's main channel — links render with no image and no title control.</small></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <p class="sec-n">03</p>
+  <h2>Weight</h2>
+  <p class="sec-lede">Measured by fetching what the pages actually request. This is a static brochure site; almost none of it is doing work.</p>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Asset</th><th>Size</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>jQuery <code>3.3.1</code></td><td class="num">265.4 KB</td><td>The <strong>unminified development build</strong> is being served to production. The minified one is 3× smaller — and the site uses jQuery for a smooth-scroll and a form POST, both of which are now native.</td></tr>
+        <tr><td>Netlify Identity widget</td><td class="num">234.8 KB</td><td>Loaded on <em>every</em> visitor page to support the <code>/admin/</code> CMS login. Belongs on <code>/admin/</code> only.</td></tr>
+        <tr><td>Bootstrap 3.3.7 CSS + JS</td><td class="num">154.6 KB</td><td>End-of-life since 2019. The site uses the grid and almost nothing else; CSS Grid replaces it outright.</td></tr>
+        <tr><td>Popper + jQuery Easing</td><td class="num">21.3 KB</td><td>Dependencies of the above. Both fall away with them.</td></tr>
+        <tr><td><strong>Third-party total</strong></td><td class="num"><strong>676.0 KB</strong></td><td>Per page, uncompressed, all render-blocking in <code>&lt;head&gt;</code> or before <code>&lt;/body&gt;</code>.</td></tr>
+        <tr><td>Images in <code>/img</code></td><td class="num">9.5 MB</td><td>No WebP/AVIF, no <code>srcset</code>, no intrinsic <code>width</code>/<code>height</code>. <code>overlay.jpg</code> alone is 1.05 MB; three service photos total 2.4 MB.</td></tr>
+        <tr><td>Hero video (mp4 + webm)</td><td class="num">4.6 MB</td><td>Reasonable to keep — it is the point of the page — but it deserves a real poster frame and a smaller encode.</td></tr>
+        <tr><td>Proxima Nova <code>.otf</code> ×3</td><td class="num">187 KB</td><td><strong>Never referenced.</strong> There is no <code>@font-face</code> anywhere in the CSS; the brand face is dead weight in the repo while the site renders in Quattrocento Sans.</td></tr>
+        <tr><td>Instafeed.js inside <code>ttu.js</code></td><td class="num">~8 KB</td><td>Minified library for Instagram API v1, which was shut down in 2020. Roughly two-thirds of the site's own JS file is this dead code — plus a commented-out access token.</td></tr>
+        <tr><td>Artificial page-loader delay</td><td class="num">1000 ms</td><td><code>setTimeout(endLoad, 1000)</code> hides the page behind a spinner for a full second after it is already rendered. Directly inflates Largest Contentful Paint.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <p class="sec-n">04</p>
+  <h2>The style system</h2>
+  <p class="sec-lede">This is the systematisation ask, and it is the clearest single win. The current CSS has no tokens — 1,443 lines, 30 <code>!important</code>, and one breakpoint.</p>
+
+  <div class="pal-compare">
+    <div class="pal-col">
+      <h4>Today — eight pinks</h4>
+      <p>Eight near-identical brand colours, arrived at one hex at a time. Several differ by a couple of percent in lightness and are visually indistinguishable.</p>
+      <div class="chips">
+        <span class="chip" style="background:#E4067E">E4067E</span>
+        <span class="chip" style="background:#AA1352">AA1352</span>
+        <span class="chip" style="background:#9F1053">9F1053</span>
+        <span class="chip" style="background:#9B054F">9B054F</span>
+        <span class="chip" style="background:#710D3C">710D3C</span>
+        <span class="chip" style="background:#74093A">74093A</span>
+        <span class="chip" style="background:#54092D">54092D</span>
+        <span class="chip" style="background:#9F004E">9F004E</span>
+      </div>
+    </div>
+    <div class="pal-col">
+      <h4>Proposed — one ramp</h4>
+      <p>Same brand, four steps with defined roles. TalTech magenta stays exactly as it is and becomes the single accent.</p>
+      <div class="ramp">
+        <div class="ramp-row"><span class="ramp-sw" style="background:#E4067E"></span><span>Accent — CTA, rules, hover</span><code>#E4067E</code></div>
+        <div class="ramp-row"><span class="ramp-sw" style="background:#8E0F4A"></span><span>Mid — large surfaces</span><code>#8E0F4A</code></div>
+        <div class="ramp-row"><span class="ramp-sw" style="background:#4C0A2A"></span><span>Deep — plates, footer</span><code>#4C0A2A</code></div>
+        <div class="ramp-row"><span class="ramp-sw" style="background:#33061C"></span><span>Ground — hero base</span><code>#33061C</code></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>The brand palette already passes accessibility</strong>, which is good news and means it does not need to change. Measured: magenta on white 4.54:1, button plum 7.18:1, deep plum 11.51:1 — all clear of WCAG AA. The single failure is <code>#ACADAC</code> grey on white at 2.25:1, used for muted text; replacing it with the proposed <code>#6E5C64</code> fixes it and warms the neutral toward the accent at the same time.
+  </div>
+
+  <h3>Type</h3>
+  <p class="body-p">Font sizes are currently declared in <code>px</code>, <code>pt</code>, <code>em</code> and <code>%</code> — mixed within the same stylesheet, with <code>pt</code> (a print unit) on headings. There is one <code>font-family</code> declaration, for Quattrocento Sans, while three weights of Proxima Nova sit unused in <code>/fonts</code>.</p>
+  <p class="body-p">The proposal is a single fluid scale in <code>rem</code>/<code>clamp()</code> and one family doing all the work. <strong>Proxima Nova is the brand face and the club already licenses it</strong> — it should be converted to <code>woff2</code>, subset to Latin + Cyrillic (the site is trilingual), and actually wired up with <code>@font-face</code>. The mockups use Chivo and Archivo as stand-ins because Proxima Nova cannot be served from a public CDN.</p>
+
+  <h3>Breakpoints</h3>
+  <p class="body-p">All three media queries in the stylesheet are <code>max-width: 767px</code>. There is no tablet or intermediate behaviour, which is why the recent history is a run of commits named "mobile fixes", "mobile fixes, layout fixes" and "final mobie fix". A layout built on CSS Grid with <code>auto-fill</code> and fluid type needs far fewer explicit breakpoints — the mockups use two.</p>
+</section>
+
+<section>
+  <p class="sec-n">05</p>
+  <h2>Should it stay on Jekyll?</h2>
+  <p class="sec-lede">Asked properly, since it is the one decision here that is expensive to reverse.</p>
+  <div class="opts">
+    <div class="opt pick">
+      <h4>Stay on Jekyll <span class="pill p-ok">Recommended</span></h4>
+      <p>The content is three languages of one small brochure site. Polyglot handles the i18n, Netlify builds it, Decap CMS is already wired to <code>/admin/</code>, and the build is under a second. Every problem in this document is fixable in place.</p>
+      <p class="label">Cost — zero. Risk — polyglot is lightly maintained, and its fork-based parallel build is the fragile part.</p>
+    </div>
+    <div class="opt">
+      <h4>Migrate to Astro or 11ty</h4>
+      <p>Better i18n ergonomics, image optimisation in the build, a toolchain more people can hire for. Genuinely nicer — but it buys tooling, not capability, and the content would have to be moved by hand.</p>
+      <p class="label">Cost — 2–3 weeks. Worth revisiting only if a real new requirement appears.</p>
+    </div>
+  </div>
+  <p class="body-p" style="margin-top:var(--s6)">Two Jekyll-specific caveats worth writing down. First, <code>parallel_localization</code> forks a process per language; that fork is where the build breaks under filesystem contention, and setting it to <code>false</code> costs almost nothing at this size. Second, <code>.ruby-version</code> pins 3.2.2 — fine today, but the Ruby dependency is the main long-term maintenance cost of staying, and it is the thing that will eventually force the question.</p>
+</section>
+
+<section>
+  <p class="sec-n">06</p>
+  <h2>The work plan</h2>
+  <p class="sec-lede">Ordered so that the cheapest, highest-consequence work lands first and nothing later depends on the redesign being agreed.</p>
+
+  <div class="phase">
+    <div class="phase-k"><span class="phase-n">Phase 0</span><span class="phase-eff">~half a day</span></div>
+    <div>
+      <h4>Stop the bleeding</h4>
+      <ul>
+        <li>Send one test enquiry through the live form; migrate to <code>formspree.io/f/{id}</code> if it fails</li>
+        <li>Replace UA with GA4 or Plausible — nothing else can be measured until this exists</li>
+        <li>Add <code>lang</code> to <code>&lt;html&gt;</code> per language</li>
+        <li>Move the Netlify Identity widget to <code>/admin/</code> only</li>
+        <li>Swap unminified jQuery for the minified build</li>
+        <li>Delete the 1-second page-loader delay</li>
+      </ul>
+      <p class="phase-why">Roughly 500 KB per page and three years of missing measurement, for a few hours of work. None of it touches design.</p>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-k"><span class="phase-n">Phase 1</span><span class="phase-eff">~1–2 days</span></div>
+    <div>
+      <h4>Fix the information architecture</h4>
+      <ul>
+        <li>Convert the three service posts from <code>_posts</code> to real pages — kill the 27 duplicates and the nonsense <code>/services/2014/09/21/</code> URLs</li>
+        <li>Add <code>jekyll-sitemap</code>; delete the hand-written <code>sitemap.xml</code></li>
+        <li>Add canonical, <code>hreflang</code>, and Open Graph tags with a proper share image</li>
+        <li>De-duplicate the nav/sidebar ids into one shared include</li>
+        <li>Add <code>netlify.toml</code> so the build command lives in the repo, not only in the dashboard</li>
+      </ul>
+      <p class="phase-why">Do this before any redesign — it is where the search visibility actually is, and it makes the templates safe to restructure.</p>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-k"><span class="phase-n">Phase 2</span><span class="phase-eff">~2–3 days</span></div>
+    <div>
+      <h4>Establish the style system</h4>
+      <ul>
+        <li>Write the token layer: colour ramp, fluid type scale, 4px spacing, two breakpoints</li>
+        <li>Convert Proxima Nova to subset <code>woff2</code> and wire up <code>@font-face</code>; drop the <code>.otf</code> files and Quattrocento Sans</li>
+        <li>Replace the Bootstrap grid with CSS Grid and drop Bootstrap, Popper and jQuery Easing</li>
+        <li>Retire the 30 <code>!important</code> declarations as the specificity conflicts they patch disappear</li>
+        <li>Strip Instafeed and the dead Instagram token from <code>ttu.js</code></li>
+      </ul>
+      <p class="phase-why">This is the unification ask. It is also what makes the redesign cheap to apply — and cheap to change later.</p>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-k"><span class="phase-n">Phase 3</span><span class="phase-eff">~3–4 days</span></div>
+    <div>
+      <h4>Apply the redesign</h4>
+      <ul>
+        <li>Rebuild the lander from the agreed mockup direction</li>
+        <li>Bring <code>/spordiklass/</code> and <code>/sporditeraapia/</code> onto the same system — they are the two pages currently held together by dead grid classes</li>
+        <li>Re-encode images to WebP with <code>srcset</code> and intrinsic dimensions; re-encode the hero video and give it a real poster frame</li>
+        <li>Rebuild the enquiry form: native validation, a honeypot, and an error state that is actually reachable</li>
+      </ul>
+      <p class="phase-why">Deliberately last. Everything above stands on its own even if the visual direction changes.</p>
+    </div>
+  </div>
+
+  <h3>What I would not do</h3>
+  <p class="body-p">Not a rebuild, not a CMS migration, not a component framework, and not a blog. The site has no new requirements — the brief was explicit about that — and every one of those would add maintenance surface to a site that currently gets a handful of commits a year. The <code>devop</code> and <code>Devop</code> branches from 2017–18 can also go.</p>
+</section>
+
+<footer class="foot">
+  <div class="foot-in">
+    <span>TTÜ Korvpallikool — modernisation audit</span>
+    <span>Findings measured against <code>master</code> @ <code>887386a</code></span>
+  </div>
+</footer>
