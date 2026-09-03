@@ -225,9 +225,11 @@ h1.hero-title em{font-style:normal;color:var(--magenta);display:block}
 /* ============================================================
    MAP - pink pins; a pin picks its region in the form
    ============================================================ */
-.map-wrap{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:var(--s7);align-items:start}
-.map-fig{position:relative;border:1px solid var(--rule);border-radius:2px;
-  background:var(--bg-alt);overflow:hidden}
+/* section centered, map stands alone */
+.loc-sec .sec-head{max-width:none;text-align:center;justify-items:center;margin-inline:auto}
+.loc-sec .sec-head p{max-width:48ch;margin-inline:auto}
+.map-fig{position:relative;max-width:900px;margin-inline:auto;
+  border:1px solid var(--rule);border-radius:2px;background:var(--bg-alt);overflow:hidden}
 .map-fig svg{display:block;width:100%;height:auto}
 .pin{cursor:pointer}
 .pin-dot{fill:var(--magenta);stroke:#fff;stroke-width:1.6;transition:r .15s ease}
@@ -241,14 +243,6 @@ h1.hero-title em{font-style:normal;color:var(--magenta);display:block}
 .map-sea{fill:color-mix(in srgb,var(--plum-700) 9%,transparent)}
 .map-land{fill:var(--bg)}
 .map-coast{fill:none;stroke:var(--rule-str);stroke-width:.5}
-.map-aside h3{font-size:var(--fs-h3);font-weight:800;margin-bottom:var(--s3)}
-.map-aside > p{color:var(--fg-mut);font-size:var(--fs-sm);line-height:1.55;margin-bottom:var(--s5)}
-.map-list{display:flex;flex-wrap:wrap;gap:var(--s2)}
-.map-chip{font-family:var(--body);font-size:var(--fs-sm);font-weight:500;
-  background:var(--bg);border:1px solid var(--rule-str);border-radius:2px;
-  padding:var(--s2) var(--s3);cursor:pointer;color:var(--fg);
-  transition:background .13s ease,color .13s ease,border-color .13s ease}
-.map-chip:hover,.map-chip[data-active="true"]{background:var(--magenta);border-color:var(--magenta);color:#fff}
 
 /* ============================================================
    FORM - the site's own fields and labels
@@ -486,13 +480,12 @@ form{display:grid;gap:var(--s5)}
   </div>
 </section>
 
-<section class="sec" id="asukohad">
+<section class="sec loc-sec" id="asukohad">
   <div class="sec-head">
-    <h2>Kus trenn käib</h2>
-    <p>Väiksemad treenivad oma kodukooli saalis. Vali kaardilt piirkond, see läheb vormi kaasa.</p>
+    <h2>Asukohad</h2>
+    <p>Väiksemad treenivad oma kodukooli saalis. Vali kaardilt sobiv piirkond.</p>
   </div>
-  <div class="map-wrap">
-    <div class="map-fig">
+  <div class="map-fig">
       <svg viewBox="0 9 100 52" role="img" aria-label="TTÜ Korvpallikooli treeningpaikade skemaatiline kaart Tallinnas ja Harjumaal">
         <rect x="0" y="0" width="100" height="62" class="map-sea"></rect>
         <path class="map-land" d="M0,17 C10,14 17,17 24,15 C31,13 36,9 44,10 C52,11 58,14 66,13 C74,12 82,9 90,11 C95,12 98,14 100,15 L100,62 L0,62 Z"></path>
@@ -500,12 +493,6 @@ form{display:grid;gap:var(--s5)}
         <g id="pins"></g>
       </svg>
     </div>
-    <div class="map-aside">
-      <h3>Kümme treeningpaika</h3>
-      <p>Kaart on skemaatiline, asukohad on ligikaudsed. Klõps pinil või nimel valib piirkonna vormis.</p>
-      <div class="map-list" id="map-chips"></div>
-    </div>
-  </div>
 </section>
 
 <section class="join" id="liitu">
@@ -672,11 +659,13 @@ form{display:grid;gap:var(--s5)}
     pinGroup.appendChild(g);
 
     /* matching chip */
-    var chip = document.createElement("button");
-    chip.type = "button"; chip.className = "map-chip"; chip.textContent = loc.name;
-    chip.dataset.name = loc.name;
-    chip.addEventListener("click", function(){ selectRegion(loc.name, true); });
-    chipWrap.appendChild(chip);
+    if (chipWrap) {
+      var chip = document.createElement("button");
+      chip.type = "button"; chip.className = "map-chip"; chip.textContent = loc.name;
+      chip.dataset.name = loc.name;
+      chip.addEventListener("click", function(){ selectRegion(loc.name, true); });
+      chipWrap.appendChild(chip);
+    }
   });
 
   locSelect.addEventListener("change", function(){ selectRegion(locSelect.value, false); });
