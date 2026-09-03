@@ -19,6 +19,7 @@
    Colour is spent almost nowhere so that one magenta rule counts.
    ============================================================ */
 :root{
+  color-scheme: light;
   --magenta:#E4067E; --magenta-d:#C10569;
   --plum-900:#33061C; --plum-800:#4C0A2A;
 
@@ -48,22 +49,6 @@
   --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px;--s9:96px;--s10:128px;
   --gutter:clamp(18px,4vw,56px);
   --maxw:1340px;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --ink:#F5F0F1; --ink-2:#D5C7CC; --muted:#9C8C92;
-    --paper:#100A0C; --paper-2:#1A1114;
-    --rule:#F5F0F1; --hair:#332328;
-    --field-bd:#F5F0F1;
-    --magenta:#FF3D9A; --magenta-d:#FF6BB0;
-  }
-}
-:root[data-theme="dark"]{
-  --ink:#F5F0F1; --ink-2:#D5C7CC; --muted:#9C8C92;
-  --paper:#100A0C; --paper-2:#1A1114;
-  --rule:#F5F0F1; --hair:#332328;
-  --field-bd:#F5F0F1;
-  --magenta:#FF3D9A; --magenta-d:#FF6BB0;
 }
 
 *,*::before,*::after{box-sizing:border-box}

@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Chivo:wght@700;800;900&display=swap">
 <style>
 :root{
+  color-scheme: light;
   --magenta:#E4067E; --magenta-d:#C10569;
   --plum-900:#33061C; --plum-800:#4C0A2A; --plum-700:#8E0F4A;
 
@@ -25,24 +26,6 @@
   --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px;--s9:96px;
   --gutter:clamp(20px,4.5vw,64px);
   --maxw:1080px;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#140A0F; --bg-alt:#1D1015; --fg:#F7F1F3; --fg-2:#DCCDD3; --fg-mut:#A6929B;
-    --rule:#32222A; --rule-str:#4A3540; --magenta:#FF3D9A; --magenta-d:#FF6BB0;
-    --crit:#FF7A9C; --crit-bg:#38121F;
-    --high:#E8B25C; --high-bg:#332612;
-    --med:#9FB6C9;  --med-bg:#1A242C;
-    --ok:#68C79B;   --ok-bg:#12281E;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#140A0F; --bg-alt:#1D1015; --fg:#F7F1F3; --fg-2:#DCCDD3; --fg-mut:#A6929B;
-  --rule:#32222A; --rule-str:#4A3540; --magenta:#FF3D9A; --magenta-d:#FF6BB0;
-  --crit:#FF7A9C; --crit-bg:#38121F;
-  --high:#E8B25C; --high-bg:#332612;
-  --med:#9FB6C9;  --med-bg:#1A242C;
-  --ok:#68C79B;   --ok-bg:#12281E;
 }
 
 *,*::before,*::after{box-sizing:border-box}

@@ -20,6 +20,7 @@
    4. Three facts instead of four. "1 klubi" was filler.
    ============================================================ */
 :root{
+  color-scheme: light;
   --magenta:   #E4067E;
   --magenta-d: #C10569;
   --plum-900:  #33061C;
@@ -61,19 +62,6 @@
   --measure: 62ch;
   --gutter: clamp(20px, 5vw, 72px);
   --maxw: 1280px;
-}
-
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#140A0F; --bg-alt:#1E1016; --fg:#F7F1F3; --fg-2:#D9C9D0; --fg-mut:#A38F98;
-    --rule:#33222A; --rule-str:#4C3540; --field:#1E1016; --field-bd:#4C3540;
-    --magenta:#FF3D9A; --magenta-d:#FF6BB0;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#140A0F; --bg-alt:#1E1016; --fg:#F7F1F3; --fg-2:#D9C9D0; --fg-mut:#A38F98;
-  --rule:#33222A; --rule-str:#4C3540; --field:#1E1016; --field-bd:#4C3540;
-  --magenta:#FF3D9A; --magenta-d:#FF6BB0;
 }
 
 *,*::before,*::after{box-sizing:border-box}
