@@ -163,7 +163,7 @@ h1.hero-title em{font-style:normal;color:var(--magenta);display:block}
 .about-lead{font-size:clamp(1.15rem,1.9vw,1.5rem);line-height:1.5;color:var(--fg);max-width:46ch}
 .about-logo{margin-top:var(--s6);display:flex;align-items:center;gap:var(--s4);
   padding-top:var(--s5);border-top:1px solid var(--rule)}
-.about-logo .taltech-mark{height:30px;width:auto;flex:none}
+.about-logo .taltech-mark{height:44px;width:auto;flex:none}
 .about-logo span{font-size:var(--fs-sm);color:var(--fg-mut);max-width:30ch;line-height:1.45}
 
 /* ============================================================
@@ -180,9 +180,8 @@ h1.hero-title em{font-style:normal;color:var(--magenta);display:block}
 .club{background:#fff;display:grid;place-items:center;padding:var(--s5) var(--s4);
   min-height:104px;transition:background .15s ease}
 .club:hover{background:var(--bg-alt)}
-.club img{max-height:52px;width:auto;max-width:100%;object-fit:contain;
-  filter:grayscale(1);opacity:.72;transition:filter .2s ease,opacity .2s ease}
-.club:hover img{filter:none;opacity:1}
+/* logos keep their own colours, untouched */
+.club img{max-height:52px;width:auto;max-width:100%;object-fit:contain}
 
 /* ---------------- facts ---------------- */
 .facts{background:var(--bg-alt);border-bottom:1px solid var(--rule)}
