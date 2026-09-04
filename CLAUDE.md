@@ -43,8 +43,8 @@ scale. `--fw-display` 900 for h1/h2, `--fw-strong` 700 for h3 and buttons.
 centred. Primary is solid brand; `.btn-ttu-inverse` is the same shape outlined
 and inverts to white inside brand-coloured sections.
 
-**Container** is capped at `--container-max` 1400px globally, so the nav and
-the sections below stay on the same edges.
+**Container.** Content sits on `--container-max` 1200px. Only the nav bar runs
+wide (`--container-wide` 1400px) so the CTA can sit at the far right.
 
 **Focus** rings live on `:focus-visible` only, so mouse clicks show nothing
 and keyboard users get a brand-coloured ring.
@@ -86,6 +86,35 @@ A styles-only pass; no layout or content rewrite beyond what is listed.
 - Locations are individual links: each hovers to the primary CTA's hover
   colour and preselects that region in the enquiry form on click.
 
+### SEO and performance pass
+
+- **Killed 27 duplicate pages.** The service blurbs were `_posts` with
+  `layout: default`, so each rendered the whole homepage. They are now a
+  `_services` collection with `output: false`: still rendered inline on the
+  homepage, but generating no standalone pages. 39 pages down to 12.
+- Added `rel=canonical`, Open Graph and Twitter cards, and a `lang` attribute
+  on `<html>`. Polyglot emitted `hreflang="ee"`, which is not a valid ISO
+  639-1 code for Estonian and so was ignored; alternates are now built from
+  `site.lang_codes` (`ee` -> `et`) with an `x-default`.
+- `site.url` corrected to https, since canonical must match what is served.
+- **Sitemap** is a template, not `jekyll-sitemap`: the plugin only ever sees
+  one language because polyglot forks per language, and it emitted 4 URLs
+  including `/admin/`. The template walks every language for every real page:
+  9 URLs with hreflang alternates. `robots.txt` disallows `/admin/`.
+- **Weight.** Removed the Netlify Identity widget from every visitor page
+  (235 KB; `admin/index.html` loads its own), swapped unminified jQuery for
+  the minified build, stripped Instafeed.js from `ttu.js` (half the file, for
+  an API dead since 2020, and it carried a commented-out access token), and
+  removed the 1s `setTimeout` that held the page loader over
+  already-rendered content. JS+CSS transferred is now ~103 KB.
+- Recompressed four photos that were saved at maximum quality: 3.5 MB to
+  763 KB, `img/` from 9.5 MB to 6.8 MB. Three other files were left alone
+  because re-encoding made them *larger* — check before and after, do not
+  assume a compression pass is a win.
+- Removed duplicate DOM ids (`navbar`, `lines`, and the language-link ids
+  repeated across nav and sidebar). None were referenced by JS or CSS.
+- `rexml` 3.2.6 -> 3.4.4, clearing the Dependabot advisory.
+
 ## Instagram feed — plan
 
 The section is **built but hidden**. Flip `enabled: true` in
@@ -118,20 +147,22 @@ and a scheduled build hook.
 
 ## Known, not yet addressed
 
-- **SEO is untouched.** The three service posts use `layout: default`, so each
-  renders the whole homepage: 27 near-duplicate pages with no `rel=canonical`.
-  There is no `lang` attribute on `<html>` on a trilingual site, no `og:` /
-  `twitter:` / `hreflang` tags, and `sitemap.xml` is hand-written and stale
-  (missing `/spordiklass/` and `/sporditeraapia/`).
-- **Analytics has been dead since 2023** — the property is Universal
-  Analytics, which stopped processing hits in July 2023.
-- **The contact form posts to Formspree's legacy `formspree.io/{email}`
-  endpoint.** Send a test enquiry and confirm it arrives; the AJAX handler
-  shows success on any 2xx, so a silent failure would go unnoticed.
-- 14 `!important` declarations remain, and Bootstrap 3 has been EOL since 2019.
-- `_includes/sporditeraapia.html` exists but is not included anywhere.
-- The unreferenced Proxima Nova `.otf` files in `/fonts` are dead weight (no
-  `@font-face` anywhere) but are the source if the brand face is ever licensed
-  for web.
-- Duplicate DOM ids: `navbar` is used on both a `<section>` and a `<div>`, and
-  the language links are repeated in `navbar.html` and `sidebar.html`.
+- **GA4 needs a measurement ID.** The dead UA property is gone and a GA4
+  snippet is wired up, but `ga4_id` in `_config.yml` is blank, so no analytics
+  load at all. Set it to `G-XXXXXXXXXX` to switch on.
+- **Instagram** section is built and hidden; see the plan above.
+- Images have no WebP/AVIF, no `srcset` and no intrinsic `width`/`height`
+  (the last costs layout shift). The hero video is 4.6 MB across mp4+webm and
+  could stand a smaller encode.
+- 14 `!important` declarations remain, all fighting Bootstrap; retiring them
+  needs markup changes. Bootstrap 3 has been EOL since 2019 and is still the
+  layout engine — a big change for little visible gain, so left alone.
+- `_includes/sporditeraapia.html` exists but is not included anywhere. Left in
+  place rather than deleted, in case the homepage section is wanted back.
+- The unreferenced Proxima Nova `.otf` files in `/fonts` are dead repo weight
+  (no `@font-face` anywhere) but cost visitors nothing, and are the source if
+  the brand face is ever licensed for web.
+- The contact form was **confirmed working** on the legacy Formspree endpoint.
+  Worth migrating to the `formspree.io/f/{id}` shape before the old one is
+  retired, since the AJAX handler treats any 2xx as success and would fail
+  silently.
