@@ -1306,16 +1306,28 @@ p.copyright {
 
 
 
-.locations span {
-
+.locations a {
+    display: inline-block;
     font-size: var(--fs-h3);
-    font-weight: 400;
+    font-weight: var(--fw-semi);
     text-align: center;
-    padding: 8px;
-
+    padding: 8px 12px;
     color: var(--brand-600);
+    text-decoration: none;
+    border-radius: var(--btn-radius);
+    transition: color 0.2s ease, background 0.2s ease;
+}
 
-   
+.locations a:hover,
+.locations a:focus {
+    /* same hover colour as the primary CTA */
+    color: var(--brand-500);
+    text-decoration: none;
+}
+
+.locations a:focus-visible {
+    outline: 2px solid var(--brand-500);
+    outline-offset: 2px;
 }
 
 .logos a {
@@ -1341,9 +1353,10 @@ p.copyright {
     color: var(--paper);
 }
 
-.spordiklass-content a {
+/* scoped to inline links inside the copy, so it stops reaching the CTA */
+.spordiklass-content p a {
     color: var(--paper);
-    font-weight: 900;
+    font-weight: var(--fw-display);
     text-decoration: underline;
 }
 
@@ -1534,10 +1547,14 @@ p.copyright {
    The left margin clears the -15px gutter Bootstrap puts on .navbar-right,
    which is what was making it overlap the nav links. */
 .nav > li > a.navbar-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 0 20px;
     margin-left: 24px;
-    margin-top: 8px;      /* (64px bar - 48px button) / 2 */
-    margin-bottom: 8px;
+    /* the nav container already contributes 8px above; 8+48+8 centres it in the 64px bar */
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* The about band needs room now that it is a two-column block. */

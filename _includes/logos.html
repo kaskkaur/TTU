@@ -2,14 +2,12 @@
 
 	<div class="logos">
 	    <div class="row">
-	        	<a href="#contact">
-		             <div  class="row locations">
+		             <div class="row locations">
 		          		{% for location in site.locations %}
-		              		<span align="center">{{location.name}}</span>
+		              		<a class="page-scroll location-link" href="#contact" data-location="{{ location.name }}">{{ location.name }}</a>
 		          		{% endfor %}
 
 			        </div>
-	        	</a>
      
 
 	    </div>

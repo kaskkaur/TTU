@@ -33,6 +33,18 @@ $(function() {
 
 
 
+// Clicking a location preselects that region in the enquiry form before
+// the page-scroll handler takes the visitor down to it.
+$(document).on('click', '.location-link', function() {
+    var region = $(this).data('location');
+    var select = document.getElementById('location-interest');
+    if (select && region) {
+        select.value = region;
+        $(select).trigger('change');
+    }
+});
+
+
 //Sidebar navigation on mobile.
 
 /* Set the width of the side navigation to 250px */
