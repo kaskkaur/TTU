@@ -128,7 +128,7 @@ and a scheduled build hook.
 - **The contact form posts to Formspree's legacy `formspree.io/{email}`
   endpoint.** Send a test enquiry and confirm it arrives; the AJAX handler
   shows success on any 2xx, so a silent failure would go unnoticed.
-- 27 `!important` declarations remain, and Bootstrap 3 has been EOL since 2019.
+- 14 `!important` declarations remain, and Bootstrap 3 has been EOL since 2019.
 - `_includes/sporditeraapia.html` exists but is not included anywhere.
 - The unreferenced Proxima Nova `.otf` files in `/fonts` are dead weight (no
   `@font-face` anywhere) but are the source if the brand face is ever licensed
