@@ -26,17 +26,26 @@
   /* Type. One family, one fluid scale in rem. Replaces the pt/px/em/%
      mix that headings and buttons were declared in. */
   --font:"Mulish",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-  --fs-h1:clamp(2.25rem,4.6vw,3.5rem);
-  --fs-h2:clamp(1.6rem,2.6vw,2rem);
-  --fs-h3:1.5rem;
+
+  /* Display sizes carry the page; headings are set heavy and tight so the
+     type does the work rather than extra ornament. */
+  --fs-h1:clamp(2.5rem,5.5vw,4.25rem);
+  --fs-h2:clamp(1.75rem,3.2vw,2.5rem);
+  --fs-h3:clamp(1.2rem,1.7vw,1.4rem);
   --fs-lead:1.125rem;
   --fs-body:1rem;
   --fs-sm:0.875rem;
   --fs-btn:1.125rem;
 
-  --lh-tight:1.15;
+  --fw-display:900;   /* Mulish Black, for h1/h2 */
+  --fw-semi:600;
+  --fw-strong:700;
+  --fw-body:400;
+
+  --lh-tight:1.1;
   --lh-body:1.6;
-  --tracking-tight:-0.02em;
+  --tracking-tight:-0.035em;
+  --tracking-label:0.12em;
 }
 
 /* Bootstrap 3 sets html{font-size:10px}, which would make every rem in the
@@ -63,29 +72,34 @@ h4,
 h5,
 h6 {
     font-family: var(--font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     line-height: var(--lh-tight);
     letter-spacing: var(--tracking-tight);
-    /*font-weight: 700;*/
-    
+    text-wrap: balance;
 }
 
 
 
 h1 {
-
     font-size: var(--fs-h1);
-    font-weight: 700;
-
+    font-weight: var(--fw-display);
 }
 
 h2 {
     font-size: var(--fs-h2);
-    font-weight: 700;
+    font-weight: var(--fw-display);
 }
 
 h3 {
     font-size: var(--fs-h3);
-    font-weight: 400;
+    font-weight: var(--fw-strong);
 }
 
 a{ 
@@ -496,10 +510,16 @@ background: url(../img/backdrop.png) no-repeat center center;
     margin-top: 8px;
     margin-bottom: 32px;
     max-width: 420px;
-    
+    /* supporting line under the h1, deliberately light against the display weight */
+    font-size: var(--fs-lead);
+    font-weight: var(--fw-body);
+    line-height: var(--lh-body);
+    letter-spacing: normal;
 }
 
 .intro-header {
+    position: relative;   /* containing block for #video and #video-overlay */
+    overflow: hidden;
     padding-top: 100px; 
     padding-bottom: 50px;
     
@@ -601,6 +621,15 @@ background: url(../img/backdrop.png) no-repeat center center;
 
 
 
+/* The about statement is marked up as an <h2> but reads as a lead paragraph,
+   so it takes lead treatment rather than the display weight. */
+.about-text h2 {
+    font-size: clamp(1.15rem, 2vw, 1.6rem);
+    font-weight: var(--fw-semi);
+    line-height: 1.35;
+    letter-spacing: normal;
+}
+
 .about-text  {
 
     /*width: 100%;*/
@@ -681,6 +710,13 @@ background: url(../img/backdrop.png) no-repeat center center;
 
 .logos {
 background-color: var(--paper);
+/* these .row wrappers sit outside any .container, so Bootstrap's -15px
+   gutters pushed them past both viewport edges on small screens */
+}
+
+.logos > .row {
+    margin-left: 0;
+    margin-right: 0;
 /*width: 100%
 height: 100%;*/
 
@@ -780,8 +816,8 @@ height: 100%;*/
     }
 
     .locations {
-        margin-right: 16px;
-        margin-left: 0px;
+        margin-right: 0;
+        margin-left: 0;
     }
 
 
@@ -804,6 +840,11 @@ height: 100%;*/
         margin-bottom: 7px;
     }
 
+    .intro-header {
+        height: auto;
+        min-height: 520px;
+    }
+
     #video {
         height: 100%;
         width: 100%;
@@ -817,7 +858,7 @@ height: 100%;*/
 
         opacity: 1;
         background: url(/img/ball-img.jpg) no-repeat center center;
-        object-fit: cover;
+        background-size: cover;   /* was missing: image rendered at natural size */
 
         /*background: linear-gradient(to bottom, var(--brand-800) 0%, var(--brand-700) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
         background-image: -webkit-linear-gradient(top, var(--brand-800) 0%, var(--brand-700) 100%);
@@ -869,8 +910,8 @@ height: 100%;*/
 .network-name {
     text-transform: uppercase;
     font-size: var(--fs-sm);
-    font-weight: 400;
-    letter-spacing: 2px;
+    font-weight: var(--fw-strong);
+    letter-spacing: var(--tracking-label);
 }
 
 
@@ -1328,7 +1369,9 @@ p.copyright {
 
     height: 100%;
     background-color:var(--paper);
-    
+    /* it is a .row without a .container, so cancel Bootstrap's -15px gutters */
+    margin-left: 0;
+    margin-right: 0;
     width: 100%;
 
     text-align: center;
@@ -1445,10 +1488,10 @@ p.copyright {
 }
 
 .spordiklass-subtitle {
-
     color: var(--brand-700);
     margin-left: 16px;
     margin-right: 16px;
+    font-weight: var(--fw-strong);
 }
 
 
