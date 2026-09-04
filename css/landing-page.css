@@ -1587,3 +1587,87 @@ p.copyright {
     background: var(--brand-500);
     border-color: var(--brand-500);
 }
+
+/* ==========================================================================
+   Instagram feed. Three latest posts on a white ground, square tiles.
+   ========================================================================== */
+.instagram {
+    background-color: var(--paper);
+    padding-top: 72px;
+    padding-bottom: 72px;
+}
+
+.instagram-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.instagram-head h2 {
+    margin: 0;
+}
+
+.instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.instagram-item {
+    position: relative;
+    display: block;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: var(--btn-radius);
+    background: var(--surface);
+    text-decoration: none;
+}
+
+.instagram-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.instagram-item:hover img,
+.instagram-item:focus img {
+    transform: scale(1.04);
+}
+
+.instagram-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 40px 16px 14px;
+    color: var(--paper);
+    font-size: var(--fs-sm);
+    line-height: 1.4;
+    background: linear-gradient(to top, rgba(38, 22, 29, 0.85) 0%, rgba(38, 22, 29, 0.35) 55%, rgba(38, 22, 29, 0) 100%);
+}
+
+.instagram-item:focus-visible {
+    outline: 2px solid var(--brand-500);
+    outline-offset: 2px;
+}
+
+@media(max-width:767px) {
+    .instagram {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .instagram-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .instagram-head {
+        justify-content: center;
+        text-align: center;
+    }
+}

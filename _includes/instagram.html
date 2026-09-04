@@ -1,0 +1,25 @@
+<!-- Instagram feed: three latest posts -->
+<section id="instagram">
+  <div class="instagram">
+    <div class="container">
+
+      <div class="instagram-head">
+        <h2>{{ site.data.content.instagram-heading }}</h2>
+        <a class="btn-ttu-inverse" href="{{ site.data.instagram.profile_url }}" target="_blank" rel="noopener">
+          {{ site.data.content.instagram-cta }}
+        </a>
+      </div>
+
+      <div class="instagram-grid">
+        {% for post in site.data.instagram.posts limit:3 %}
+          <a class="instagram-item" href="{{ post.permalink }}" target="_blank" rel="noopener">
+            <img src="{{ post.media_url }}" alt="{{ post.caption }}" loading="lazy">
+            {% if post.caption %}<span class="instagram-caption">{{ post.caption }}</span>{% endif %}
+          </a>
+        {% endfor %}
+      </div>
+
+    </div>
+    <!-- /.container -->
+  </div>
+</section>

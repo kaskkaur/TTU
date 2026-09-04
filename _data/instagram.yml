@@ -1,0 +1,24 @@
+# Instagram feed for the "Mis on uut" section.
+#
+# The fields below mirror the Instagram Graph API media object, so when the
+# fetch is wired up this file is simply rewritten at build time and the
+# template does not change. See _includes/instagram.html.
+#
+# Until then these are placeholders using the club's own photography.
+username: taltechbasketballschool
+profile_url: https://www.instagram.com/taltechbasketballschool/
+placeholder: true
+
+posts:
+  - permalink: https://www.instagram.com/taltechbasketballschool/
+    media_type: IMAGE
+    media_url: /img/services/basket-young.jpg
+    caption: Trenninädal pildis
+  - permalink: https://www.instagram.com/taltechbasketballschool/
+    media_type: IMAGE
+    media_url: /img/services/basket-adult.jpg
+    caption: Mängupäev saalis
+  - permalink: https://www.instagram.com/taltechbasketballschool/
+    media_type: IMAGE
+    media_url: /img/services/basket-method.jpg
+    caption: Uus hooaeg on alanud

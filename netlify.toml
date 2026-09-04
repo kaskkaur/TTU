@@ -1,0 +1,17 @@
+# Build configuration.
+#
+# NOTE: a netlify.toml in the repo OVERRIDES the build settings in the Netlify
+# dashboard. Check the current dashboard values match these before merging, in
+# particular the publish directory and the Ruby version.
+#
+# The Instagram fetch runs first and is fail-soft: with no IG_TOKEN set it
+# leaves _data/instagram.yml alone and exits 0, so the build still succeeds.
+# Set IG_USER_ID and IG_TOKEN in Netlify's environment variables to switch the
+# live feed on.
+
+[build]
+  command = "ruby bin/fetch_instagram.rb && bundle exec jekyll build"
+  publish = "_site"
+
+[build.environment]
+  RUBY_VERSION = "3.2.2"

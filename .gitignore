@@ -3,3 +3,6 @@ _site
 .jekyll-metadata
 .DS_Store
 .jekyll-cache
+
+# build output: Instagram images are fetched at build time
+img/instagram/
