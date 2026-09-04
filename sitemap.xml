@@ -1,18 +1,29 @@
+---
+layout: null
+sitemap: false
+---
+{%- comment -%}
+  Built by hand rather than with jekyll-sitemap: polyglot forks a process per
+  language, so the plugin only ever sees one of them and emits the default
+  language alone. This walks every language for every real page, and carries
+  the hreflang alternates alongside each entry.
+{%- endcomment -%}
+{%- assign pages = "/,/spordiklass/,/sporditeraapia/" | split: "," -%}
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-<url>
-  <loc>https://www.ttukorvpallikool.ee/</loc>
-</url>
-<url>
-  <loc>https://www.ttukorvpallikool.ee/en/</loc>
-</url>
-<url>
-  <loc>https://www.ttukorvpallikool.ee/ru/</loc>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- for path in pages %}
+{%- for lang in site.languages %}
+  {%- assign prefix = '' -%}
+  {%- unless lang == site.default_lang %}{% assign prefix = lang | prepend: '/' %}{% endunless -%}
+  <url>
+    <loc>{{ site.url }}{{ prefix }}{{ path }}</loc>
+  {%- for alt in site.languages %}
+    {%- assign alt_prefix = '' -%}
+    {%- unless alt == site.default_lang %}{% assign alt_prefix = alt | prepend: '/' %}{% endunless %}
+    <xhtml:link rel="alternate" hreflang="{{ site.lang_codes[alt] }}" href="{{ site.url }}{{ alt_prefix }}{{ path }}"/>
+  {%- endfor %}
+  </url>
+{%- endfor %}
+{%- endfor %}
 </urlset>

@@ -47,8 +47,8 @@
   --tracking-tight:-0.035em;
   --tracking-label:0.12em;
 
-  --container-max:1400px;
-  --container-narrow:1200px;
+  --container-max:1200px;    /* content measure */
+  --container-wide:1400px;   /* nav bar only */
 
   /* translucent bar for the blurred nav; falls back to solid --paper */
   --nav-blur-bg:rgba(255,255,255,0.72);
@@ -1734,9 +1734,9 @@ textarea:focus-visible,
     outline: none;
 }
 
-/* The hero copy reads better on a narrower measure than the rest of the page. */
-.intro-header .container {
-    max-width: var(--container-narrow);
+/* Only the nav bar runs wide, so the CTA can sit at the far right. */
+#custom-nav .container {
+    max-width: var(--container-wide);
 }
 
 /* Frosted navbar. The bar is fixed, so content scrolls under it; only applied

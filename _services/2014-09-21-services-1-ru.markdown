@@ -1,5 +1,4 @@
 ---
-layout: default
 img: basket-young.jpg
 category: Services
 title: разнообразное обучение основам баскетбола

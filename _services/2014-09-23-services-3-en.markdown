@@ -1,5 +1,4 @@
 ---
-layout: default
 img: basket-method.jpg
 category: Services
 title: Modern training methods.

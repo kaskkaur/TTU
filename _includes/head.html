@@ -34,12 +34,43 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     
-    <meta name="description" content="{{site.data.content.description}}">
+    <meta name="description" content="{{ site.data.content.description }}">
     <meta name="author" content="{{ site.author }}">
-    <link rel="icon" href="../img/pall.png">
-    {% I18n_Headers %}
+    <link rel="icon" href="/img/pall.png">
 
-    <title>{{site.data.content.title-tag}}</title>
+    <title>{{ site.data.content.title-tag }}</title>
+
+    {%- comment -%}
+      Canonical and hreflang. Polyglot's I18n_Headers emitted hreflang="ee",
+      which is not a valid ISO 639-1 code for Estonian, so search engines
+      ignored it. Built here instead using site.lang_codes.
+    {%- endcomment -%}
+    {%- assign lang_prefix = '' -%}
+    {%- unless site.active_lang == site.default_lang -%}
+      {%- assign lang_prefix = site.active_lang | prepend: '/' -%}
+    {%- endunless -%}
+    {%- assign canonical = site.url | append: lang_prefix | append: page.url -%}
+
+    <link rel="canonical" href="{{ canonical }}">
+    {% for lang in site.languages -%}
+      {%- assign p = '' -%}
+      {%- unless lang == site.default_lang %}{% assign p = lang | prepend: '/' %}{% endunless -%}
+    <link rel="alternate" hreflang="{{ site.lang_codes[lang] }}" href="{{ site.url }}{{ p }}{{ page.url }}">
+    {% endfor -%}
+    <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url }}">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.data.content.logo-title }}">
+    <meta property="og:title" content="{{ site.data.content.title-tag }}">
+    <meta property="og:description" content="{{ site.data.content.description }}">
+    <meta property="og:url" content="{{ canonical }}">
+    <meta property="og:image" content="{{ site.url }}{{ site.share_image }}">
+    <meta property="og:locale" content="{{ site.lang_codes[site.active_lang] }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ site.data.content.title-tag }}">
+    <meta name="twitter:description" content="{{ site.data.content.description }}">
+    <meta name="twitter:image" content="{{ site.url }}{{ site.share_image }}">
 
     <!-- Font: Mulish, the closest free stand-in for the brand's Proxima Nova.
          latin-ext covers Estonian diacritics, cyrillic covers the RU pages. -->

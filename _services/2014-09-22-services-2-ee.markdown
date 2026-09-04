@@ -1,5 +1,4 @@
 ---
-layout: default
 img: basket-adult.jpg
 category: Services
 title: Edasijõudnutele eesmärgipõhine treening.

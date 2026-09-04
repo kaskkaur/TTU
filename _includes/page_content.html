@@ -1,6 +1,6 @@
 <section id="services">
 <!-- Page Content -->
-{% for post in site.posts reversed %}
+{% for post in site.services %}
     {% if site.active_lang == post.lang %}
       {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
         {% if thecycle == 'odd' %}
@@ -13,7 +13,7 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">{{ post.title }}</h2>
-                    <div class="lead bold">{{ post.content }}</div>
+                    <div class="lead bold">{{ post.content | markdownify }}</div>
                                     
 
 
@@ -42,7 +42,7 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">{{ post.title }}</h2>
-                    <div class="lead bold">{{ post.content }}</div>
+                    <div class="lead bold">{{ post.content | markdownify }}</div>
 
                     
 

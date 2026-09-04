@@ -1,5 +1,4 @@
 ---
-layout: default
 img: basket-adult.jpg
 category: Services
 title: Personalised trainings for older students
