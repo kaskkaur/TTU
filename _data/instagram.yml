@@ -5,6 +5,9 @@
 # template does not change. See _includes/instagram.html.
 #
 # Until then these are placeholders using the club's own photography.
+# Set to true to render the section. Off until the feed is wired to Behold.
+enabled: false
+
 username: taltechbasketballschool
 profile_url: https://www.instagram.com/taltechbasketballschool/
 placeholder: true
