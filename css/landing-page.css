@@ -47,6 +47,8 @@
   --tracking-tight:-0.035em;
   --tracking-label:0.12em;
 
+  --container-max:1400px;
+
   --btn-height:48px;
   --btn-radius:4px;
 }
@@ -1670,4 +1672,12 @@ p.copyright {
         justify-content: center;
         text-align: center;
     }
+}
+
+/* Site container. Bootstrap's .container is a fixed 1170px from 1200px up;
+   capped at 1400 here so content has room on wide screens without drifting
+   too far apart. Applied globally so the nav and the sections stay aligned. */
+.container {
+    width: 100%;
+    max-width: var(--container-max);
 }
