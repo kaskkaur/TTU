@@ -1152,11 +1152,7 @@ margin: 0px;
 
 
 
-.form-control:focus { 
-    outline: none !important;
-    border-color: var(--brand-600);
-    
-}
+
 
 
 .forminput {
@@ -1680,4 +1676,55 @@ p.copyright {
 .container {
     width: 100%;
     max-width: var(--container-max);
+}
+
+/* ==========================================================================
+   Focus and pressed states.
+
+   Bootstrap 3 paints the system focus ring on plain :focus, so it fired on
+   mouse clicks as well as keyboard, which is the stray outline that showed
+   when pressing links and buttons. Rings move to :focus-visible so they only
+   appear for keyboard users, and take the brand colour.
+
+   Bootstrap also tints .form-control:focus Bootstrap-blue with an 8px glow.
+   Cleared and replaced with a brand-tinted ring.
+   ========================================================================== */
+a:focus,
+button:focus,
+select:focus,
+input:focus,
+textarea:focus,
+.btn-ttu:focus,
+.btn-ttu-inverse:focus,
+#contactbutton:focus,
+.navbar-contact-btn:focus,
+.locations a:focus,
+.instagram-item:focus,
+.form-control:focus {
+    outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.btn-ttu:focus-visible,
+.btn-ttu-inverse:focus-visible,
+#contactbutton:focus-visible,
+.navbar-contact-btn:focus-visible,
+.locations a:focus-visible,
+.instagram-item:focus-visible {
+    outline: 2px solid var(--brand-500);
+    outline-offset: 2px;
+}
+
+.form-control:focus {
+    border-color: var(--brand-600);
+    -webkit-box-shadow: 0 0 0 3px rgba(228, 6, 126, 0.16);
+    box-shadow: 0 0 0 3px rgba(228, 6, 126, 0.16);
+}
+
+.form-control:focus-visible {
+    outline: none;
 }
