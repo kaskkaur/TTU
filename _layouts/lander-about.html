@@ -5,21 +5,21 @@
 	{% include sidebar.html %}
 	<body>
 
-		<div id="wrapper" class="container about-container">
+		<!-- Hero on the light grey ground, mark above the titles -->
+		<section class="about-hero">
+			<div class="container">
+				<div class="hero-section text-center">
+					<img class="about-page-mark" src="/img/taltech.svg" alt="TalTech Korvpallikool">
 
-			<!-- Hero -->
-			<div class="row">
-				<div class="col-12">
-					<div class="hero-section text-center">
-						<div class="hero-titles">
-							<h1>{{ site.data.content.about_page_title }}</h1>
-							<h2 class="spordiklass-subtitle">{{ site.data.content.about_page_subtitle }}</h2>
-						</div>
-
-						<img class="about-page-mark" src="/img/taltech.svg" alt="TalTech Korvpallikool">
+					<div class="hero-titles">
+						<h1>{{ site.data.content.about_page_title }}</h1>
+						<h2 class="spordiklass-subtitle">{{ site.data.content.about_page_subtitle }}</h2>
 					</div>
 				</div>
 			</div>
+		</section>
+
+		<div id="wrapper" class="container about-container">
 
 			<!-- Sections -->
 			<div class="row my-4">

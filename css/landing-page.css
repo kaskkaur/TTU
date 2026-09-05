@@ -1758,12 +1758,39 @@ textarea:focus-visible,
     padding-bottom: 40px;
 }
 
+.about-hero {
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--line);
+    /* 64px clears the fixed navbar */
+    padding: 104px 0 56px;
+    margin-bottom: 56px;
+}
+
+.about-hero .hero-section {
+    margin: 0;
+}
+
+.about-hero .hero-titles {
+    margin-bottom: 0;
+}
+
 .about-page-mark {
     display: block;
     width: 100%;
     max-width: 320px;
     height: auto;
-    margin: 0 auto;
+    margin: 0 auto 24px;
+}
+
+@media(max-width:767px) {
+    .about-hero {
+        padding: 88px 0 40px;
+        margin-bottom: 40px;
+    }
+
+    .about-page-mark {
+        max-width: 220px;
+    }
 }
 
 .about-cta {
@@ -1786,5 +1813,35 @@ textarea:focus-visible,
 @media(max-width:767px) {
     .about-cta {
         padding: 48px 16px;
+    }
+}
+
+/* Footer: logo, contact details, social. */
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.footer-sitemap a {
+    display: block;
+    padding: 3px 0;
+}
+
+.footer-mark {
+    display: block;
+    width: 100%;
+    max-width: 320px;   /* same as the mark on /meist/ */
+    height: auto;
+    margin-top: 48px;
+}
+
+@media(max-width:991px) {
+    .footer-brand {
+        margin-top: 8px;
+    }
+
+    .footer-mark {
+        max-width: 240px;
     }
 }

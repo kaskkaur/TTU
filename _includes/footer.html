@@ -1,8 +1,9 @@
 <!-- Footer -->
 <footer>
     <div class="container">
-        <div class="row">
-            <div class="col-md-6  text-left footer-details">
+        <div class="row footer-row">
+
+            <div class="col-md-4 text-left footer-details">
                 <div>
                    <span> <img alt="E-mail" src="../img/ic_email_black_24px.svg">  </span> 
                    <a href="mailto:{{ site.email }}"><span>{{ site.email }}</span></a>
@@ -20,17 +21,10 @@
                     <span> <img alt="Aadress" src="../img/ic_home_black_24px.svg">  </span> 
                    <span>{{site.address}}</span>
                </div>
-
-
-               <div>
-                    <span> <img width="24px" height="auto" color="#aa1352" alt="Timetable" src="../img/ic_calendar_24_red.svg">  </span> 
-                   <span> <a href="{{ site.timetableUrl }}" target="_blank" rel="noopener noreferrer"
-                    >{{ site.data.content.timetable }}</a> </span>
-               </div>
                         
                         
             </div>
-            <div class="col-md-6  text-left footer-social">
+            <div class="col-md-4 text-left footer-social">
 
                 {% for social in site.social %}
                             <div>
@@ -40,6 +34,20 @@
 
 
                 <!-- <p class="copyright text-muted small">{{site.data.content.copyright}}</p> -->
+            </div>
+
+            <div class="col-md-4 text-left footer-sitemap">
+                <a href="/meist">{{ site.data.content.nav-about }}</a>
+                <a href="/spordiklass">{{ site.data.content.nav-spordiklass }}</a>
+                <a href="/sporditeraapia">{{ site.data.content.nav-sporditeraapia }}</a>
+                <a href="/#contact">{{ site.data.content.nav-contactbutton }}</a>
+                <a href="{{ site.timetableUrl }}" target="_blank" rel="noopener noreferrer">{{ site.data.content.timetable }}</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-left footer-brand">
+                <img class="footer-mark" src="/img/taltech.svg" alt="TalTech Korvpallikool">
             </div>
         </div>
     </div>
