@@ -744,9 +744,8 @@ height: 100%;*/
 
 .img-logo {
 
-    filter: grayscale(100%);
-    /*padding-right: 72px;*/
-    opacity: 0.5;
+    /* member club logos keep their own colours */
+    opacity: 1;
     /*width: 32px;
     height: 32px;*/
     /*background-color: red;*/
@@ -759,9 +758,7 @@ height: 100%;*/
 }
 
 .img-logo:hover {
-    filter: grayscale(0%);
     opacity: 1;
-    /*transform:scale(1.020,1.020);*/
 }
 
 
@@ -1751,5 +1748,43 @@ textarea:focus-visible,
 
     #custom-nav.affix {
         background-color: var(--nav-blur-bg);
+    }
+}
+
+/* ==========================================================================
+   Meist / Ühendklubi page
+   ========================================================================== */
+.about-container {
+    padding-bottom: 40px;
+}
+
+.about-page-mark {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.about-cta {
+    background-color: var(--surface);
+    border-top: 1px solid var(--line);
+    text-align: center;
+    padding: 72px 16px;
+}
+
+.about-cta h2 {
+    margin: 0 0 16px;
+}
+
+.about-cta .lead {
+    color: var(--ink);
+    margin: 0 auto 32px;
+    max-width: 46ch;
+}
+
+@media(max-width:767px) {
+    .about-cta {
+        padding: 48px 16px;
     }
 }

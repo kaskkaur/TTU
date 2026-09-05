@@ -1,0 +1,16 @@
+<!-- Member club logos -->
+<section id="club-logos">
+  <div class="logos">
+    <div class="row logos container center center-block">
+      {% for gallery in site.data.galleries %}
+        {% if gallery.id == "logos" %}
+          {% for image in gallery.images %}
+            <div class="img-logo">
+              <a href="{{ image.url }}" target="_blank" rel="noopener"><img alt="{{ image.alt }}" src="{{ gallery.imagefolder }}/{{ image.name }}"></a>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+<!-- Region bar: sits under the hero, each region preselects itself in the form -->
+<section id="club-locations">
+  <div class="logos">
+    <div class="row locations">
+      {% for location in site.locations %}
+        <a class="page-scroll location-link" href="/#contact" data-location="{{ location.name }}">{{ location.name }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

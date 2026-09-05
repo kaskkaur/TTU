@@ -25,6 +25,11 @@ jQuery from CDN · Decap/Netlify CMS at `/admin/`.
 Content lives in `_data/{ee,en,ru}/content.yml`, not in the templates. Adding
 a string means adding the same key to all three files.
 
+Pages: `/` (homepage), `/meist/`, `/spordiklass/`, `/sporditeraapia/`, each
+with `/en/` and `/ru/` variants. A page is a stub at the repo root carrying
+`layout` and `permalink` front matter; the markup lives in `_layouts/`. Add
+new pages to `sitemap.xml`, which is a hand-rolled template.
+
 ## Style system
 
 Everything visual is driven by tokens at the top of `css/landing-page.css`.

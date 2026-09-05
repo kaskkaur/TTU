@@ -70,3 +70,16 @@ sporditeraapia_contact_email: "202@ttukorvpallikool.ee"
 sporditeraapia_closing: "Tule ja hoolitse oma keha eest – tugev ja terve sportlane on edukas sportlane!"
 instagram-heading: Mis on uut
 instagram-cta: Jälgi Instagramis
+
+# --- Meist / Ühendklubi page ---
+about_page_title: "Ühendklubi"
+about_page_subtitle: "700+ korvpallurit, suurt kui väikest"
+about_section_1_title: "Ühendatud jõud"
+about_section_1_text: "TTÜ Korvpallikool koondab seitse liikmesklubi Tallinnas ja Harjumaal. Koos moodustavad nad ühe korvpalliteekonna, kus laps saab alustada oma kodukooli saalis ja jätkata sama klubi sees nii kaugele, kui ta ise soovib."
+about_section_2_title: "Mikrost magistrini"
+about_section_2_text: "Meie kool võimaldab lastel teha oma esimesed korvpallisammud ning jõuda korvpalli profitasemeni. Vastu võtame õpilasi alates 6. eluaastast, praegu on treeningrühmad avatud 2008.-2022. aastal sündinutele."
+about_section_3_title: "Kus me treenime"
+about_section_3_text: "Treeningud toimuvad kümnes piirkonnas Tallinnas ja Harjumaal. Väiksemad treenivad vahetult peale koolipäeva lõppu oma kodukooli spordisaalis, nii et lapsel ei tule trenni jõudmiseks pikka teed ette võtta."
+about_clubs_title: "Liikmesklubid"
+about_cta_title: "Tule trenni"
+about_cta_text: "Vali endale sobiv piirkond ja võta meiega ühendust."

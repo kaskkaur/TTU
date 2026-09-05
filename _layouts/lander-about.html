@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang_codes[site.active_lang] }}">
+	{% include head.html %}
+	{% include navbar.html %}
+	{% include sidebar.html %}
+	<body>
+
+		<div id="wrapper" class="container about-container">
+
+			<!-- Hero -->
+			<div class="row">
+				<div class="col-12">
+					<div class="hero-section text-center">
+						<div class="hero-titles">
+							<h1>{{ site.data.content.about_page_title }}</h1>
+							<h2 class="spordiklass-subtitle">{{ site.data.content.about_page_subtitle }}</h2>
+						</div>
+
+						<img class="about-page-mark" src="/img/taltech.svg" alt="TalTech Korvpallikool">
+					</div>
+				</div>
+			</div>
+
+			<!-- Sections -->
+			<div class="row my-4">
+				<div class="col-12">
+
+					<div class="spordiklass-content-section">
+						<h2>{{ site.data.content.about_section_1_title }}</h2>
+						<p class="lead">{{ site.data.content.about_section_1_text }}</p>
+					</div>
+
+					<div class="spordiklass-content-section">
+						<h2>{{ site.data.content.about_section_2_title }}</h2>
+						<p class="lead">{{ site.data.content.about_section_2_text }}</p>
+					</div>
+
+					<div class="spordiklass-content-section">
+						<h2>{{ site.data.content.about_section_3_title }}</h2>
+						<p class="lead">{{ site.data.content.about_section_3_text }}</p>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Member clubs -->
+		<div class="container about-container">
+			<div class="row">
+				<div class="col-12">
+					<div class="spordiklass-content-section">
+						<h2>{{ site.data.content.about_clubs_title }}</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% include club-logos.html %}
+
+		<!-- Come and train -->
+		<section class="about-cta">
+			<div class="container">
+				<h2>{{ site.data.content.about_cta_title }}</h2>
+				<p class="lead">{{ site.data.content.about_cta_text }}</p>
+				<a class="btn-ttu-inverse" href="/#contact">{{ site.data.content.nav-contactbutton }}</a>
+			</div>
+		</section>
+
+		{% include footer.html %}
+		{% include js.html %}
+	</body>
+
+</html>
