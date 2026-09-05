@@ -23,7 +23,7 @@
                 {% for social in site.social %}
                 <a class="footer-item" href="{{ social.url }}" target="_blank" rel="noopener">
                     <img class="footer-icon" alt="" src="{{ social.img }}">
-                    <span class="network-name">{{ social.title }}</span>
+                    <span>{{ social.title | capitalize }}</span>
                 </a>
                 {% endfor %}
             </div>
@@ -40,6 +40,7 @@
 
         <div class="footer-bottom">
             <img class="footer-mark" src="/img/taltech.svg" alt="TalTech Korvpallikool">
+            <p class="footer-copyright">{{ site.data.content.copyright }}</p>
         </div>
 
     </div>
