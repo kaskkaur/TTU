@@ -91,7 +91,9 @@
 
 
     <!-- Custom CSS -->
-    <link href="/css/landing-page.css" rel="stylesheet">
+    <!-- Version query busts the browser cache on every build, so a stylesheet
+         change is never masked by a stale cached copy. -->
+    <link href="/css/landing-page.css?v={{ site.time | date: '%s' }}" rel="stylesheet">
    
     
 
