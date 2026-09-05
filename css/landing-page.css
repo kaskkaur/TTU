@@ -1216,10 +1216,6 @@ margin-bottom: 4px;
     z-index: -1;
     }
 
-    .footer-social {
-        padding-top: 32px;
-        text-align: left;
-    }
 
     .contact {
 
@@ -1254,34 +1250,15 @@ margin-bottom: 4px;
 
 }
 
-.social-icons {
 
-    padding-right: 16px;
-    padding-bottom: 8px;
-    padding-left: 8px;
-    text-align: left;
-}
-
-footer {
-    padding: 50px 0;
-    background-color: var(--surface);
-}
 
 
 footer a:hover {
     color: var(--brand-500) !important;
 }
 
-p.copyright {
-    margin: 32px 0 0;
-}
 
 
-.footer-details span {
-    line-height: 32px;
-    padding: 8px;
-    
-}
 
 .locations {
 
@@ -1762,8 +1739,8 @@ textarea:focus-visible,
     background-color: var(--surface);
     border-bottom: 1px solid var(--line);
     /* 64px clears the fixed navbar */
-    padding: 104px 0 56px;
-    margin-bottom: 56px;
+    padding: 120px 0 72px;
+    margin-bottom: 64px;
 }
 
 .about-hero .hero-section {
@@ -1779,13 +1756,13 @@ textarea:focus-visible,
     width: 100%;
     max-width: 320px;
     height: auto;
-    margin: 0 auto 24px;
+    margin: 0 auto 32px;
 }
 
 @media(max-width:767px) {
     .about-hero {
-        padding: 88px 0 40px;
-        margin-bottom: 40px;
+        padding: 96px 0 48px;
+        margin-bottom: 48px;
     }
 
     .about-page-mark {
@@ -1796,8 +1773,10 @@ textarea:focus-visible,
 .about-cta {
     background-color: var(--surface);
     border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
     text-align: center;
-    padding: 72px 16px;
+    padding: 80px 16px 88px;
+    margin-bottom: 0;
 }
 
 .about-cta h2 {
@@ -1812,20 +1791,71 @@ textarea:focus-visible,
 
 @media(max-width:767px) {
     .about-cta {
-        padding: 48px 16px;
+        padding: 56px 16px 64px;
     }
 }
 
-/* Footer: logo, contact details, social. */
+/* ==========================================================================
+   Footer: three columns on one baseline, then a rule and the mark.
+   Each item is a flex row so a wrapping address indents under its own text
+   rather than sliding back under the icon.
+   ========================================================================== */
+footer {
+    background-color: var(--surface);
+    padding: 72px 0 56px;
+}
+
 .footer-row {
     display: flex;
     flex-wrap: wrap;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
     align-items: flex-start;
 }
 
+.footer-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 0;
+    color: var(--ink);
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+a.footer-item:hover,
+a.footer-item:focus {
+    color: var(--brand-500);
+    text-decoration: none;
+}
+
+.footer-icon {
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    margin-top: 1px;
+}
+
 .footer-sitemap a {
-    display: block;
-    padding: 3px 0;
+    color: var(--brand-600);
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+.footer-sitemap a:hover,
+.footer-sitemap a:focus {
+    color: var(--brand-500);
+    text-decoration: none;
+}
+
+.footer-bottom {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
 }
 
 .footer-mark {
@@ -1833,15 +1863,23 @@ textarea:focus-visible,
     width: 100%;
     max-width: 320px;   /* same as the mark on /meist/ */
     height: auto;
-    margin-top: 48px;
 }
 
 @media(max-width:991px) {
-    .footer-brand {
-        margin-top: 8px;
+    footer {
+        padding: 48px 0 40px;
+    }
+
+    .footer-col {
+        margin-bottom: 32px;
+    }
+
+    .footer-bottom {
+        margin-top: 24px;
+        padding-top: 32px;
     }
 
     .footer-mark {
-        max-width: 240px;
+        max-width: 220px;
     }
 }
