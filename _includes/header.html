@@ -9,8 +9,11 @@
 	<video preload="none" playsinline autoplay loop muted poster="/img/placeholder.jpeg" id="video">
 
 
+	<!-- mp4 only. The .webm is a different, longer edit (20.8s vs 17.7s) that
+	     ends on a text outro card; the mp4 ends on gameplay, which is what the
+	     looping hero wants. H.264 mp4 is supported everywhere, so the webm
+	     added 2.5 MB and a risk of showing the card, for nothing. -->
 	<source data-src="/img/ttu-video-web.mp4" type="video/mp4">
-	<source data-src="/img/ttu-video-web.webm" type="video/webm">
 
 	</video>
 
