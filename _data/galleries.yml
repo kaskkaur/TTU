@@ -33,12 +33,15 @@
   - name: sony.png
     url:  https://www.miterassa.ee/sonycenter/
     alt:  Sony Center
-  - name: 4teams.svg
-    url:  https://www.4teams.ee/
-    alt:  4teams
-  - name: macron.svg
-    url:  https://www.macron.com/eu/en/#
-    alt:  Macron
+  # Nike and Sportland replace 4teams and Macron. Drop the files into
+  # img/sponsors/ and uncomment. Match the existing row: 80px tall,
+  # transparent background, SVG preferred (see tsk.png / sony.png).
+  # - name: nike.svg
+  #   url:  https://www.nike.com/ee/
+  #   alt:  Nike
+  # - name: sportland.svg
+  #   url:  https://www.sportland.ee/
+  #   alt:  Sportland
   - name: tsk.png
     url:  http://tsk.ee/
     alt:  Tallinna Spordikool
