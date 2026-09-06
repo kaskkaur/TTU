@@ -1830,6 +1830,8 @@ footer {
     text-decoration: none;
 }
 
+/* anything clickable takes the brand colour; the address is not a link */
+a.footer-item,
 .footer-sitemap a {
     color: var(--brand-600);
 }
