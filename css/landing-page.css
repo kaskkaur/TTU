@@ -742,7 +742,9 @@ height: 100%;*/
 }
 
 .sponsors img {
-
+    /* logos arrive on assorted canvases; cap the height so the row stays even */
+    max-height: 80px;
+    width: auto;
     opacity: 0.2;
 }
 

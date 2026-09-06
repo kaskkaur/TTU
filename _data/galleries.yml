@@ -39,9 +39,9 @@
   # - name: nike.svg
   #   url:  https://www.nike.com/ee/
   #   alt:  Nike
-  # - name: sportland.svg
-  #   url:  https://www.sportland.ee/
-  #   alt:  Sportland
+  - name: sportland.svg
+    url:  https://www.sportland.ee/
+    alt:  Sportland
   - name: tsk.png
     url:  http://tsk.ee/
     alt:  Tallinna Spordikool
