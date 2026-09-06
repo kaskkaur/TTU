@@ -1776,12 +1776,8 @@ textarea:focus-visible,
 }
 
 .about-cta {
-    background-color: var(--surface);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
     text-align: center;
     padding: 80px 16px 88px;
-    margin-bottom: 0;
 }
 
 .about-cta h2 {
