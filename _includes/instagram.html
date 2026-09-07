@@ -14,7 +14,12 @@
       <div class="instagram-grid">
         {% for post in site.data.instagram.posts limit:3 %}
           <a class="instagram-item" href="{{ post.permalink }}" target="_blank" rel="noopener">
-            <img src="{{ post.media_url }}" alt="{{ post.alt | default: post.caption }}" loading="lazy" width="600" height="600">
+            {%- comment -%}
+              Instagram rarely carries altText. When it does, use it. When it
+              does not, the alt stays empty on purpose: the caption sits in the
+              same link, so repeating it here would just read out twice.
+            {%- endcomment -%}
+            <img src="{{ post.media_url }}" alt="{{ post.alt }}" loading="lazy" width="700" height="700">
             {% if post.caption %}<span class="instagram-caption">{{ post.caption }}</span>{% endif %}
           </a>
         {% endfor %}
