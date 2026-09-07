@@ -76,6 +76,7 @@ js/ttu.js              form submit, location picker, mobile nav
 img/                   photography, logos, hero video
 bin/fetch_instagram.rb build-time fetch from the Behold JSON feed
 sitemap.xml            hand-rolled template, walks all languages
+.github/workflows/     weekly build trigger so the Instagram feed refreshes
 ```
 
 ### Adding copy
@@ -246,9 +247,12 @@ deployed**. `master` is untouched.
   they are served from this domain, and rewrites `_data/instagram.yml` with
   `enabled: true`. It is fail-soft: no id, a bad response or a failed download
   leaves the existing data and exits 0. Because the render is build-time, the
-  feed only refreshes on deploy — add a Netlify scheduled build if the club
-  wants it current between deploys. Prerequisite: the account must be Business
-  or Creator.
+  feed only refreshes when the site builds, so
+  `.github/workflows/refresh-instagram.yml` pokes a Netlify build hook every
+  Monday. That needs a `NETLIFY_BUILD_HOOK` repo secret, and note GitHub
+  disables scheduled workflows after 60 days without a commit — it emails the
+  owner, any push re-enables it, and the workflow can be run by hand from the
+  Actions tab. Prerequisite: the account must be Business or Creator.
 - **Nike logo** still stubbed in `_data/galleries.yml` awaiting artwork.
 - **Test a CMS invite link** before merging (see the Identity caveat above).
 

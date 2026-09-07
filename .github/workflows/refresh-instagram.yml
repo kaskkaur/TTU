@@ -1,0 +1,44 @@
+# Weekly rebuild so the Instagram feed refreshes.
+#
+# The site renders the feed at build time, so it only changes when Netlify
+# builds. This pokes a Netlify build hook once a week; the build then runs
+# bin/fetch_instagram.rb and picks up any new posts.
+#
+# Setup, both one-off:
+#   1. Netlify -> Site configuration -> Build & deploy -> Build hooks ->
+#      "Add build hook", name it "Weekly Instagram refresh", branch master.
+#   2. GitHub -> repo Settings -> Secrets and variables -> Actions ->
+#      "New repository secret", name NETLIFY_BUILD_HOOK, value that URL.
+#
+# CAVEAT worth knowing: GitHub disables scheduled workflows after 60 days with
+# no commits to the repository. This repo is quiet for long stretches, so that
+# is plausible. GitHub emails the repo owner when it happens, and any push
+# re-enables it. You can also run this by hand from the Actions tab at any
+# time (workflow_dispatch below).
+
+name: Refresh Instagram feed
+
+on:
+  schedule:
+    # 05:00 UTC every Monday (07:00 or 08:00 in Estonia, depending on DST)
+    - cron: '0 5 * * 1'
+  workflow_dispatch:
+
+jobs:
+  trigger-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger the Netlify build hook
+        env:
+          HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "NETLIFY_BUILD_HOOK is not set. See the comment at the top of this file."
+            exit 1
+          fi
+          status=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -d '{}' "$HOOK")
+          echo "Netlify build hook responded: $status"
+          case "$status" in
+            200|201|202|204) echo "Build triggered." ;;
+            *) echo "Unexpected response; the build was probably not triggered."; exit 1 ;;
+          esac

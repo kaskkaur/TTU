@@ -1,27 +1,24 @@
-# Instagram feed for the "Mis on uut" section.
-#
-# This file is REWRITTEN AT BUILD TIME by bin/fetch_instagram.rb, which pulls
-# from a Behold JSON feed. Edits here are overwritten on any build where
-# BEHOLD_FEED_ID is set, so change the feed in Behold, not here.
-#
-# Until the feed id is set the entries below are placeholders using the club's
-# own photography, and enabled:false keeps the section hidden.
-enabled: false
-
+---
+enabled: true
 username: taltechbasketballschool
 profile_url: https://www.instagram.com/taltechbasketballschool/
-placeholder: true
-
+placeholder: false
 posts:
-  - permalink: https://www.instagram.com/taltechbasketballschool/
-    media_type: IMAGE
-    media_url: /img/services/basket-young.jpg
-    caption: Trenninädal pildis
-  - permalink: https://www.instagram.com/taltechbasketballschool/
-    media_type: IMAGE
-    media_url: /img/services/basket-adult.jpg
-    caption: Mängupäev saalis
-  - permalink: https://www.instagram.com/taltechbasketballschool/
-    media_type: IMAGE
-    media_url: /img/services/basket-method.jpg
-    caption: Uus hooaeg on alanud
+- permalink: https://www.instagram.com/p/Dcxr3l_tvxS/
+  media_type: IMAGE
+  media_url: "/img/instagram/18132503932643263.jpg"
+  caption: "\U0001F3C0Ootame trenni 2018–2019 sünniaastaga poisse!"
+  alt: ''
+  timestamp: '2026-09-02T07:20:44+0000'
+- permalink: https://www.instagram.com/p/DcIcDiLtA3Y/
+  media_type: IMAGE
+  media_url: "/img/instagram/17889990663671486.jpg"
+  caption: "TALTECH/LAAGRI U12 võistkond on EESTI MEISTER 3x3 korvpallis \U0001F3C6"
+  alt: ''
+  timestamp: '2026-08-17T06:57:32+0000'
+- permalink: https://www.instagram.com/p/DcGvInvjZtf/
+  media_type: CAROUSEL_ALBUM
+  media_url: "/img/instagram/18127508686680911.jpg"
+  caption: "U14 poisid tõid Rakverest Jetoil Cup’ilt koju karika \U0001F60E☝\U0001F3FB"
+  alt: ''
+  timestamp: '2026-08-16T15:01:03+0000'
