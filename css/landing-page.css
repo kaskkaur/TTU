@@ -1149,8 +1149,28 @@ margin: 0px;
     
 }
 
-.contact-punchline {
-    /* padding-top: 103px;*/
+@media(min-width:768px) {
+    #contact .row {
+        display: flex;
+        align-items: center;
+    }
+
+    #contact .row::before,
+    #contact .row::after {
+        display: none;
+    }
+}
+
+/* The enquiry headline is set like the hero: one display line broken by hand,
+   heavy and tight, so it carries the section rather than sitting as a caption
+   beside the form. */
+.contact-title {
+    margin: 0;
+    font-size: clamp(2.25rem, 4.4vw, 3.5rem);
+    font-weight: var(--fw-display);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tracking-tight);
+    text-wrap: initial;   /* the break is deliberate; do not rebalance it */
 }
 
 .contact-form {
@@ -1252,7 +1272,7 @@ margin-bottom: 4px;
 
     .contact {
 
-        padding-top: 32px;
+        padding-top: 56px;
 
 
     }
@@ -1267,6 +1287,7 @@ margin-bottom: 4px;
         top: 50%;
         bottom: 50%;
         text-align: center;
+        margin-bottom: 32px;
 
     }
 
