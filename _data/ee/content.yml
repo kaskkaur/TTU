@@ -29,7 +29,7 @@ error: Midagi läks nihu, palun proovi uuesti.
 success: Sõnum saadetud
 copyright: Copyright &copy; 2017 TTÜ Korvpallikool. Kõik õigused kaitstud.
 spordiklass-title: TTÜ Korvpallikooli spordiklass
-spordiklass-content: TTÜ Korvpallikool koos <a href="https://murg.ee/" target="_blank">Mustamäe Riigigümnaasiumiga</a> pakub treenimise ja õppimise võimalust spordiklassis. <br> <br> Tänapäeval on aina olulisem omandada tasakaalustatud haridus koos kaasaegse treenimisega, kus oluline rõhk on vaimse poole ja koormustega arvestamisel. <br> <br> Spordiklassis on võimalik omandada kvaliteetne keskharidus ning olla kindlal teel oma sportlaskarjääris.
+spordiklass-content: TTÜ Korvpallikool koos <a href="https://murg.ee/" target="_blank">Mustamäe Riigigümnaasiumiga</a> pakub treenimise ja õppimise võimalust spordiklassis. <br> <br> Spordiklassis on võimalik omandada kvaliteetne keskharidus ning olla kindlal teel oma sportlaskarjääris.
 spordiklass-url: https://murg.ee/
 spordiklass-btn-readmore: Tutvu lähemalt
 spordiklass-btn-contact: Võta ühendust
@@ -45,7 +45,6 @@ spordiklass_section_content_3: "Õppursportlastele on vajadusel tagatud majutus 
 spordiklass_section_title_info: "Lisainfo ja sisseastumine"
 spordiklass_section_content_info: "Huvi või lisaküsimuste  korral, võta ühendust TTÜ Korvpallikooliga"
 nav-spordiklass: Spordiklass
-spordiklass_section_content_infotund: Liitu ka 24/25 õppeaasta Spordiklassi infotunniga Mustamäe Riigigümnaasiumis. <a class="lead" href="https://murg.ee/uudis/2024-01/2024-aastal-avatava-spordiklassi-infotund-toimub-15-veebruaril">Loe lähemalt siit.</a>
 timetable: Tunniplaan
 nav-sporditeraapia: Sporditeraapia
 sporditeraapia-title: TTÜ Sporditeraapia kabinet
@@ -83,3 +82,6 @@ about_section_3_text: "Treeningud toimuvad kümnes piirkonnas Tallinnas ja Harju
 about_clubs_title: "Liikmesklubid"
 about_cta_title: "Tule trenni"
 about_cta_text: "Vali endale sobiv piirkond ja võta meiega ühendust."
+union-heading: Ühendatud jõud
+union-body: "TTÜ Korvpallikool koondab seitse liikmesklubi Tallinnas ja Harjumaal. Koos moodustavad nad ühe korvpalliteekonna, kus laps saab alustada oma kodukooli saalis ja jätkata sama klubi sees nii kaugele, kui ta ise soovib."
+union-btn: Loe lähemalt

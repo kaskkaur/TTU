@@ -1953,3 +1953,59 @@ a.footer-item:focus,
         max-width: 200px;
     }
 }
+
+/* ==========================================================================
+   Ühendatud jõud. Same contained-panel shape as the spordiklass block, but on
+   the grey ground with a brand heading and ordinary body text.
+   ========================================================================== */
+#union {
+    padding-top: 72px;
+    padding-bottom: 72px;
+}
+
+.union {
+    padding: 100px;
+    background-color: var(--surface);
+    border-radius: var(--btn-radius);
+}
+
+.union h2 {
+    margin: 0 0 24px;
+    color: var(--brand-600);
+}
+
+.union .lead {
+    margin: 0 0 32px;
+    max-width: 62ch;
+    color: var(--ink);
+}
+
+@media(max-width:991px) {
+    #union {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .union {
+        padding: 48px 24px;
+    }
+}
+
+@media(max-width:767px) {
+    /* full bleed on a phone, matching the spordiklass panel */
+    #union .container {
+        width: 100%;
+        max-width: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .union {
+        border-radius: 0;
+    }
+
+    #union {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
