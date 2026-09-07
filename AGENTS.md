@@ -74,7 +74,7 @@ _services/             the three service blurbs, a collection, output:false
 css/landing-page.css   the entire stylesheet, token block at the top
 js/ttu.js              form submit, location picker, mobile nav
 img/                   photography, logos, hero video
-bin/fetch_instagram.rb optional Graph API fetch (not currently wired on)
+bin/fetch_instagram.rb build-time fetch from the Behold JSON feed
 sitemap.xml            hand-rolled template, walks all languages
 ```
 
