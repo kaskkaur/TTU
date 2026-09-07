@@ -1,4 +1,4 @@
-# Instagram feed for the "Mis on uut" section.
+# Instagram feed for the "Uudised" section.
 #
 # The feed is fetched in the browser from Behold's public JSON endpoint, so it
 # is always current: nothing here is baked at build time and no rebuild is
