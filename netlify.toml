@@ -16,3 +16,8 @@
 
 [build.environment]
   RUBY_VERSION = "3.2.2"
+  # The build is Ruby only and uses no Node: there is no package.json, no lockfile
+  # and nothing in the command touches it. This is pinned purely to silence
+  # Netlify's warning that its default (18) is too old for their Agent Runners,
+  # and to stop the default drifting under us later.
+  NODE_VERSION = "22"
