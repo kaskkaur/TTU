@@ -21,3 +21,15 @@
   # Netlify's warning that its default (18) is too old for their Agent Runners,
   # and to stop the default drifting under us later.
   NODE_VERSION = "22"
+
+  # jekyll-minifier is installed and configured in _config.yml but only runs
+  # when JEKYLL_ENV is production, which was never set: the live site has been
+  # serving unminified HTML and CSS. Turning it on saves ~38% across HTML+CSS.
+  JEKYLL_ENV = "production"
+
+  # The CSS carries a few non-ASCII characters. cssminify2 reads files using
+  # Ruby's default external encoding, and where that is US-ASCII it dies with
+  # "invalid byte sequence" and writes no CSS at all - a silent, total loss of
+  # styling. Pinning UTF-8 makes the minified build deterministic.
+  LANG = "en_US.UTF-8"
+  LC_ALL = "en_US.UTF-8"
