@@ -6,11 +6,17 @@
 :root{
   /* Brand. Was eight near-identical pinks, collapsed to five real steps.
      #9F1053 -> 700, #74093A -> 800, rgba(159,0,78) -> 700. */
+  /* Tuned against the basketball-school logo: its magentas centre on hue
+     325.5 at 59-77% saturation, while this ramp sat at hue ~331 and 79-95%.
+     Hue and saturation moved onto the logo's; lightness held, so every
+     contrast ratio is unchanged (600 stays 7.2:1 on white). --brand-500 is
+     left alone because it is TalTech's own brand magenta, not the school's. */
+  --brand-400:#D5328A;   /* lightest magenta in the logo: tints, hover on dark */
   --brand-500:#E4067E;   /* TalTech magenta: accent, hover */
-  --brand-600:#AA1352;   /* primary action */
-  --brand-700:#9B054F;   /* deep: links, emphasis */
-  --brand-800:#710D3C;   /* deeper: gradient start */
-  --brand-900:#54092D;   /* deepest */
+  --brand-600:#A41A69;   /* primary action */
+  --brand-700:#8E1259;   /* deep: links, emphasis */
+  --brand-800:#6E1046;   /* deeper: gradient start */
+  --brand-900:#510C34;   /* deepest */
 
   /* Neutrals. #ececec folded into --line, #f3f3f3 into --surface,
      #ACADAC (2.25:1 on white, failed AA) replaced by --muted (4.6:1). */
@@ -745,7 +751,14 @@ height: 100%;*/
     /* logos arrive on assorted canvases; cap the height so the row stays even */
     max-height: 80px;
     width: auto;
-    opacity: 0.2;
+}
+
+/* Full-colour logos are muted here to sit with the ones supplied already grey.
+   The blanket opacity:0.2 this replaces would have rendered those supplied
+   greys almost invisible. */
+.sponsors img:not(.is-premuted) {
+    filter: grayscale(1);
+    opacity: 0.35;
 }
 
 
@@ -1326,10 +1339,46 @@ footer a:hover {
 }
 
 .spordiklass {
-    padding-bottom: 48px;
+    /* a contained panel rather than a full-bleed band */
+    padding: 100px;
     background-color: var(--brand-600);
     color: var(--paper);
-    
+    border-radius: var(--btn-radius);
+}
+
+#spordiklass {
+    padding-top: 72px;
+    padding-bottom: 72px;
+}
+
+@media(max-width:991px) {
+    .spordiklass {
+        padding: 48px 24px;
+    }
+
+    #spordiklass {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+
+@media(max-width:767px) {
+    /* full bleed on a phone: the inset panel wastes the little width there is */
+    #spordiklass .container {
+        width: 100%;
+        max-width: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .spordiklass {
+        border-radius: 0;
+    }
+
+    #spordiklass {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 }
 
 .spordiklass-content {
@@ -1782,8 +1831,7 @@ textarea:focus-visible,
 }
 
 .about-cta {
-    text-align: center;
-    padding: 80px 16px 88px;
+    padding: 80px 0 88px;
 }
 
 .about-cta h2 {
@@ -1792,7 +1840,7 @@ textarea:focus-visible,
 
 .about-cta .lead {
     color: var(--ink);
-    margin: 0 auto 32px;
+    margin: 0 0 32px;
     max-width: 46ch;
 }
 

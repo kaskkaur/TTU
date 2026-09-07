@@ -8,7 +8,7 @@
 					  	{% if gallery.id == "sponsors" %}
 					    	{% for image in gallery.images %}
 							     <div class="img-sponsor">
-							        <a href="{{ image.url}}" target="_blank"><img alt="{{image.alt}}" class="" src="{{ gallery.imagefolder }}/{{ image.name }}"></a>
+							        <a href="{{ image.url}}" target="_blank"><img alt="{{ image.alt }}"{% if image.premuted %} class="is-premuted"{% endif %} src="{{ gallery.imagefolder }}/{{ image.name }}"></a>
 							 	</div>
 					    	{% endfor %}
 					  
