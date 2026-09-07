@@ -67,16 +67,14 @@ While `serve` is running, just save a file and let livereload rebuild.
 _config.yml            site config, languages, lang_codes, collections, ga_id
 _data/{ee,en,ru}/content.yml    ALL user-facing copy
 _data/galleries.yml    member-club logos and sponsor logos
-_data/instagram.yml    Instagram feed data + the enabled flag
+_data/instagram.yml    Instagram feed id and section toggle
 _includes/             page sections (navbar, footer, contact, ...)
 _layouts/              default.html (homepage) + one per landing page
 _services/             the three service blurbs, a collection, output:false
 css/landing-page.css   the entire stylesheet, token block at the top
 js/ttu.js              form submit, location picker, mobile nav
 img/                   photography, logos, hero video
-bin/fetch_instagram.rb build-time fetch from the Behold JSON feed
 sitemap.xml            hand-rolled template, walks all languages
-.github/workflows/     weekly build trigger so the Instagram feed refreshes
 ```
 
 ### Adding copy
@@ -218,6 +216,15 @@ Do not undo these without reading why.
   `opacity: 0.2` would have rendered them nearly invisible. The mute now
   applies only to full-colour logos.
 
+- **The Instagram feed is client-side on purpose.** It was first built to
+  fetch at build time, which bought static HTML, self-hosted images and
+  indexable captions — none of which are worth much for three social tiles —
+  and cost a Ruby script, a cron workflow, a Netlify build hook, a GitHub
+  secret, a 60-day silent-disable failure mode, and a feed that went stale
+  between deploys. For a section called "what's new" on a site that deploys a
+  few times a year, freshness wins. Do not reintroduce the build-time fetch
+  without a reason better than SEO.
+
 - **Do not source brand logos yourself.** Nike in particular does not
   distribute its mark for third-party use; the correct file comes from the
   sponsor with the sponsorship. A scraped copy risks the wrong variant on a
@@ -240,19 +247,15 @@ deployed**. `master` is untouched.
   `UA-108664795-1`, which **is still reporting** because Google auto-created a
   GA4 property behind it with a connected site tag. Do not "fix" this by
   removing it — that was done once and broke working analytics.
-- **Instagram** is built and wired to a **Behold JSON feed**, but hidden until
-  `BEHOLD_FEED_ID` is set. Behold holds the Instagram token and refreshes it,
-  so there is no Meta app and nothing that expires. `bin/fetch_instagram.rb`
-  reads `https://feeds.behold.so/{id}` at build time, downloads the images so
-  they are served from this domain, and rewrites `_data/instagram.yml` with
-  `enabled: true`. It is fail-soft: no id, a bad response or a failed download
-  leaves the existing data and exits 0. Because the render is build-time, the
-  feed only refreshes when the site builds, so
-  `.github/workflows/refresh-instagram.yml` pokes a Netlify build hook every
-  Monday. That needs a `NETLIFY_BUILD_HOOK` repo secret, and note GitHub
-  disables scheduled workflows after 60 days without a commit — it emails the
-  owner, any push re-enables it, and the workflow can be run by hand from the
-  Actions tab. Prerequisite: the account must be Business or Creator.
+- **Instagram** is live. It is fetched **in the browser** from Behold's public
+  JSON endpoint (`feeds.behold.so/{id}`), so it is always current and needs no
+  rebuild when the club posts. Behold holds the Instagram token and refreshes
+  it, so nothing expires. The feed id lives in `_data/instagram.yml` rather
+  than an environment variable because it is public by design: it appears
+  inside the image URLs the feed returns. The section carries `is-loading`
+  and only unhides once tiles render, so a blocked or failed fetch leaves no
+  empty heading. Rendering is in `js/ttu.js`, using `textContent` for captions
+  and only following `https://` URLs the feed itself returned.
 - **Nike logo** still stubbed in `_data/galleries.yml` awaiting artwork.
 - **Test a CMS invite link** before merging (see the Identity caveat above).
 

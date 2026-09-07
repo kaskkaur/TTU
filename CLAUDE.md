@@ -57,8 +57,9 @@ change a brand colour, hold lightness constant — contrast ratios depend on it.
 - **Analytics work.** `ga_id` holds `UA-108664795-1`, which still reports via
   an auto-created GA4 property with a connected site tag. Removing it once
   broke live analytics. Leave it alone.
-- `_data/instagram.yml` is **rewritten at build time** by
-  `bin/fetch_instagram.rb` from a Behold JSON feed. Do not hand-edit it.
+- The **Instagram feed is fetched client-side** from Behold, deliberately, so
+  it is current without a rebuild. `_data/instagram.yml` holds only the feed
+  id and the toggle. See AGENTS.md §6 before changing that.
 
 ## State
 

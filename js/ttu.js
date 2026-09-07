@@ -31,6 +31,85 @@ $(function() {
 
 
 
+// Instagram feed. Fetched in the browser from Behold's public JSON endpoint
+// so the section is always current without a rebuild. The section is hidden
+// until posts render, so a failed request leaves no empty heading behind.
+(function () {
+    var section = document.getElementById('instagram');
+    if (!section) return;
+
+    var grid = document.getElementById('instagram-grid');
+    var feedId = section.getAttribute('data-feed');
+    var count = parseInt(section.getAttribute('data-count'), 10) || 3;
+    if (!grid || !feedId) return;
+
+    function firstLine(text) {
+        var line = String(text || '').split('\n')[0].trim();
+        return line.length > 80 ? line.slice(0, 77) + '...' : line;
+    }
+
+    // Only ever follow https URLs that Behold itself returned.
+    function safeUrl(value) {
+        return /^https:\/\//.test(value || '') ? value : null;
+    }
+
+    function render(posts) {
+        var made = 0;
+
+        posts.slice(0, count).forEach(function (post) {
+            var sizes = post.sizes || {};
+            var image = safeUrl((sizes.medium || sizes.large || sizes.small || {}).mediaUrl) ||
+                        safeUrl(post.thumbnailUrl) ||
+                        safeUrl(post.mediaUrl);
+            var link = safeUrl(post.permalink);
+            if (!image) return;
+
+            var tile = document.createElement('a');
+            tile.className = 'instagram-item';
+            tile.href = link || 'https://www.instagram.com/taltechbasketballschool/';
+            tile.target = '_blank';
+            tile.rel = 'noopener';
+
+            var img = document.createElement('img');
+            img.src = image;
+            img.loading = 'lazy';
+            img.width = 700;
+            img.height = 700;
+            // Instagram rarely supplies altText. Where it does not, the alt stays
+            // empty on purpose: the caption sits in the same link and would
+            // otherwise be announced twice.
+            img.alt = post.altText ? String(post.altText) : '';
+            tile.appendChild(img);
+
+            var caption = firstLine(post.prunedCaption || post.caption);
+            if (caption) {
+                var span = document.createElement('span');
+                span.className = 'instagram-caption';
+                span.textContent = caption;      // textContent, never innerHTML
+                tile.appendChild(span);
+            }
+
+            grid.appendChild(tile);
+            made++;
+        });
+
+        if (made) section.classList.remove('is-loading');
+    }
+
+    fetch('https://feeds.behold.so/' + encodeURIComponent(feedId))
+        .then(function (r) {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.json();
+        })
+        .then(function (data) {
+            render(Array.isArray(data) ? data : (data.posts || []));
+        })
+        .catch(function () {
+            // Leave the section hidden. A missing feed is not worth an error state.
+        });
+})();
+
+
 // Clicking a location preselects that region in the enquiry form before
 // the page-scroll handler takes the visitor down to it.
 $(document).on('click', '.location-link', function() {

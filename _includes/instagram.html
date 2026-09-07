@@ -1,32 +1,22 @@
 {% if site.data.instagram.enabled %}
-<!-- Instagram feed: three latest posts -->
-<section id="instagram">
-  <div class="instagram">
-    <div class="container">
+<!-- Instagram feed. Tiles are filled in by ttu.js from Behold's JSON feed;
+     the section stays hidden until posts actually render, so a failed fetch
+     shows nothing rather than an empty heading. -->
+<section id="instagram"
+         class="instagram is-loading"
+         data-feed="{{ site.data.instagram.feed_id }}"
+         data-count="{{ site.data.instagram.post_count | default: 3 }}">
+  <div class="container">
 
-      <div class="instagram-head">
-        <h2>{{ site.data.content.instagram-heading }}</h2>
-        <a class="btn-ttu-inverse" href="{{ site.data.instagram.profile_url }}" target="_blank" rel="noopener">
-          {{ site.data.content.instagram-cta }}
-        </a>
-      </div>
-
-      <div class="instagram-grid">
-        {% for post in site.data.instagram.posts limit:3 %}
-          <a class="instagram-item" href="{{ post.permalink }}" target="_blank" rel="noopener">
-            {%- comment -%}
-              Instagram rarely carries altText. When it does, use it. When it
-              does not, the alt stays empty on purpose: the caption sits in the
-              same link, so repeating it here would just read out twice.
-            {%- endcomment -%}
-            <img src="{{ post.media_url }}" alt="{{ post.alt }}" loading="lazy" width="700" height="700">
-            {% if post.caption %}<span class="instagram-caption">{{ post.caption }}</span>{% endif %}
-          </a>
-        {% endfor %}
-      </div>
-
+    <div class="instagram-head">
+      <h2>{{ site.data.content.instagram-heading }}</h2>
+      <a class="btn-ttu-inverse" href="{{ site.data.instagram.profile_url }}" target="_blank" rel="noopener">
+        {{ site.data.content.instagram-cta }}
+      </a>
     </div>
-    <!-- /.container -->
+
+    <div class="instagram-grid" id="instagram-grid"></div>
+
   </div>
 </section>
 {% endif %}

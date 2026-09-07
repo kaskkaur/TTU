@@ -4,14 +4,11 @@
 # dashboard. Check the current dashboard values match these before merging, in
 # particular the publish directory and the Ruby version.
 #
-# The Instagram fetch runs first and is fail-soft: with no BEHOLD_FEED_ID set
-# it leaves _data/instagram.yml alone and exits 0, so the build still succeeds.
-# Set BEHOLD_FEED_ID in Netlify's environment variables to switch the live feed
-# on. Behold holds the Instagram token and refreshes it, so there is nothing
-# here that expires.
+# The Instagram feed is fetched in the browser, not at build time, so the build
+# is a plain Jekyll build and needs no feed credentials.
 
 [build]
-  command = "ruby bin/fetch_instagram.rb && bundle exec jekyll build"
+  command = "bundle exec jekyll build"
   publish = "_site"
 
 [build.environment]

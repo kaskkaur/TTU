@@ -1629,6 +1629,12 @@ footer a:hover {
 /* ==========================================================================
    Instagram feed. Three latest posts on a white ground, square tiles.
    ========================================================================== */
+/* Hidden until ttu.js has actually rendered tiles, so a failed or blocked
+   fetch leaves no empty heading behind. */
+.instagram.is-loading {
+    display: none;
+}
+
 .instagram {
     background-color: var(--paper);
     padding-top: 72px;

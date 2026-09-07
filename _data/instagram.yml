@@ -1,27 +1,15 @@
 # Instagram feed for the "Mis on uut" section.
 #
-# This file is REWRITTEN AT BUILD TIME by bin/fetch_instagram.rb, which pulls
-# from a Behold JSON feed. Edits here are overwritten on any build where
-# BEHOLD_FEED_ID is set, so change the feed in Behold, not here.
+# The feed is fetched in the browser from Behold's public JSON endpoint, so it
+# is always current: nothing here is baked at build time and no rebuild is
+# needed when the club posts. Behold holds the Instagram token and refreshes
+# it, so there is nothing that expires.
 #
-# Until the feed id is set the entries below are placeholders using the club's
-# own photography, and enabled:false keeps the section hidden.
-enabled: false
+# The feed id is public by design - it appears in the image URLs the feed
+# returns - so it lives here rather than in an environment variable.
 
+enabled: true
+feed_id: IVLyWbovlsdroEMms5FG
+post_count: 3
 username: taltechbasketballschool
 profile_url: https://www.instagram.com/taltechbasketballschool/
-placeholder: true
-
-posts:
-  - permalink: https://www.instagram.com/taltechbasketballschool/
-    media_type: IMAGE
-    media_url: /img/services/basket-young.jpg
-    caption: Trenninädal pildis
-  - permalink: https://www.instagram.com/taltechbasketballschool/
-    media_type: IMAGE
-    media_url: /img/services/basket-adult.jpg
-    caption: Mängupäev saalis
-  - permalink: https://www.instagram.com/taltechbasketballschool/
-    media_type: IMAGE
-    media_url: /img/services/basket-method.jpg
-    caption: Uus hooaeg on alanud
