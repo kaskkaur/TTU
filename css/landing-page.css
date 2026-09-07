@@ -200,9 +200,11 @@ label {
 
 
 
-#custom-nav a:hover {
+/* same hover as the footer links: brand-500 is the accent/hover step */
+#custom-nav a:hover,
+#custom-nav a:focus {
 
-    color: var(--brand-600);
+    color: var(--brand-500);
     background: none;
   }
 
