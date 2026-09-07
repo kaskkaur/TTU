@@ -31,6 +31,24 @@ $(function() {
 
 
 
+// Floating labels. Text inputs handle the empty state in CSS via
+// :placeholder-shown; a select has no equivalent, so its wrapper is flagged
+// here whenever it holds a real value.
+(function () {
+    var selects = document.querySelectorAll('.field select.field-control');
+
+    function sync(select) {
+        var field = select.closest('.field');
+        if (field) field.classList.toggle('is-filled', !!select.value);
+    }
+
+    Array.prototype.forEach.call(selects, function (select) {
+        sync(select);
+        select.addEventListener('change', function () { sync(select); });
+    });
+})();
+
+
 // Instagram feed. Fetched in the browser from Behold's public JSON endpoint
 // so the section is always current without a rebuild. The section is hidden
 // until posts render, so a failed request leaves no empty heading behind.

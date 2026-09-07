@@ -968,6 +968,21 @@ margin: 0px;
 
 }
 
+/* Centre the blurb against its image. Flex only from the breakpoint where the
+   Bootstrap columns actually take a width, or they collapse to content width
+   on a phone. col-sm-push/pull still work: they are relative offsets. */
+@media(min-width:768px) {
+    #services .row {
+        display: flex;
+        align-items: center;
+    }
+
+    #services .row::before,
+    #services .row::after {
+        display: none;
+    }
+}
+
 .content-section-b {
     padding: 50px 0;
     border-top: 1px solid var(--line);
@@ -995,13 +1010,6 @@ margin: 0px;
     margin-bottom: 30px;
     
 }
-
-.section-heading-spacer {
-    float: left;
-    width: 200px;
-    border-top: 2px solid var(--brand-500);
-}
-
 
 .about-heading-spacer {
     position: absolute;
@@ -1153,7 +1161,7 @@ margin: 0px;
 
 
 .form-area {
-    padding: 8px;
+    padding: 32px;
     
     /* Rectangle 3: */
     background: var(--surface);
@@ -2014,5 +2022,165 @@ a.footer-item:focus,
     #union {
         padding-top: 0;
         padding-bottom: 0;
+    }
+}
+
+/* ==========================================================================
+   Form fields. Outlined with a floating label: the label sits inside an empty
+   field and rises into the border when the field is focused or filled, so the
+   field never loses its name the way a placeholder does.
+
+   Empty state is detected with :placeholder-shown for text inputs, and for
+   selects with a .is-filled class that ttu.js toggles, since a select has no
+   equivalent selector.
+   ========================================================================== */
+.field {
+    position: relative;
+    margin-bottom: 24px;
+
+    /* where the resting label's centre sits, measured from the field top */
+    --label-rest: calc(var(--btn-height) / 2);
+}
+
+.field:has(textarea) {
+    --label-rest: 22px;
+}
+
+.field-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.field-row .field {
+    flex: 1 1 180px;
+    min-width: 0;
+}
+
+.field-control {
+    width: 100%;
+    height: var(--btn-height);
+    padding: 0 16px;
+    font-family: var(--font);
+    font-size: var(--fs-body);
+    color: var(--ink);
+    background-color: var(--paper);
+    border: 2px solid var(--line-strong);
+    border-radius: var(--btn-radius);
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+select.field-control {
+    cursor: pointer;
+    /* room for the chevron, which is drawn below */
+    padding-right: 44px;
+}
+
+textarea.field-control {
+    height: auto;
+    min-height: 140px;
+    padding: 12px 16px;
+    line-height: 1.5;
+    resize: vertical;
+    cursor: text;
+}
+
+.field-control:hover {
+    border-color: var(--muted);
+}
+
+.field-control:focus {
+    border-color: var(--brand-600);
+    box-shadow: 0 0 0 3px rgba(164, 26, 105, 0.14);
+    outline: none;
+}
+
+/* The label starts as the placeholder and rises onto the top border, which is
+   the only place it fits on a field this short. The chip is the field's own
+   background, so at rest it is invisible. */
+.field-label {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    margin: 0;
+    padding: 0 6px;
+    max-width: calc(100% - 20px);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: var(--fs-body);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--muted);
+    background-color: var(--paper);
+    pointer-events: none;
+    transform: translateY(calc(var(--label-rest) - 0.5em));
+    transform-origin: left center;
+    transition: transform 0.18s ease, color 0.18s ease;
+}
+
+/* A select never matches :placeholder-shown, so it gets .is-filled from
+   ttu.js instead; scoping this keeps an empty select's label at rest. */
+.field-control:focus ~ .field-label,
+input.field-control:not(:placeholder-shown) ~ .field-label,
+textarea.field-control:not(:placeholder-shown) ~ .field-label,
+.field.is-filled .field-label {
+    transform: translateY(-0.5em) scale(0.75);
+}
+
+.field-control:focus ~ .field-label {
+    color: var(--brand-600);
+}
+
+/* Native chevron is replaced so it can pick up the brand colour on focus. */
+.field::after {
+    content: "";
+    position: absolute;
+    top: calc(var(--btn-height) / 2 - 3px);
+    right: 18px;
+    width: 10px;
+    height: 6px;
+    pointer-events: none;
+    background-color: var(--muted);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+/* only selects get one */
+.field:not(:has(select))::after {
+    display: none;
+}
+
+.field:focus-within::after {
+    background-color: var(--brand-600);
+    transform: rotate(180deg);
+}
+
+.field-control:-webkit-autofill {
+    -webkit-text-fill-color: var(--ink);
+    -webkit-box-shadow: 0 0 0 1000px var(--paper) inset;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+@media(max-width:767px) {
+    .form-area {
+        padding: 24px 20px;
+    }
+
+    .field-row {
+        gap: 0;
+    }
+
+    .field-row .field {
+        flex: 1 1 100%;
     }
 }

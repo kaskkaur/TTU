@@ -22,134 +22,77 @@
 							
 						    <div class="form-area"> 
 						    	
-						        <form id="ttu-form" role="form">
-						        <br style="clear:both">
-				                    <!-- <h3 style="margin-bottom: 25px; text-align: center;">Contact Form</h3> -->
-				                    <div class="row">
-				                    <!-- 	<div class="col-xs-6">
-				                    		<div class="form-group">
-												<input type="text" class="form-control" id="name" name="name" placeholder="Nimi" required>
-											</div>
-				                    	</div> -->
+						        <form id="ttu-form" role="form" novalidate>
 
-				                     
-				                    	<div class="col-lg-12">
-				                    		<div class="form-group">
+                                <div class="field">
+                                    <select class="field-control" id="location-interest" name="Location" required
+                                            oninvalid="this.setCustomValidity('{{ site.data.content.location-missing }}')"
+                                            oninput="setCustomValidity('')">
+                                        <option value="" selected disabled></option>
+                                        {% for location in site.locations %}
+                                        <option>{{ location.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <label class="field-label" for="location-interest">{{ site.data.content.location-interest-description }}</label>
+                                </div>
 
-				                    						<div class="row form-group forminput">
+                                <div class="field-row">
+                                    <div class="field">
+                                        <select class="field-control" id="age" name="Age" required
+                                                oninvalid="this.setCustomValidity('{{ site.data.content.age-missing }}')"
+                                                oninput="setCustomValidity('')">
+                                            <option value="" selected disabled></option>
+                                            {% for age in site.ages %}
+                                            <option>{{ age.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <label class="field-label" for="age">{{ site.data.content.age }}</label>
+                                    </div>
 
-				                    							 <label for="location-interest">{{site.data.content.location-interest-description}}</label>
-													    <select class="form-control" id="location-interest" name="Location" placeholder="{{site.data.content.choose}}" required oninvalid="this.setCustomValidity('{{site.data.content.location-missing}}')" oninput="setCustomValidity('')">
+                                    <div class="field">
+                                        <select class="field-control" id="sex" name="Gender" required
+                                                oninvalid="this.setCustomValidity('{{ site.data.content.sex-missing }}')"
+                                                oninput="setCustomValidity('')">
+                                            <option value="" selected disabled></option>
+                                            <option>{{ site.data.content.sex-boy }}</option>
+                                            <option>{{ site.data.content.sex-girl }}</option>
+                                        </select>
+                                        <label class="field-label" for="sex">{{ site.data.content.sex }}</label>
+                                    </div>
+                                </div>
 
+                                <div class="field">
+                                    <input class="field-control" type="email" id="email" name="email" placeholder=" " required
+                                           oninvalid="this.setCustomValidity('{{ site.data.content.email-missing }}')"
+                                           oninput="setCustomValidity('')">
+                                    <label class="field-label" for="email">{{ site.data.content.email-label }}</label>
+                                </div>
 
-													      <option value="" selected disabled>{{site.data.content.choose}}</option>
-													      {% for location in site.locations %}
-													      <option>{{location.name}}</option>
-													      {% endfor %}
-													    </select>
+                                <div class="field">
+                                    <textarea class="field-control" id="message" name="message" placeholder=" " rows="6" maxlength="400" required
+                                              oninvalid="this.setCustomValidity('{{ site.data.content.message-missing }}')"
+                                              oninput="setCustomValidity('')"></textarea>
+                                    <label class="field-label" for="message">{{ site.data.content.contact-placeholder }}</label>
+                                </div>
 
+                                <div class="form-actions">
+                                    <button type="submit" id="submit" name="submit" class="btn-ttu">
+                                        <div id="btn-text">{{ site.data.content.send-btn }}</div>
+                                        <span><div class="loader hidden"></div></span>
+                                    </button>
 
-														</div>
+                                    <div id="success" class="response hidden">
+                                        <span><img src="/img/success.svg" alt=""></span>
+                                        <div class="response-text">{{ site.data.content.success }}</div>
+                                    </div>
 
+                                    <div id="error" class="response hidden">
+                                        <span><img src="/img/error.svg" alt=""></span>
+                                        <div class="response-text">{{ site.data.content.error }}</div>
+                                    </div>
+                                </div>
 
-
-														<div class="row">
-				                    						<div class="col-lg-6 form-group forminput">
-
-				                    							 <label for="age">{{site.data.content.age}}</label>
-													    <select class="form-control" id="age" name="Age" placeholder="{{site.data.content.choose}}" required oninvalid="this.setCustomValidity('{{site.data.content.age-missing}}')" oninput="setCustomValidity('')">
-
-
-													      <option value="" selected disabled>{{site.data.content.choose}}</option>
-													      {% for age in site.ages %}
-													      <option>{{age.name}}</option>
-													      {% endfor %}
-													    </select>
-
-
-														</div>
-
-																<div class="col-lg-6 form-group forminput">
-
-				                    							 <label for="sex">{{site.data.content.sex}}</label>
-													    <select class="form-control" id="sex" name="Gender" placeholder="{{site.data.content.choose}}" required oninvalid="this.setCustomValidity('{{site.data.content.sex-missing}}')" oninput="setCustomValidity('')">
-
-
-													      <option value="" selected disabled>{{site.data.content.choose}}</option>
-													      
-													      <option>{{site.data.content.sex-boy}}</option>
-													      <option>{{site.data.content.sex-girl}}</option>
-													      
-													    </select>
-
-
-														</div>
-
-														</div>
-													
-
-												<hr class="separator">
-
-
-
-				                    			<div class="row forminput">
-
-												<input type="text" class="form-control" id="email" name="email" placeholder="E-mail" required oninvalid="this.setCustomValidity('{{site.data.content.email-missing}}')" oninput="setCustomValidity('')">
-												</div>
-
-
-									
-
-
-												<div class="row forminput">
-												<textarea class="form-control" type="textarea" id="message" placeholder="{{site.data.content.contact-placeholder}}" maxlength="140" rows="8" required oninvalid="this.setCustomValidity('{{site.data.content.message-missing}}')" oninput="setCustomValidity('')"></textarea>
-				                    			</div>
-
-				                    			
-												</div>
-
-
-				                    			<div class="row forminput">
-
-				                    			<button type="submit" id="submit" name="submit" class=" btn-ttu pull-right ">
-				                    				<div id="btn-text">{{site.data.content.send-btn}}</div>
-				                    				<span><div class="loader hidden center-block"></div></span>
-					        					</button>
-					        					<div id="success" class="pull-right response hidden">
-
-					        					<span><img src="../img/success.svg"></span>
-					        					<div class="response-text">{{site.data.content.success}}</div>
-
-
-					        					
-
-					        					</div> 
-
-
-
-					        					<div id="error" class="pull-left response hidden">
-
-					        					<span><img src="../img/error.svg"></span>	
-
-					        					<div class="response-text">{{site.data.content.error}}</div>
-
-
-					        					
-
-					        					</div> 
-
-
-
-
-					        					</div>
-
-											</div>
-				                    	</div>
-				                    </div>
-
-
-					        		
-					        	</form>
+                            </form>
 					   	 		</div>
 							</div>
 
