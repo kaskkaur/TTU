@@ -1341,9 +1341,13 @@ footer a:hover {
 .spordiklass {
     /* a contained panel rather than a full-bleed band */
     padding: 100px;
-    background-color: var(--brand-600);
-    color: var(--paper);
+    background-color: var(--surface);
+    color: var(--ink);
     border-radius: var(--btn-radius);
+}
+
+.spordiklass h2 {
+    color: var(--brand-600);
 }
 
 #spordiklass {
@@ -1382,18 +1386,17 @@ footer a:hover {
 }
 
 .spordiklass-content {
-    color: var(--paper);
+    color: var(--ink);
     margin-top: 48px;
 }
 
 .spordiklass-content p {
-
-    color: var(--paper);
+    color: var(--ink);
 }
 
 /* scoped to inline links inside the copy, so it stops reaching the CTA */
 .spordiklass-content p a {
-    color: var(--paper);
+    color: var(--brand-600);
     font-weight: var(--fw-display);
     text-decoration: underline;
 }
@@ -1568,17 +1571,7 @@ footer a:hover {
 }
 
 /* On a brand-coloured ground the secondary inverts to white */
-.spordiklass .btn-ttu-inverse {
-    border-color: var(--paper);
-    color: var(--paper);
-}
-
-.spordiklass .btn-ttu-inverse:hover,
-.spordiklass .btn-ttu-inverse:focus {
-    background: var(--paper);
-    border-color: var(--paper);
-    color: var(--brand-600);
-}
+/* The white-on-brand CTA moved with the brand ground, to .union below. */
 
 /* The nav CTA sits inside .navbar-nav > li > a, whose Bootstrap padding
    outranks the shared button rule, so it needs the matching specificity.
@@ -1965,19 +1958,33 @@ a.footer-item:focus,
 
 .union {
     padding: 100px;
-    background-color: var(--surface);
+    background-color: var(--brand-600);
+    color: var(--paper);
     border-radius: var(--btn-radius);
 }
 
 .union h2 {
     margin: 0 0 24px;
-    color: var(--brand-600);
+    color: var(--paper);
 }
 
 .union .lead {
     margin: 0 0 32px;
     max-width: 62ch;
-    color: var(--ink);
+    color: var(--paper);
+}
+
+/* outlined CTA inverted for the brand ground */
+.union .btn-ttu-inverse {
+    border-color: var(--paper);
+    color: var(--paper);
+}
+
+.union .btn-ttu-inverse:hover,
+.union .btn-ttu-inverse:focus {
+    background: var(--paper);
+    border-color: var(--paper);
+    color: var(--brand-600);
 }
 
 @media(max-width:991px) {

@@ -105,6 +105,13 @@ tuned to the basketball-school logo: its magentas centre on hue 325.5 at
 curve — it is TalTech's university brand magenta, used as the accent and
 hover colour. `--brand-600` is the primary action colour.
 
+**Five icon files carry the brand colour as a literal**, because they are
+rendered as `<img>` and CSS cannot reach inside them: `ic_email_black_24px`,
+`ic_phone_black_24px`, `ic_home_black_24px`, `fb` and `insta` in `/img`. They
+were `#800F43` — matching no token at all — until they were repointed at
+`--brand-600`. **If you change `--brand-600`, update those five too**, or the
+footer icons drift away from the text beside them.
+
 **If you change a brand colour, hold lightness constant.** Every contrast
 ratio depends on it; `--brand-600` must stay ≥4.5:1 on white (it is 7.2:1).
 
