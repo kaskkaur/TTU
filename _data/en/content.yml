@@ -7,6 +7,7 @@ choose: "Choose"
 location-interest-description: Location of interest for training
 age: Year of birth
 age-missing: Please specify child's year of birth
+sex-missing: Please specify child's gender
 sex: Gender
 sex-boy: Boy
 sex-girl: Girl
@@ -23,16 +24,16 @@ contact-sub: the basketball journey awaits!
 contact-placeholder: Your message
 send-btn: Send
 email-missing: Please enter a working e-mail address
-location-missing: Please choose
+name-label: Name
+name-missing: Please enter your name
+location-missing: Please choose a location
 message-missing: Please enter your message :)
 error: Something went wrong, please try again.
 success: Message sent
 copyright: Copyright &copy; 2017 TTÜ Korvpallikool. All rights reserved.
 spordiklass-title: TTÜ Basketball School Sports Class
 spordiklass-content: TTÜ Basketball School, in collaboration with <a href="https://murg.ee/" target="_blank">Mustamäe State Gymnasium</a>, offers the opportunity for training and studying in a sports class. <br> <br> In Sports Class, it is possible to obtain a quality secondary education and be on a sure path in your athletic career.
-spordiklass-url: https://murg.ee/
 spordiklass-btn-readmore: Learn more
-spordiklass-btn-contact: Contact
 spordiklass_title: "Sports Class"
 spordiklass_subtitle: "TTÜ Basketball School x Mustamäe State Gymnasium"
 spordiklass_section_title_1: "TTÜ Basketball School in collaboration with Mustamäe State Gymnasium offers the opportunity for training and studying in a sports class at the gymnasium level"
@@ -50,12 +51,10 @@ nav-sporditeraapia: Sports Therapy
 sporditeraapia-title: TTÜ Sports Therapy Clinic
 sporditeraapia-intro: TTÜ Basketball School has opened a sports therapy clinic to support the recovery and development of young basketball players.
 sporditeraapia-btn-readmore: Learn more
-sporditeraapia-btn-contact: Contact
 sporditeraapia_title: "Sports Therapy Clinic at TTÜ Basketball School"
 sporditeraapia_subtitle: "Professional recovery support for our young basketball players"
 sporditeraapia_section_subtitle: "Services Available"
 sporditeraapia_section_content: "The sports therapy clinic provides professional assistance in muscle tension management, injury prevention, and rehabilitation. We use modern rehabilitation and manual therapy methods to help athletes recover faster and reach their full potential in training and competition."
-sporditeraapia_section_services: "Services include:"
 sporditeraapia_service_1: "Muscle care and massage"
 sporditeraapia_service_2: "Sports injury rehabilitation"
 sporditeraapia_service_3: "Joint and muscle mobility restoration"

@@ -804,19 +804,8 @@ height: 100%;*/
     margin-left: auto;
     }
 
-    ul.intro-social-buttons > li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
 
-    ul.intro-social-buttons > li:last-child {
-        margin-bottom: 0;
-    }
 
-    .intro-divider {
-        width: 100%;
-    }
 
     .locations {
         margin-right: 0;
@@ -992,17 +981,6 @@ margin: 0px;
 
 }
 
-.basketball-illustration {
-    
-    
-   /* top: 105%;
-    left: 82%;*/
-    position: absolute;
-    padding: 16px;
-    top: 239px;
-
-
-}
 
 
 
@@ -1011,39 +989,10 @@ margin: 0px;
     
 }
 
-.about-heading-spacer {
-    position: absolute;
-    float: right;
-    width: 60px;
-    border-top: 2px solid var(--brand-600);
-    top: 135px;
-    left: 165px;
-
-}
 
 
-#instafeed {
 
-    overflow-x: scroll;
-    white-space: nowrap;
-    overflow-y: hidden;
-}
 
-.instabar {
-
-    /* Rectangle 15: */
-    background: var(--brand-600);
-    width: 100%;
-    height: 52px;
-}
-
-.instabar-bottom {
-
-    /* Rectangle 15: */
-    background: var(--brand-600);
-    width: 100%;
-    height: 4px;
-}
 
 #instaicon {
 
@@ -1196,24 +1145,12 @@ margin: 0px;
 
 
 
-.form-control {
-
-    background-color: var(--paper);
-    border: 2px solid var(--line-strong);
-    border-radius: 2px;
-    outline: 0;
-    
-}
 
 
 
 
 
 
-.forminput {
-
-    padding: 8px 32px 8px 32px;
-}
 
 .contact-punchline {
    color: var(--paper);
@@ -1247,27 +1184,9 @@ margin-bottom: 4px;
 
 
 @media(max-width:767px) {
-    .banner h2 {
-        margin: 0;
-        text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-        font-size: var(--fs-h2);
-    }
 
-    ul.banner-social-buttons > li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
 
-    ul.banner-social-buttons > li:last-child {
-        margin-bottom: 0;
-    }
 
-    #shards{
-
-    position: absolute;
-    z-index: -1;
-    }
 
 
     .contact {
@@ -1291,13 +1210,6 @@ margin-bottom: 4px;
 
     }
 
-    .basketball-illustration {
-    
-    
-    display: none;
-
-
-    }
 
 
 
@@ -1754,8 +1666,8 @@ footer a:hover {
    when pressing links and buttons. Rings move to :focus-visible so they only
    appear for keyboard users, and take the brand colour.
 
-   Bootstrap also tints .form-control:focus Bootstrap-blue with an 8px glow.
-   Cleared and replaced with a brand-tinted ring.
+   Bootstrap also tinted the old .form-control fields Bootstrap-blue on focus.
+   Those are gone; .field-control carries its own brand-tinted ring.
    ========================================================================== */
 a:focus,
 button:focus,
@@ -1767,8 +1679,7 @@ textarea:focus,
 #contactbutton:focus,
 .navbar-contact-btn:focus,
 .locations a:focus,
-.instagram-item:focus,
-.form-control:focus {
+.instagram-item:focus {
     outline: none;
 }
 
@@ -1785,16 +1696,6 @@ textarea:focus-visible,
 .instagram-item:focus-visible {
     outline: 2px solid var(--brand-500);
     outline-offset: 2px;
-}
-
-.form-control:focus {
-    border-color: var(--brand-600);
-    -webkit-box-shadow: 0 0 0 3px rgba(228, 6, 126, 0.16);
-    box-shadow: 0 0 0 3px rgba(228, 6, 126, 0.16);
-}
-
-.form-control:focus-visible {
-    outline: none;
 }
 
 /* Only the nav bar runs wide, so the CTA can sit at the far right. */

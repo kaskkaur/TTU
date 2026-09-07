@@ -204,7 +204,7 @@ Do not undo these without reading why.
 - **The sitemap is a hand-rolled template, not `jekyll-sitemap`.** Polyglot
   forks a process per language, so the plugin only ever sees one of them: it
   emitted 4 URLs, including `/admin/`. The template walks every language for
-  every real page — 9 URLs with hreflang alternates.
+  every real page — 12 URLs with hreflang alternates.
 
 - **hreflang is built from `site.lang_codes`, not polyglot's tag.** Polyglot
   emitted `hreflang="ee"`, which is not a valid ISO 639-1 code for Estonian
@@ -231,6 +231,18 @@ Do not undo these without reading why.
   between deploys. For a section called "what's new" on a site that deploys a
   few times a year, freshness wins. Do not reintroduce the build-time fetch
   without a reason better than SEO.
+
+- **Form validation messages live in `data-msg`, not in an inline
+  `oninvalid`.** They used to be interpolated straight into a JS string
+  literal, so the apostrophe in "Please specify child's year of birth" was a
+  syntax error and those fields silently fell back to the browser's default
+  message. The copy is CMS-editable, so any editor could reintroduce that.
+  `js/ttu.js` now reads `data-msg` (written through Liquid's `escape`) and
+  calls `setCustomValidity` itself. Do not put copy back into inline JS.
+
+- **Do not put `novalidate` on `#ttu-form`.** `ttu.js` does no validation of
+  its own — the submit handler is commented "pretend we don't need
+  validation" — so `novalidate` means an empty enquiry posts to Formspree.
 
 - **Do not source brand logos yourself.** Nike in particular does not
   distribute its mark for third-party use; the correct file comes from the
@@ -263,7 +275,6 @@ deployed**. `master` is untouched.
   and only unhides once tiles render, so a blocked or failed fetch leaves no
   empty heading. Rendering is in `js/ttu.js`, using `textContent` for captions
   and only following `https://` URLs the feed itself returned.
-- **Nike logo** still stubbed in `_data/galleries.yml` awaiting artwork.
 - **Test a CMS invite link** before merging (see the Identity caveat above).
 
 ### Open technical work
@@ -277,7 +288,8 @@ deployed**. `master` is untouched.
 - The contact form works but posts to Formspree's legacy `formspree.io/{email}`
   endpoint. Worth migrating to `formspree.io/f/{id}` before the old shape is
   retired: the AJAX handler treats any 2xx as success, so a failure would be
-  silent.
+  silent. The enquirer's name is now included in the payload; from 2022 until
+  this branch the field was required of the visitor but never sent.
 - `_includes/sporditeraapia.html` exists but is included nowhere.
 
 ---

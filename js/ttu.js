@@ -34,6 +34,22 @@ $(function() {
 // Floating labels. Text inputs handle the empty state in CSS via
 // :placeholder-shown; a select has no equivalent, so its wrapper is flagged
 // here whenever it holds a real value.
+/* Localised validation messages. They live in data-msg rather than an inline
+   oninvalid handler because the copy is CMS-editable: an apostrophe inside a
+   JS string literal is a syntax error, which silently cost the English age
+   and gender fields their messages. */
+(function () {
+    var fields = document.querySelectorAll('#ttu-form [data-msg]');
+    Array.prototype.forEach.call(fields, function (el) {
+        el.addEventListener('invalid', function () {
+            el.setCustomValidity(el.getAttribute('data-msg'));
+        });
+        var clear = function () { el.setCustomValidity(''); };
+        el.addEventListener('input', clear);
+        el.addEventListener('change', clear);
+    });
+})();
+
 (function () {
     var selects = document.querySelectorAll('.field select.field-control');
 
@@ -231,7 +247,8 @@ $(document).ready(function() {
         $('#submit').addClass('disabled');
         $('.loader').removeClass('hidden');
         
-        //get the name field value
+        var name = $('#name').val();
+
         var email = $('#email').val();
         
         //get the message
@@ -250,12 +267,13 @@ $(document).ready(function() {
             url:'https://formspree.io/info@ttukorvpallikool.ee',
             method:'POST',
             data:{
-                 email:email,
+                name:name,
+                email:email,
                 message:message,
                 location:location,
                 gender: sex,
                 age: age,
-                _subject:'Kiri kodulehelt - ' + " " + location + " " + age + " " + "(" + sex + ")",
+                _subject:'Kiri kodulehelt - ' + name + " " + location + " " + age + " " + "(" + sex + ")",
             },
             dataType:"json",
             success:function() {

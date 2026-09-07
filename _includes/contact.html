@@ -20,12 +20,17 @@
 							
 						    <div class="form-area"> 
 						    	
-						        <form id="ttu-form" role="form" novalidate>
+						        <form id="ttu-form" role="form">
+
+                                <div class="field">
+                                    <input class="field-control" type="text" id="name" name="name" placeholder=" " required
+                                           data-msg="{{ site.data.content.name-missing | escape }}">
+                                    <label class="field-label" for="name">{{ site.data.content.name-label }}</label>
+                                </div>
 
                                 <div class="field">
                                     <select class="field-control" id="location-interest" name="Location" required
-                                            oninvalid="this.setCustomValidity('{{ site.data.content.location-missing }}')"
-                                            oninput="setCustomValidity('')">
+                                           data-msg="{{ site.data.content.location-missing | escape }}">
                                         <option value="" selected disabled></option>
                                         {% for location in site.locations %}
                                         <option>{{ location.name }}</option>
@@ -37,8 +42,7 @@
                                 <div class="field-row">
                                     <div class="field">
                                         <select class="field-control" id="age" name="Age" required
-                                                oninvalid="this.setCustomValidity('{{ site.data.content.age-missing }}')"
-                                                oninput="setCustomValidity('')">
+                                           data-msg="{{ site.data.content.age-missing | escape }}">
                                             <option value="" selected disabled></option>
                                             {% for age in site.ages %}
                                             <option>{{ age.name }}</option>
@@ -49,8 +53,7 @@
 
                                     <div class="field">
                                         <select class="field-control" id="sex" name="Gender" required
-                                                oninvalid="this.setCustomValidity('{{ site.data.content.sex-missing }}')"
-                                                oninput="setCustomValidity('')">
+                                           data-msg="{{ site.data.content.sex-missing | escape }}">
                                             <option value="" selected disabled></option>
                                             <option>{{ site.data.content.sex-boy }}</option>
                                             <option>{{ site.data.content.sex-girl }}</option>
@@ -61,15 +64,13 @@
 
                                 <div class="field">
                                     <input class="field-control" type="email" id="email" name="email" placeholder=" " required
-                                           oninvalid="this.setCustomValidity('{{ site.data.content.email-missing }}')"
-                                           oninput="setCustomValidity('')">
+                                           data-msg="{{ site.data.content.email-missing | escape }}">
                                     <label class="field-label" for="email">{{ site.data.content.email-label }}</label>
                                 </div>
 
                                 <div class="field">
                                     <textarea class="field-control" id="message" name="message" placeholder=" " rows="6" maxlength="400" required
-                                              oninvalid="this.setCustomValidity('{{ site.data.content.message-missing }}')"
-                                              oninput="setCustomValidity('')"></textarea>
+                                           data-msg="{{ site.data.content.message-missing | escape }}"></textarea>
                                     <label class="field-label" for="message">{{ site.data.content.contact-placeholder }}</label>
                                 </div>
 

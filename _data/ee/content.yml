@@ -7,6 +7,7 @@ choose: "Vali"
 location-interest-description: "Trenniks huvipakkuv piirkond"
 age: "Sünniaasta"
 age-missing: "Palun vali lapse sünniaasta"
+sex-missing: "Palun vali lapse sugu"
 sex: Sugu
 sex-boy: Poiss
 sex-girl: Tüdruk
@@ -23,6 +24,8 @@ contact-sub: korvpalliteekond ootab!
 contact-placeholder: Sinu sõnum
 send-btn: Saada
 email-missing: Palun sisesta töötav e-mail aadress
+name-label: Nimi
+name-missing: Palun sisesta oma nimi
 location-missing: Palun valige asukoht, kus teid treening huvitaks
 message-missing: Sisesta oma sõnum :)
 error: Midagi läks nihu, palun proovi uuesti.
@@ -30,9 +33,7 @@ success: Sõnum saadetud
 copyright: Copyright &copy; 2017 TTÜ Korvpallikool. Kõik õigused kaitstud.
 spordiklass-title: TTÜ Korvpallikooli spordiklass
 spordiklass-content: TTÜ Korvpallikool koos <a href="https://murg.ee/" target="_blank">Mustamäe Riigigümnaasiumiga</a> pakub treenimise ja õppimise võimalust spordiklassis. <br> <br> Spordiklassis on võimalik omandada kvaliteetne keskharidus ning olla kindlal teel oma sportlaskarjääris.
-spordiklass-url: https://murg.ee/
 spordiklass-btn-readmore: Tutvu lähemalt
-spordiklass-btn-contact: Võta ühendust
 spordiklass_title: "Spordiklass"
 spordiklass_subtitle: "TTÜ Korvpallikool x Mustamäe Riigigümnaasium"
 spordiklass_section_title_1: "TTÜ Korvpallikool koos Mustamäe Riigigümnaasiumiga pakub treenimise ja õppimise võimalust spordiklassis gümnaasiumiastmes"
@@ -50,7 +51,6 @@ nav-sporditeraapia: Sporditeraapia
 sporditeraapia-title: TTÜ Sporditeraapia kabinet
 sporditeraapia-intro: TTÜ korvpallikoolil on avatud sporditeraapia kabinet, mis toetab noorte korvpallurite taastumist ja arengut.
 sporditeraapia-btn-readmore: Tutvu lähemalt
-sporditeraapia-btn-contact: Võta ühendust
 sporditeraapia_title: "Sporditeraapia kabinet"
 sporditeraapia_subtitle: "Toetamaks meie noorte korvpallurite taastumist ja arengut."
 sporditeraapia_section_subtitle: "Teenused"
