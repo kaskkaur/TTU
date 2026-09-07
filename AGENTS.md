@@ -239,11 +239,16 @@ deployed**. `master` is untouched.
   `UA-108664795-1`, which **is still reporting** because Google auto-created a
   GA4 property behind it with a connected site tag. Do not "fix" this by
   removing it — that was done once and broke working analytics.
-- **Instagram** is built and hidden behind `enabled: false` in
-  `_data/instagram.yml`. The plan is Behold (a widget), because the Graph API
-  route needs a 60-day token refresh *and* scheduled rebuilds. Prerequisite
-  either way: the account must be Business or Creator, since the Basic
-  Display API was shut down 4 December 2024.
+- **Instagram** is built and wired to a **Behold JSON feed**, but hidden until
+  `BEHOLD_FEED_ID` is set. Behold holds the Instagram token and refreshes it,
+  so there is no Meta app and nothing that expires. `bin/fetch_instagram.rb`
+  reads `https://feeds.behold.so/{id}` at build time, downloads the images so
+  they are served from this domain, and rewrites `_data/instagram.yml` with
+  `enabled: true`. It is fail-soft: no id, a bad response or a failed download
+  leaves the existing data and exits 0. Because the render is build-time, the
+  feed only refreshes on deploy — add a Netlify scheduled build if the club
+  wants it current between deploys. Prerequisite: the account must be Business
+  or Creator.
 - **Nike logo** still stubbed in `_data/galleries.yml` awaiting artwork.
 - **Test a CMS invite link** before merging (see the Identity caveat above).
 

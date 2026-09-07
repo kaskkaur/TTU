@@ -1,17 +1,22 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Fetches the latest Instagram posts and writes _data/instagram.yml.
+# Fetches the latest Instagram posts from a Behold JSON feed and rewrites
+# _data/instagram.yml. Run before `jekyll build`; netlify.toml already does.
 #
-# Run before `jekyll build`. It is deliberately fail-soft: if the token is
-# missing or Instagram errors, it leaves the existing _data/instagram.yml in
-# place and exits 0, so a expired token can never break a deploy.
+#   BEHOLD_FEED_ID=xxxxxxxx ruby bin/fetch_instagram.rb
 #
-#   IG_USER_ID=...  IG_TOKEN=...  ruby bin/fetch_instagram.rb
+# Why Behold rather than Instagram's Graph API: Behold holds the Instagram
+# token and refreshes it, so there is no Meta app to maintain and no 60-day
+# token expiry. Their feed endpoint is public and needs no key.
 #
-# Requires an Instagram *Business or Creator* account linked to a Facebook
-# Page. The old Basic Display API was shut down in December 2024; this uses
-# the Graph API.
+# Images are downloaded and served from this site: Instagram's own CDN URLs
+# expire, and self-hosting keeps the section fast and free of third-party
+# requests.
+#
+# Deliberately fail-soft. Missing feed id, a bad response, or a failed image
+# download all leave the existing _data/instagram.yml alone and exit 0, so a
+# deploy can never break because of the feed.
 
 require 'net/http'
 require 'json'
@@ -19,65 +24,73 @@ require 'uri'
 require 'yaml'
 require 'fileutils'
 
-LIMIT      = 3
+POST_LIMIT = 3
 DATA_FILE  = File.expand_path('../_data/instagram.yml', __dir__)
 IMAGE_DIR  = File.expand_path('../img/instagram', __dir__)
 PROFILE    = 'https://www.instagram.com/taltechbasketballschool/'
+CAPTION_MAX = 80
 
-def warn_and_exit(message)
+def keep_existing(message)
   warn "[instagram] #{message} - keeping the existing #{File.basename(DATA_FILE)}"
   exit 0
 end
 
-user_id = ENV['IG_USER_ID']
-token   = ENV['IG_TOKEN']
-warn_and_exit('IG_USER_ID or IG_TOKEN not set') if user_id.to_s.empty? || token.to_s.empty?
-
-fields = 'id,caption,media_type,media_url,permalink,thumbnail_url,timestamp'
-uri = URI("https://graph.instagram.com/v21.0/#{user_id}/media")
-uri.query = URI.encode_www_form(fields: fields, limit: LIMIT, access_token: token)
+feed_id = ENV['BEHOLD_FEED_ID'].to_s.strip
+keep_existing('BEHOLD_FEED_ID not set') if feed_id.empty?
 
 begin
-  response = Net::HTTP.get_response(uri)
-  warn_and_exit("Instagram returned HTTP #{response.code}") unless response.is_a?(Net::HTTPSuccess)
+  # BEHOLD_FEED_URL exists so this can be pointed at a local fixture in tests
+  base = ENV['BEHOLD_FEED_URL'] || "https://feeds.behold.so/#{feed_id}"
+  response = Net::HTTP.get_response(URI(base))
+  keep_existing("Behold returned HTTP #{response.code}") unless response.is_a?(Net::HTTPSuccess)
   payload = JSON.parse(response.body)
 rescue StandardError => e
-  warn_and_exit("request failed: #{e.class}")
+  keep_existing("request failed: #{e.class}")
 end
 
-posts = Array(payload['data']).first(LIMIT)
-warn_and_exit('no posts returned') if posts.empty?
+# Behold returns either a bare array of posts or an object wrapping them.
+posts = payload.is_a?(Array) ? payload : (payload['posts'] || payload['media'] || [])
+keep_existing('no posts in the feed') if posts.empty?
 
-# Instagram's CDN URLs expire, so the images are pulled down at build time and
-# served from the site itself.
 FileUtils.mkdir_p(IMAGE_DIR)
-entries = posts.filter_map do |post|
-  source = post['media_type'] == 'VIDEO' ? post['thumbnail_url'] : post['media_url']
+
+entries = posts.first(POST_LIMIT).filter_map do |post|
+  # Prefer Behold's optimised sizes; fall back to the raw Instagram media.
+  sizes  = post['sizes'] || {}
+  source = (sizes['medium'] || sizes['large'] || sizes['full'] || {})['mediaUrl'] ||
+           sizes['medium'] || sizes['large'] ||
+           post['thumbnailUrl'] || post['mediaUrl']
+  source = source['mediaUrl'] if source.is_a?(Hash)
   next if source.to_s.empty?
 
-  filename = "#{post['id']}.jpg"
+  id       = post['id'].to_s.gsub(/[^0-9A-Za-z_-]/, '')
+  ext      = source.to_s.include?('.webp') ? 'webp' : 'jpg'
+  filename = "#{id}.#{ext}"
+
   begin
     File.binwrite(File.join(IMAGE_DIR, filename), Net::HTTP.get(URI(source)))
   rescue StandardError => e
-    warn "[instagram] could not download #{post['id']}: #{e.class}"
+    warn "[instagram] could not download #{id}: #{e.class}"
     next
   end
 
-  caption = post['caption'].to_s.split("\n").first.to_s.strip
-  caption = "#{caption[0, 77]}..." if caption.length > 80
+  caption = (post['prunedCaption'] || post['caption']).to_s.split("\n").first.to_s.strip
+  caption = "#{caption[0, CAPTION_MAX - 3]}..." if caption.length > CAPTION_MAX
 
   {
     'permalink'  => post['permalink'],
-    'media_type' => post['media_type'],
+    'media_type' => post['mediaType'],
     'media_url'  => "/img/instagram/#{filename}",
     'caption'    => caption,
+    'alt'        => post['altText'].to_s.strip,
     'timestamp'  => post['timestamp']
   }
 end
 
-warn_and_exit('every image download failed') if entries.empty?
+keep_existing('every image download failed') if entries.empty?
 
 File.write(DATA_FILE, {
+  'enabled'     => true,
   'username'    => 'taltechbasketballschool',
   'profile_url' => PROFILE,
   'placeholder' => false,

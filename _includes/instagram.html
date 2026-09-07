@@ -14,7 +14,7 @@
       <div class="instagram-grid">
         {% for post in site.data.instagram.posts limit:3 %}
           <a class="instagram-item" href="{{ post.permalink }}" target="_blank" rel="noopener">
-            <img src="{{ post.media_url }}" alt="{{ post.caption }}" loading="lazy">
+            <img src="{{ post.media_url }}" alt="{{ post.alt | default: post.caption }}" loading="lazy" width="600" height="600">
             {% if post.caption %}<span class="instagram-caption">{{ post.caption }}</span>{% endif %}
           </a>
         {% endfor %}
