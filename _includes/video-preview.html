@@ -1,6 +1,9 @@
 <div class="video-preview" data-video="tDisYSObiZw">
   <a class="video-play" href="https://www.youtube.com/watch?v=tDisYSObiZw" aria-label="{{ site.data.content.video-play | escape }}">
-    <img src="/img/spordiklass-video.webp" width="480" height="360" loading="lazy" alt="">
+    <picture>
+      <source type="image/webp" srcset="/img/spordiklass-preview-560.webp 560w, /img/spordiklass-preview-1120.webp 1120w" sizes="(min-width: 1200px) 560px, 100vw">
+      <img src="/img/spordiklass-preview.jpg" width="1120" height="880" loading="lazy" alt="">
+    </picture>
     <span class="video-play-icon" aria-hidden="true">
       <svg width="24" height="24" viewBox="0 0 24 24" focusable="false"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
     </span>

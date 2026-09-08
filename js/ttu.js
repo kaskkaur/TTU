@@ -358,20 +358,43 @@ $(document).ready(function() {
 
 
 
-// Keep the preview link useful without JavaScript; enhance it to an inline player.
-document.querySelectorAll('.video-play').forEach(function (link) {
-    link.addEventListener('click', function (event) {
-        event.preventDefault();
-        var preview = link.closest('.video-preview');
-        var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube-nocookie.com/embed/' + preview.getAttribute('data-video') + '?autoplay=1';
-        iframe.title = link.getAttribute('aria-label');
-        iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-        iframe.allowFullscreen = true;
-        preview.replaceChildren(iframe);
-        iframe.focus();
+// Keep the YouTube link as a fallback; load the player only inside an open lightbox.
+(function () {
+    var dialog = document.getElementById('video-lightbox');
+    if (!dialog || typeof dialog.showModal !== 'function') return;
+    var player = dialog.querySelector('.video-lightbox-player');
+    var opener;
+
+    document.querySelectorAll('.video-play').forEach(function (link) {
+        link.setAttribute('aria-haspopup', 'dialog');
+        link.setAttribute('aria-controls', 'video-lightbox');
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            if (dialog.open) return;
+            opener = link;
+            var iframe = document.createElement('iframe');
+            iframe.src = 'https://www.youtube-nocookie.com/embed/' + link.closest('.video-preview').getAttribute('data-video') + '?autoplay=1';
+            iframe.title = link.getAttribute('aria-label');
+            iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+            iframe.allowFullscreen = true;
+            player.replaceChildren(iframe);
+            document.documentElement.classList.add('has-video-lightbox');
+            dialog.showModal();
+        });
     });
-});
+    dialog.querySelector('.video-lightbox-close').addEventListener('click', function () { dialog.close(); });
+    // The backdrop targets the dialog itself. Ignore clicks within its bounds.
+    dialog.addEventListener('click', function (event) {
+        var rect = dialog.getBoundingClientRect();
+        if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
+    });
+    // Also runs after the native Escape/cancel action. Removing the iframe stops playback.
+    dialog.addEventListener('close', function () {
+        player.replaceChildren();
+        document.documentElement.classList.remove('has-video-lightbox');
+        if (opener) opener.focus({ preventScroll: true });
+    });
+})();
 document.addEventListener('keydown', function (event) {
     var toggle = document.querySelector('.navbar-toggle');
     if (!toggle || toggle.getAttribute('aria-expanded') !== 'true') return;
