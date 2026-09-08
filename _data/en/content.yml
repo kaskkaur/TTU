@@ -86,3 +86,8 @@ union-heading: Joined forces
 union-body: "TTÜ Korvpallikool brings together seven member clubs across Tallinn and Harju county. Together they form a single basketball journey, where a child can start in their own school hall and carry on within the same club as far as they want to go."
 union-btn: Read more
 email-label: Email
+
+# Navigation and video controls
+menu-open: "Open menu"
+menu-close: "Close menu"
+video-play: "Play video"

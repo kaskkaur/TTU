@@ -4,9 +4,11 @@
 // jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function() {
     $('a.page-scroll').bind('click', function(event) {
-        var $anchor = $(this);
+        if (!this.hash || this.pathname !== location.pathname || this.origin !== location.origin) return;
+        var target = document.getElementById(decodeURIComponent(this.hash.slice(1)));
+        if (!target) return;
         $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
+            scrollTop: $(target).offset().top
         }, 800, 'easeInOutExpo');
         event.preventDefault();
     });
@@ -160,17 +162,23 @@ $(document).on('click', '.location-link', function() {
 
 /* Set the width of the side navigation to 250px */
 function openNav() {
-    slide = document.getElementById("mySidenav")
+    var slide = document.getElementById("mySidenav");
+    slide.inert = false;
+    document.querySelector(".navbar-toggle").setAttribute("aria-expanded", "true");
     slide.style.width = "250px";
     $( "#custom-nav" ).hide();
     document.getElementById("sidenavOverlay").classList.add("active");
+    slide.querySelector(".closebtn").focus();
 }
 
 /* Set the width of the side navigation to 0 */
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mySidenav").inert = true;
+    document.querySelector(".navbar-toggle").setAttribute("aria-expanded", "false");
     $( "#custom-nav" ).show();
     document.getElementById("sidenavOverlay").classList.remove("active");
+    document.querySelector(".navbar-toggle").focus();
 }
 
 
@@ -234,10 +242,7 @@ $(document).ready(function() {
 
     
     
-    endLoad();
-    function endLoad() {
-       $(".page-loader").fadeOut("300");
-    }
+
 
     
 
@@ -298,6 +303,8 @@ $(document).ready(function() {
                 if (window.innerWidth >= 768 && !isTouch) {
                     var video = document.getElementById('video');
                     if (video) {
+                        video.addEventListener('playing', function () { video.classList.add('is-playing'); }, { once: true });
+                        video.poster = video.getAttribute('data-poster');
                         var sources = video.querySelectorAll('source[data-src]');
                         Array.prototype.forEach.call(sources, function(s) { s.src = s.getAttribute('data-src'); });
                         try {
@@ -313,7 +320,7 @@ $(document).ready(function() {
 
             loadHeroVideoIfDesktop();
 
-            endLoad();
+
         });
 });
 
@@ -350,3 +357,32 @@ $(document).ready(function() {
 
 
 
+
+// Keep the preview link useful without JavaScript; enhance it to an inline player.
+document.querySelectorAll('.video-play').forEach(function (link) {
+    link.addEventListener('click', function (event) {
+        event.preventDefault();
+        var preview = link.closest('.video-preview');
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + preview.getAttribute('data-video') + '?autoplay=1';
+        iframe.title = link.getAttribute('aria-label');
+        iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        iframe.allowFullscreen = true;
+        preview.replaceChildren(iframe);
+        iframe.focus();
+    });
+});
+document.addEventListener('keydown', function (event) {
+    var toggle = document.querySelector('.navbar-toggle');
+    if (!toggle || toggle.getAttribute('aria-expanded') !== 'true') return;
+    if (event.key === 'Escape') closeNav();
+    if (event.key === 'Tab') {
+        var controls = document.querySelectorAll('#mySidenav button, #mySidenav a[href]');
+        var first = controls[0], last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault(); last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault(); first.focus();
+        }
+    }
+});

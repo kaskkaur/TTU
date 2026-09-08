@@ -78,6 +78,10 @@
     <meta name="twitter:description" content="{{ site.data.content.description }}">
     <meta name="twitter:image" content="{{ site.url }}{{ site.share_image }}">
 
+    {% if page.layout == 'default' %}
+    <link rel="preload" as="image" href="/img/ball-img.jpg" media="(max-width: 767px)" fetchpriority="high">
+    {% endif %}
+
     <!-- Font: Mulish, the closest free stand-in for the brand's Proxima Nova.
          latin-ext covers Estonian diacritics, cyrillic covers the RU pages. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -4,9 +4,13 @@
 <!-- Header -->
 	<div class="intro-header">
 
+        <picture class="hero-still">
+            <source media="(max-width: 767px)" srcset="/img/ball-img.jpg" width="1534" height="1080">
+            <img src="/img/placeholder.jpeg" width="1280" height="720" alt="" fetchpriority="high">
+        </picture>
         <div id="video-overlay"></div>
 
-	<video preload="none" playsinline autoplay loop muted poster="/img/placeholder.jpeg" id="video">
+	<video preload="none" playsinline autoplay loop muted data-poster="/img/placeholder.jpeg" id="video">
 
 
 	<!-- mp4 only. The .webm is a different, longer edit (20.8s vs 17.7s) that

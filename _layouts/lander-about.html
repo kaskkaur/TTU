@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang_codes[site.active_lang] }}">
 	{% include head.html %}
+	<body>
 	{% include navbar.html %}
 	{% include sidebar.html %}
-	<body>
+    <main>
 
 		<!-- Hero on the light grey ground, mark above the titles -->
 		<section class="about-hero">
@@ -66,7 +67,8 @@
 			</div>
 		</section>
 
-		{% include footer.html %}
+		</main>
+        {% include footer.html %}
 		{% include js.html %}
 	</body>
 

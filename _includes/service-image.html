@@ -1,0 +1,5 @@
+{% assign image_name = include.post.img | remove: '.jpg' %}
+<picture>
+  <source type="image/webp" srcset="/img/services/{{ image_name }}-480.webp 480w, /img/services/{{ image_name }}-768.webp 768w, /img/services/{{ image_name }}-1040.webp 1040w" sizes="(min-width: 1200px) 570px, (min-width: 768px) 50vw, 100vw">
+  <img class="img-responsive img-card" src="/img/services/{{ include.post.img }}" alt="{{ include.post.alt | escape }}" width="1040" height="800" loading="lazy" decoding="async">
+</picture>

@@ -5,10 +5,10 @@
 	<body>
 
 	<div id="wrapper">
-	<div class="page-loader"><div id="page-spinner"></div></div>
 		{% include navbar.html %}
-		{% include header.html %}
 		{% include sidebar.html %}
+		<main>
+		{% include header.html %}
 		{% include locations.html %}
 		{% include instagram.html %}
 		{% include union.html %}
@@ -17,6 +17,7 @@
 		{% include contact.html %}
 		
 		{% include sponsors.html %}
+		</main>
 		{% include footer.html %}
 		{% include js.html %}
 	

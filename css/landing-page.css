@@ -19,9 +19,9 @@
   --brand-900:#510C34;   /* deepest */
 
   /* Neutrals. #ececec folded into --line, #f3f3f3 into --surface,
-     #ACADAC (2.25:1 on white, failed AA) replaced by --muted (4.6:1). */
+     #ACADAC (2.25:1 on white, failed AA) replaced by --muted (at least 4.5:1 on paper and surface). */
   --ink:#26161D;
-  --muted:#757575;
+  --muted:#707070;   /* readable on both paper and surface */
   --paper:#FFFFFF;
   --surface:#F8F8F8;
   --line:#E7E7E7;
@@ -42,6 +42,7 @@
   --fs-body:1rem;
   --fs-sm:0.875rem;
   --fs-btn:1.125rem;
+  --fs-close:2rem;
 
   --fw-display:900;   /* Mulish Black, for h1/h2 */
   --fw-semi:600;
@@ -374,8 +375,12 @@ svg:hover #lines {
     position: absolute;
     top: 0;
     right: 25px;
-    font-size: 2rem;
+    font-size: var(--fs-close);
     margin-left: 50px;
+    padding: 16px 8px 16px 32px;
+    border: 0;
+    background: none;
+    color: var(--paper);
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation 
@@ -514,7 +519,19 @@ background: url(../img/backdrop.png) no-repeat center center;
 }
 
 
+.hero-still {
+    position: absolute;
+    inset: 0;
+    z-index: -101;
+}
+.hero-still img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 #video {
+  display: none;
 
   /*color: var(--surface);*/
   /*padding-top: 100px*/ /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
@@ -534,6 +551,10 @@ background: url(../img/backdrop.png) no-repeat center center;
   min-width: 100%;
   min-height: 100%;
 
+}
+
+#video.is-playing {
+    display: block;
 }
 
 #video-overlay{
@@ -855,7 +876,7 @@ height: 100%;*/
     #video-overlay {
 
         opacity: 1;
-        background: url(/img/ball-img.jpg) no-repeat center center;
+        background: none;
         background-size: cover;   /* was missing: image rendered at natural size */
 
         /*background: linear-gradient(to bottom, var(--brand-800) 0%, var(--brand-700) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -878,31 +899,6 @@ height: 100%;*/
 
 
 
-
-
-.page-loader {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    z-index: 1001;
-    background: var(--brand-600);
-}
-
-#page-spinner {
-
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    border: 2px solid var(--brand-900); 
-    border-top: 2px solid var(--surface); 
-    border-radius: 50%;
-    width: 72px;
-    height: 72px;
-    animation: spin 1s linear infinite;
-    margin: 0 auto;
-}
 
 
 .network-name {
@@ -1086,7 +1082,7 @@ margin: 0px;
     /*padding: 40px 16px 40px 16px;*/
     min-height: 720px;
     padding: 40px 16px;
-    background: url(/img/contact.jpg) no-repeat center center;
+    background: url(/img/contact.webp) no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
 
@@ -1586,6 +1582,12 @@ footer a:hover {
     margin-bottom: 40px;
 }
 
+.instagram-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+}
+
 .instagram-head h2 {
     margin: 0;
 }
@@ -1644,6 +1646,10 @@ footer a:hover {
     .instagram-grid {
         grid-template-columns: 1fr;
         gap: 16px;
+    }
+
+    .instagram-actions {
+        justify-content: center;
     }
 
     .instagram-head {
@@ -2107,4 +2113,41 @@ textarea.field-control:not(:placeholder-shown) ~ .field-label,
     .field-row .field {
         flex: 1 1 100%;
     }
+}
+
+/* The player is created only after the visitor chooses to watch. */
+.video-preview {
+    position: relative;
+    height: 400px;
+    background: var(--ink);
+}
+.video-preview .video-play {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    color: var(--paper);
+    text-decoration: none;
+}
+.video-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.video-play-label {
+    position: absolute;
+    padding: 12px 24px;
+    border-radius: var(--btn-radius);
+    background: var(--brand-600);
+    color: var(--paper);
+    font-size: var(--fs-btn);
+    font-weight: var(--fw-strong);
+}
+.video-play:hover .video-play-label {
+    background: var(--brand-700);
+}
+.video-preview iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
