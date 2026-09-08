@@ -63,6 +63,7 @@
   --nav-blur-line:rgba(38,22,29,0.08);
 
   --btn-height:48px;
+  --video-play-size:100px;
   --btn-radius:4px;
 }
 
@@ -2191,16 +2192,25 @@ textarea.field-control:not(:placeholder-shown) ~ .field-label,
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: var(--btn-height);
-    height: var(--btn-height);
+    width: var(--video-play-size);
+    height: var(--video-play-size);
     border-radius: 50%;
+    transition: background-color 0.2s ease, transform 0.1s ease;
     background: var(--brand-600);
     color: var(--paper);
     font-size: var(--fs-btn);
     font-weight: var(--fw-strong);
 }
-.video-play:hover .video-play-icon {
-    background: var(--brand-700);
+.video-play-icon svg {
+    width: calc(var(--video-play-size) / 2);
+    height: calc(var(--video-play-size) / 2);
+}
+.video-play:hover .video-play-icon,
+.video-play:focus-visible .video-play-icon {
+    background: var(--brand-500);
+}
+.video-play:active .video-play-icon {
+    transform: scale(0.98);
 }
 .video-preview iframe {
     width: 100%;
