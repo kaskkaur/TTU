@@ -1,33 +1,19 @@
-    <!-- Spordiklass Section -->
-    <section id="spordiklass">
-    
-        <div class="container">
-          <div class="spordiklass">
-              <div class="row spordiklass-content">
-                <div class="col-lg-6">
-                    <h2>{{site.data.content.spordiklass-title}}</h2>
-                    <br>
-                    <p class="lead spordiklass-paragraph">{{site.data.content.spordiklass-content}}</p>
-
-                    <a href="/spordiklass/" id="readMore" name="readMore" class="btn-ttu-inverse">{{ site.data.content.spordiklass-btn-readmore }}</a>
-                    
-                </div>
-
-                <div class="col-lg-6">
-                    {% include video-preview.html %}
-
-                </div>
-                
-                
-                
-              </div>
-  
-                </div>
-  
-              </div>
-         
-          <!-- /.container -->
-  
-      
-      </section>
-  
+<section id="spordiklass">
+  <div class="container">
+    <div class="spordiklass">
+      <div class="row spordiklass-content">
+        <div class="spordiklass-copy">
+          <h2>{{ site.data.content.spordiklass-title }}</h2>
+          <br>
+          <p class="lead spordiklass-paragraph">{{ site.data.content.spordiklass-content }}</p>
+        </div>
+        <div class="spordiklass-media">
+          {% include video-preview.html %}
+        </div>
+        <div class="spordiklass-actions">
+          <a href="/spordiklass/" id="readMore" class="btn-ttu-inverse">{{ site.data.content.spordiklass-btn-readmore }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1329,6 +1329,31 @@ footer a:hover {
     margin-top: 48px;
 }
 
+.spordiklass-content {
+    display: grid;
+    grid-template-areas: "copy" "media" "actions";
+    gap: 24px 0;
+}
+.spordiklass-content::before,
+.spordiklass-content::after {
+    display: none;
+}
+.spordiklass-content > div {
+    min-width: 0;
+    padding: 0 15px;
+}
+.spordiklass-copy { grid-area: copy; }
+.spordiklass-media { grid-area: media; }
+.spordiklass-actions { grid-area: actions; }
+@media(min-width:1200px) {
+    .spordiklass-content {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas: "copy media" "actions media";
+        gap: 0;
+    }
+}
+
 .spordiklass-content p {
     color: var(--ink);
 }
@@ -1649,12 +1674,12 @@ footer a:hover {
     }
 
     .instagram-actions {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .instagram-head {
-        justify-content: center;
-        text-align: center;
+        justify-content: flex-start;
+        text-align: left;
     }
 }
 
@@ -1713,16 +1738,22 @@ textarea:focus-visible,
 
 /* Frosted navbar. The bar is fixed, so content scrolls under it; only applied
    where backdrop-filter is supported, otherwise it stays solid --paper. */
-@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
-    #custom-nav {
-        background-color: var(--nav-blur-bg);
-        -webkit-backdrop-filter: saturate(180%) blur(16px);
-        backdrop-filter: saturate(180%) blur(16px);
-        border-bottom: 1px solid var(--nav-blur-line);
-    }
-
+/* Keep the checks separate: cssminify2 turns "or (" into "or(", which
+   invalidates the combined condition and leaves the production navbar solid. */
+@supports (-webkit-backdrop-filter: blur(1px)) {
+    #custom-nav,
     #custom-nav.affix {
         background-color: var(--nav-blur-bg);
+        -webkit-backdrop-filter: saturate(180%) blur(16px);
+        border-bottom: 1px solid var(--nav-blur-line);
+    }
+}
+@supports (backdrop-filter: blur(1px)) {
+    #custom-nav,
+    #custom-nav.affix {
+        background-color: var(--nav-blur-bg);
+        backdrop-filter: saturate(180%) blur(16px);
+        border-bottom: 1px solid var(--nav-blur-line);
     }
 }
 
@@ -2102,8 +2133,29 @@ textarea.field-control:not(:placeholder-shown) ~ .field-label,
 }
 
 @media(max-width:767px) {
+    #contact {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    #contact > .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #contact > .container > .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .contact-form {
+        max-width: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     .form-area {
-        padding: 24px 20px;
+        padding: 8px;
     }
 
     .field-row {
@@ -2134,16 +2186,20 @@ textarea.field-control:not(:placeholder-shown) ~ .field-label,
     height: 100%;
     object-fit: contain;
 }
-.video-play-label {
+.video-play-icon {
     position: absolute;
-    padding: 12px 24px;
-    border-radius: var(--btn-radius);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--btn-height);
+    height: var(--btn-height);
+    border-radius: 50%;
     background: var(--brand-600);
     color: var(--paper);
     font-size: var(--fs-btn);
     font-weight: var(--fw-strong);
 }
-.video-play:hover .video-play-label {
+.video-play:hover .video-play-icon {
     background: var(--brand-700);
 }
 .video-preview iframe {
