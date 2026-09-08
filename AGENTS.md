@@ -268,6 +268,9 @@ deployed**. `master` is untouched.
   `UA-108664795-1`, which **is still reporting** because Google auto-created a
   GA4 property behind it with a connected site tag. Do not "fix" this by
   removing it — that was done once and broke working analytics.
+  The page queues its config immediately and downloads the tag on window
+  `load`, so the large tag download does not compete with initial rendering.
+  Visits that end before `load` may not be counted.
 - **Instagram** is live. It is fetched **in the browser** from Behold's public
   JSON endpoint (`feeds.behold.so/{id}`), so it is always current and needs no
   rebuild when the club posts. Behold holds the Instagram token and refreshes

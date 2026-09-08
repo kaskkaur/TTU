@@ -3,12 +3,19 @@
     <!-- Google Analytics. Confirmed reporting; the UA- tag feeds a linked
          GA4 property via Google's connected site tag. -->
     {%- if site.ga_id and site.ga_id != '' %}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga_id }}"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', '{{ site.ga_id }}');
+      // Queue tracking immediately, but give the page's initial resources
+      // the connection before downloading the connected Google tags.
+      window.addEventListener('load', function () {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.ga_id }}';
+        document.head.appendChild(script);
+      }, { once: true });
     </script>
     {%- endif %}
 
