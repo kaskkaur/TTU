@@ -82,24 +82,15 @@
     <link rel="preload" as="image" href="/img/ball-img.jpg" media="(max-width: 767px)" fetchpriority="high">
     {% endif %}
 
-    <!-- Font: Mulish, the closest free stand-in for the brand's Proxima Nova.
-         latin-ext covers Estonian diacritics, cyrillic covers the RU pages. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Start the shared Latin font early; Russian also needs Cyrillic above the fold.
+         Other subsets load only when matching characters appear in the page. -->
+    <link rel="preload" href="/fonts/mulish/mulish-latin-8d1d33d6be.woff2" as="font" type="font/woff2" crossorigin>
+    {% if site.active_lang == 'ru' %}
+    <link rel="preload" href="/fonts/mulish/mulish-cyrillic-270a9552cb.woff2" as="font" type="font/woff2" crossorigin>
+    {% endif %}
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-
-
-    <!-- Custom CSS -->
-    <!-- Version query busts the browser cache on every build, so a stylesheet
-         change is never masked by a stale cached copy. -->
-    <link href="/css/landing-page.css?v={{ site.time | date: '%s' }}" rel="stylesheet">
-   
-    
-
+    <!-- One render-blocking stylesheet: Bootstrap, local font faces, then site overrides.
+         Keep editing landing-page.css; Jekyll assembles site.css at build time. -->
+    <link href="/css/site.css?v={{ site.time | date: '%s' }}" rel="stylesheet">
 
 </head>

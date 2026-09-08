@@ -19,7 +19,7 @@ Tallinn basketball club of ~700 players across 10 training locations.
   That form is the only conversion path. Treat it as critical.
 
 **Stack:** Jekyll 4.3.3 · jekyll-polyglot · jekyll-minifier · Bootstrap 3.3.7
-and jQuery from CDN · Decap (Netlify) CMS at `/admin/` via git-gateway.
+and jQuery (JS from CDN; Bootstrap CSS is bundled locally) · Decap (Netlify) CMS at `/admin/` via git-gateway.
 
 Ruby is pinned to 3.2.2 in `.ruby-version`.
 
@@ -71,7 +71,9 @@ _data/instagram.yml    Instagram feed id and section toggle
 _includes/             page sections (navbar, footer, contact, ...)
 _layouts/              default.html (homepage) + one per landing page
 _services/             the three service blurbs, a collection, output:false
-css/landing-page.css   the entire stylesheet, token block at the top
+css/landing-page.css   site styles, token block at the top
+css/site.css           Jekyll bundle: Bootstrap + local font faces + site styles
+fonts/mulish/          hashed WOFF2 subsets and their SIL OFL licence
 js/ttu.js              form submit, location picker, mobile nav
 img/                   photography, logos, hero video
 sitemap.xml            hand-rolled template, walks all languages
@@ -184,7 +186,7 @@ If a change is not visible, confirm what is actually being served before
 touching the source:
 
 ```bash
-curl -s http://127.0.0.1:4000/css/landing-page.css | grep -c 'the-thing-you-added'
+curl -s http://127.0.0.1:4000/css/site.css | grep -c 'the-thing-you-added'
 ```
 
 Then hard-reload (⌘⇧R). Images are not cache-busted at all.

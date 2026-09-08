@@ -30,3 +30,9 @@
   # styling. Pinning UTF-8 makes the minified build deterministic.
   LANG = "en_US.UTF-8"
   LC_ALL = "en_US.UTF-8"
+
+# Font filenames contain content hashes, so changed files always get a new URL.
+[[headers]]
+  for = "/fonts/mulish/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
