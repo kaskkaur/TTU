@@ -71,6 +71,8 @@ lang_codes:
 default_lang: "ee"
 exclude_from_localization:
   - img
+  - fonts
+  - css
 
 
 parallel_localization: true
@@ -120,4 +122,3 @@ jekyll-minifier:
   preserve_line_breaks: false       # Default: false
   simple_boolean_attributes: false  # Default: false
   compress_js_templates: false      # Default: false
-
